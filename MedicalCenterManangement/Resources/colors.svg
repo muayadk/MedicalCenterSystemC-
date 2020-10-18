@@ -1,0 +1,12 @@
+﻿<?xml version='1.0' encoding='UTF-8'?>
+<svg x="0px" y="0px" viewBox="0 0 32 32" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" enable-background="new 0 0 32 32" xml:space="preserve" id="Layer_1">
+  <rect x="2" y="2" width="8" height="8" rx="0" ry="0" fill="#387BB5" opacity="0.3" />
+  <rect x="12" y="2" width="8" height="8" rx="0" ry="0" fill="#387BB5" opacity="0.6" />
+  <rect x="22" y="2" width="8" height="8" rx="0" ry="0" fill="#387BB5" />
+  <rect x="2" y="12" width="8" height="8" rx="0" ry="0" fill="#4DAE89" opacity="0.3" />
+  <rect x="12" y="12" width="8" height="8" rx="0" ry="0" fill="#4DAE89" opacity="0.6" />
+  <rect x="22" y="12" width="8" height="8" rx="0" ry="0" fill="#4DAE89" />
+  <rect x="2" y="22" width="8" height="8" rx="0" ry="0" fill="#7C7C7C" opacity="0.3" />
+  <rect x="12" y="22" width="8" height="8" rx="0" ry="0" fill="#7C7C7C" opacity="0.6" />
+  <rect x="22" y="22" width="8" height="8" rx="0" ry="0" fill="#7C7C7C" />
+</svg>
