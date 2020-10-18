@@ -1,0 +1,866 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{5222FE93-DBCA-426B-BD9F-2A7699E09A7F}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>MedicalCenterManangement</RootNamespace>
+    <AssemblyName>MedicalCenterManangement</AssemblyName>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="DevExpress.Charts.v19.2.Core, Version=19.2.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.CodeParser.v19.2, Version=19.2.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.Data.v19.2, Version=19.2.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.DataAccess.v19.2, Version=19.2.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.DataAccess.v19.2.UI, Version=19.2.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.Dialogs.v19.2.Core, Version=19.2.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.ExpressApp.v19.2, Version=19.2.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.Images.v19.2, Version=19.2.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.Images.v20.1">
+      <HintPath>..\..\ClinicSystem\MedicalCenterManangement\MedicalCenterManangement\bin\Debug\DevExpress.Images.v20.1.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.Mvvm.v20.1">
+      <HintPath>..\..\ClinicSystem\MedicalCenterManangement\MedicalCenterManangement\bin\Debug\DevExpress.Mvvm.v20.1.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.Office.v19.2.Core, Version=19.2.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.Persistent.Base.v19.2, Version=19.2.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.PivotGrid.v19.2.Core, Version=19.2.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.Printing.v19.2.Core, Version=19.2.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.RichEdit.v19.2.Core, Version=19.2.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.Sparkline.v19.2.Core, Version=19.2.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.Utils.v19.2, Version=19.2.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.Utils.v19.2.UI, Version=19.2.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.Xpo.v19.2, Version=19.2.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraBars.v19.2, Version=19.2.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraCharts.v19.2, Version=19.2.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.XtraCharts.v19.2.Extensions, Version=19.2.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.XtraCharts.v19.2.Wizard, Version=19.2.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.XtraDialogs.v19.2, Version=19.2.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraEditors.v19.2, Version=19.2.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraGauges.v19.2.Core, Version=19.2.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.XtraGrid.v19.2, Version=19.2.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraLayout.v19.2, Version=19.2.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraNavBar.v19.2, Version=19.2.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.XtraPivotGrid.v19.2, Version=19.2.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.XtraPrinting.v19.2, Version=19.2.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.XtraRichEdit.v19.2, Version=19.2.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.XtraTreeList.v19.2, Version=19.2.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.XtraVerticalGrid.v19.2, Version=19.2.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="ESD">
+      <HintPath>..\..\ClinicSystem\MedicalCenterManangement\MedicalCenterManangement\bin\Debug\ESD.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.Common, Version=12.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91" />
+    <Reference Include="Microsoft.ReportViewer.WinForms, Version=12.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL" />
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.OracleClient" />
+    <Reference Include="System.Design" />
+    <Reference Include="System.Drawing.Design" />
+    <Reference Include="System.Management" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.ServiceModel" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="DataModeView\Accounts.cs">
+      <DependentUpon>MedicalCenterDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataModeView\activeMaterialTab.cs">
+      <DependentUpon>MedicalCenterDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataModeView\appointmentTab.cs">
+      <DependentUpon>MedicalCenterDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataModeView\Branch.cs">
+      <DependentUpon>MedicalCenterDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataModeView\Cash.cs">
+      <DependentUpon>MedicalCenterDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataModeView\clinicTab.cs">
+      <DependentUpon>MedicalCenterDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataModeView\Coin.cs">
+      <DependentUpon>MedicalCenterDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataModeView\companySuplierDragTab.cs">
+      <DependentUpon>MedicalCenterDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataModeView\Constriant.cs">
+      <DependentUpon>MedicalCenterDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataModeView\Constriant_Affect.cs">
+      <DependentUpon>MedicalCenterDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataModeView\Cost_Centers.cs">
+      <DependentUpon>MedicalCenterDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataModeView\diagnoseTab.cs">
+      <DependentUpon>MedicalCenterDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataModeView\doctorsTab.cs">
+      <DependentUpon>MedicalCenterDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataModeView\doseTab.cs">
+      <DependentUpon>MedicalCenterDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataModeView\dragTab.cs">
+      <DependentUpon>MedicalCenterDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataModeView\getAllPatient_Result.cs">
+      <DependentUpon>MedicalCenterDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataModeView\getAllServiecs_Result.cs">
+      <DependentUpon>MedicalCenterDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataModeView\getAllVisitPatient_Result.cs">
+      <DependentUpon>MedicalCenterDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataModeView\getDiagnosePatientByVistID_Result.cs">
+      <DependentUpon>MedicalCenterDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataModeView\getHeaderInformation_Result.cs">
+      <DependentUpon>MedicalCenterDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataModeView\getPreviewPatientByVistID_Result.cs">
+      <DependentUpon>MedicalCenterDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataModeView\getRecipeByRecipeId_Result.cs">
+      <DependentUpon>MedicalCenterDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataModeView\getRecipeByVisitID_Result.cs">
+      <DependentUpon>MedicalCenterDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataModeView\getTestResultPatient_Result.cs">
+      <DependentUpon>MedicalCenterDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataModeView\getVisitPatientByID_Result.cs">
+      <DependentUpon>MedicalCenterDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataModeView\getVisitPatientByName_Result.cs">
+      <DependentUpon>MedicalCenterDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataModeView\groupDragTab.cs">
+      <DependentUpon>MedicalCenterDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataModeView\groupTestTab.cs">
+      <DependentUpon>MedicalCenterDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataModeView\hospitalCenterTab.cs">
+      <DependentUpon>MedicalCenterDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataModeView\MedicalCenterDB.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>MedicalCenterDB.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataModeView\MedicalCenterDB.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>MedicalCenterDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataModeView\MedicalCenterDB.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>MedicalCenterDB.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="DataModeView\patientsTab.cs">
+      <DependentUpon>MedicalCenterDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataModeView\prescriptionTab.cs">
+      <DependentUpon>MedicalCenterDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataModeView\previewTab.cs">
+      <DependentUpon>MedicalCenterDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataModeView\recipeTab.cs">
+      <DependentUpon>MedicalCenterDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataModeView\resultTestTab.cs">
+      <DependentUpon>MedicalCenterDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataModeView\roles.cs">
+      <DependentUpon>MedicalCenterDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataModeView\samplesTab.cs">
+      <DependentUpon>MedicalCenterDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataModeView\scientificNameDragTab.cs">
+      <DependentUpon>MedicalCenterDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataModeView\SearchVisitById_Result.cs">
+      <DependentUpon>MedicalCenterDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataModeView\SearchVisitPatientByDate_Result.cs">
+      <DependentUpon>MedicalCenterDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataModeView\SearchVisitPatient_Result.cs">
+      <DependentUpon>MedicalCenterDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataModeView\Serial_Table.cs">
+      <DependentUpon>MedicalCenterDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataModeView\servicesLestTab.cs">
+      <DependentUpon>MedicalCenterDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataModeView\servicesRequestTab.cs">
+      <DependentUpon>MedicalCenterDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataModeView\serviecsTab.cs">
+      <DependentUpon>MedicalCenterDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataModeView\shapeFarmacy.cs">
+      <DependentUpon>MedicalCenterDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataModeView\sp_helpdiagramdefinition_Result.cs">
+      <DependentUpon>MedicalCenterDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataModeView\sp_helpdiagrams_Result.cs">
+      <DependentUpon>MedicalCenterDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataModeView\sysdiagrams.cs">
+      <DependentUpon>MedicalCenterDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataModeView\System_Options.cs">
+      <DependentUpon>MedicalCenterDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataModeView\testItemTab.cs">
+      <DependentUpon>MedicalCenterDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataModeView\testrRequesTab.cs">
+      <DependentUpon>MedicalCenterDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataModeView\testTab.cs">
+      <DependentUpon>MedicalCenterDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataModeView\Users.cs">
+      <DependentUpon>MedicalCenterDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataModeView\users1.cs">
+      <DependentUpon>MedicalCenterDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataModeView\visitTab.cs">
+      <DependentUpon>MedicalCenterDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DBConnection.cs" />
+    <Compile Include="EncryptionClass.cs" />
+    <Compile Include="Form1.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form1.Designer.cs">
+      <DependentUpon>Form1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormLogin.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormLogin.Designer.cs">
+      <DependentUpon>FormLogin.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormServar.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormServar.Designer.cs">
+      <DependentUpon>FormServar.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormUser_Activation.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormUser_Activation.Designer.cs">
+      <DependentUpon>FormUser_Activation.cs</DependentUpon>
+    </Compile>
+    <Compile Include="IsConstiant.cs" />
+    <Compile Include="MedicalCenterDbDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>MedicalCenterDbDataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Models\ClsDiagnoses.cs" />
+    <Compile Include="Models\ClsDoctors.cs" />
+    <Compile Include="Models\ClsPreviews.cs" />
+    <Compile Include="Models\ClsRecipe.cs" />
+    <Compile Include="Models\ClsServiecs.cs" />
+    <Compile Include="Models\ClsTest.cs" />
+    <Compile Include="Models\ClsVisit.cs" />
+    <Compile Include="Models\MedicalCenter.cs" />
+    <Compile Include="Reports\diagnosePatientReport.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Reports\diagnosePatientReport.Designer.cs">
+      <DependentUpon>diagnosePatientReport.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Secure.cs" />
+    <Compile Include="Models\ClsPatient.cs" />
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="View\Doctor\XtraFrmDoctor.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\Doctor\XtraFrmDoctor.Designer.cs">
+      <DependentUpon>XtraFrmDoctor.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\DrageManagament\XtraFrmActiveMaterial.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\DrageManagament\XtraFrmActiveMaterial.Designer.cs">
+      <DependentUpon>XtraFrmActiveMaterial.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\DrageManagament\XtraFrmcompanySuplierDrag.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\DrageManagament\XtraFrmcompanySuplierDrag.Designer.cs">
+      <DependentUpon>XtraFrmcompanySuplierDrag.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\DrageManagament\XtraFrmscientificNameDrag.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\DrageManagament\XtraFrmscientificNameDrag.Designer.cs">
+      <DependentUpon>XtraFrmscientificNameDrag.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\DrageManagament\XtraFrmShapeFarmacy.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\DrageManagament\XtraFrmShapeFarmacy.Designer.cs">
+      <DependentUpon>XtraFrmShapeFarmacy.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\FormMain.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\FormMain.Designer.cs">
+      <DependentUpon>FormMain.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\MedicalCenterManagament\XtraFrmclinic.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\MedicalCenterManagament\XtraFrmclinic.Designer.cs">
+      <DependentUpon>XtraFrmclinic.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\MedicalCenterManagament\XtraFrmMedicalCenter.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\MedicalCenterManagament\XtraFrmMedicalCenter.Designer.cs">
+      <DependentUpon>XtraFrmMedicalCenter.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\PatientTeartment\FrmPreview.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\PatientTeartment\FrmPreview.Designer.cs">
+      <DependentUpon>FrmPreview.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\PatientTeartment\XtraDiagnose.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\PatientTeartment\XtraDiagnose.Designer.cs">
+      <DependentUpon>XtraDiagnose.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\PatientTeartment\XtraFrmRecipe.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\PatientTeartment\XtraFrmRecipe.Designer.cs">
+      <DependentUpon>XtraFrmRecipe.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\XtraFrmResultTest.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\XtraFrmResultTest.Designer.cs">
+      <DependentUpon>XtraFrmResultTest.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\XtraFrmServices.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\XtraFrmServices.Designer.cs">
+      <DependentUpon>XtraFrmServices.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\PatientManagament\XtraFrmVisit.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\PatientManagament\XtraFrmVisit.Designer.cs">
+      <DependentUpon>XtraFrmVisit.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\PatientManagament\XtraFrmPatient.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\PatientManagament\XtraFrmPatient.Designer.cs">
+      <DependentUpon>XtraFrmPatient.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\XtraFrmServiecsRequest.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\XtraFrmServiecsRequest.Designer.cs">
+      <DependentUpon>XtraFrmServiecsRequest.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\PatientTeartment\XtraFrnPatientTreatments.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\PatientTeartment\XtraFrnPatientTreatments.Designer.cs">
+      <DependentUpon>XtraFrnPatientTreatments.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="FormLogin.resx">
+      <DependentUpon>FormLogin.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormServar.resx">
+      <DependentUpon>FormServar.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormUser_Activation.resx">
+      <DependentUpon>FormUser_Activation.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\licenses.licx" />
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <EmbeddedResource Include="Reports\diagnosePatientReport.resx">
+      <DependentUpon>diagnosePatientReport.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\Report1.rdlc" />
+    <EmbeddedResource Include="View\Doctor\XtraFrmDoctor.resx">
+      <DependentUpon>XtraFrmDoctor.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\DrageManagament\XtraFrmActiveMaterial.resx">
+      <DependentUpon>XtraFrmActiveMaterial.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\DrageManagament\XtraFrmcompanySuplierDrag.resx">
+      <DependentUpon>XtraFrmcompanySuplierDrag.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\DrageManagament\XtraFrmscientificNameDrag.resx">
+      <DependentUpon>XtraFrmscientificNameDrag.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\DrageManagament\XtraFrmShapeFarmacy.resx">
+      <DependentUpon>XtraFrmShapeFarmacy.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\FormMain.resx">
+      <DependentUpon>FormMain.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\MedicalCenterManagament\XtraFrmclinic.resx">
+      <DependentUpon>XtraFrmclinic.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\MedicalCenterManagament\XtraFrmMedicalCenter.resx">
+      <DependentUpon>XtraFrmMedicalCenter.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\PatientTeartment\FrmPreview.resx">
+      <DependentUpon>FrmPreview.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\PatientTeartment\XtraDiagnose.resx">
+      <DependentUpon>XtraDiagnose.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\PatientTeartment\XtraFrmRecipe.resx">
+      <DependentUpon>XtraFrmRecipe.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\XtraFrmResultTest.resx">
+      <DependentUpon>XtraFrmResultTest.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\XtraFrmServices.resx">
+      <DependentUpon>XtraFrmServices.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\PatientManagament\XtraFrmVisit.resx">
+      <DependentUpon>XtraFrmVisit.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\PatientManagament\XtraFrmPatient.resx">
+      <DependentUpon>XtraFrmPatient.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\XtraFrmServiecsRequest.resx">
+      <DependentUpon>XtraFrmServiecsRequest.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\PatientTeartment\XtraFrnPatientTreatments.resx">
+      <DependentUpon>XtraFrnPatientTreatments.cs</DependentUpon>
+    </EmbeddedResource>
+    <EntityDeploy Include="DataModeView\MedicalCenterDB.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>MedicalCenterDB.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <None Include="ClassDiagram1.cd" />
+    <None Include="DataModeView\MedicalCenterDB.edmx.diagram">
+      <DependentUpon>MedicalCenterDB.edmx</DependentUpon>
+    </None>
+    <None Include="MedicalCenterDbDataSet.xsc">
+      <DependentUpon>MedicalCenterDbDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="MedicalCenterDbDataSet.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>MedicalCenterDbDataSet.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="MedicalCenterDbDataSet.xss">
+      <DependentUpon>MedicalCenterDbDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="packages.config" />
+    <None Include="Properties\DataSources\MedicalCenterManangement.DataModeView.getDiagnosePatientByVistID_Result.datasource" />
+    <None Include="Properties\DataSources\MedicalCenterManangement.DataModeView.getHeaderInformation_Result.datasource" />
+    <None Include="Properties\DataSources\MedicalCenterManangement.DataModeView.getHeaderInformation_Result1.datasource" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\1234.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\10374870_760605737294088_7759596890894880883_n.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\149071.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\1319294732_gtk-edit1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\1320011882_credit_card yellow.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\1320012500_US-dollar2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\1420761544_Login.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\1420776432_login.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\1420776464_login.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\1420847094_kuser.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\1420847462_to_do_list_cheked_all.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\1445297369_undo.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\1445297369_undo1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\b6.PNG" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\back.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\branch icon 1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\branch icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\coin_ch.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\cons1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\cons2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\d5d96b9885435d5e093b64d427d41283.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\exit.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\financy year icon 1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\financy year icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\financy.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\First.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Im_Add.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Im_Add1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\im_baxk.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Im_Delete.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Im_Delete1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Im_Delete3.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\im_exit.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Im_Print1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Im_Print11.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Im_Save.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Im_Save1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Im_Search.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\im_search1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\im_search11.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\invest %281%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Last.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Layer 4.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Layer 5 copy.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Layer 5.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\log out.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\logi22222n.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Login.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Login1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\login2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\login2222.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\login3333.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\login8888.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\logout1.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\logout2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\logout3.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\logout4.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\mainLoader.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\minimize.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Next.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\pass_Icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\passicon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\report.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\repot.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\short.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\user_Icon.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\user_Icon11.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\usericon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\costanalysis.svg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\redo.svg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\colors.svg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\trackingchanges_trackchanges.svg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\actions_trash.svg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\save.svg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\bo_person.svg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\createcylinderfullstackedbar3dchart.svg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\paid.svg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\charttype_polarpoint.svg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\find.svg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\bo_skull.svg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\bo_resume.svg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\save1.svg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\actions_addcircled.svg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\actions_print.svg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\actions_addcircled1.svg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\boposition_32x32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="DataModeView\MedicalCenterDB.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>MedicalCenterDB.Context.cs</LastGenOutput>
+      <DependentUpon>MedicalCenterDB.edmx</DependentUpon>
+    </Content>
+    <Content Include="DataModeView\MedicalCenterDB.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>MedicalCenterDB.edmx</DependentUpon>
+      <LastGenOutput>MedicalCenterDB.cs</LastGenOutput>
+    </Content>
+    <None Include="Resources\bo_user.svg" />
+    <None Include="Resources\properties.svg" />
+    <None Include="Resources\bo_department.svg" />
+    <None Include="Resources\paid1.svg" />
+    <None Include="Resources\bo_resume1.svg" />
+    <None Include="Resources\employeeprofile.svg" />
+    <None Include="Resources\mr.svg" />
+    <None Include="Resources\bo_statemachine.svg" />
+    <None Include="Resources\bo_person1.svg" />
+    <None Include="Resources\bo_mydetails.svg" />
+    <None Include="Resources\saveas8.svg" />
+    <None Include="Resources\actions_addcircled5.svg" />
+    <None Include="Resources\close6.svg" />
+    <None Include="Resources\deletequery3.svg" />
+    <None Include="Resources\saveas7.svg" />
+    <None Include="Resources\actions_addcircled4.svg" />
+    <None Include="Resources\close5.svg" />
+    <None Include="Resources\deletequery2.svg" />
+    <None Include="Resources\saveas6.svg" />
+    <None Include="Resources\actions_addcircled3.svg" />
+    <None Include="Resources\close4.svg" />
+    <None Include="Resources\deletequery1.svg" />
+    <None Include="Resources\saveas5.svg" />
+    <None Include="Resources\actions_addcircled2.svg" />
+    <None Include="Resources\close.svg" />
+    <None Include="Resources\deletetable.svg" />
+    <None Include="Resources\allowuserstoeditranges.svg" />
+    <None Include="Resources\daig1.png" />
+    <None Include="Resources\daig.png" />
+    <None Include="Resources\actions_deletecircled.svg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
