@@ -3,15 +3,22 @@
   <Body>
     <ReportItems>
       <Line Name="Line1">
+<<<<<<< HEAD
         <Top>3.23737cm</Top>
         <Height>0cm</Height>
         <Width>19.57185cm</Width>
+=======
+        <Top>3.8512cm</Top>
+        <Height>0cm</Height>
+        <Width>19.02344cm</Width>
+>>>>>>> e6a6e25e17389587885aa1b30dd1c49071cf2971
         <Style>
           <Border>
             <Style>Solid</Style>
           </Border>
         </Style>
       </Line>
+<<<<<<< HEAD
       <Textbox Name="Textbox11">
         <CanGrow>true</CanGrow>
         <KeepTogether>true</KeepTogether>
@@ -36,11 +43,91 @@
         <Left>3.83838cm</Left>
         <Height>0.6cm</Height>
         <Width>2.68709cm</Width>
+=======
+      <Tablix Name="Tablix3">
+        <TablixBody>
+          <TablixColumns>
+            <TablixColumn>
+              <Width>6.14124cm</Width>
+            </TablixColumn>
+          </TablixColumns>
+          <TablixRows>
+            <TablixRow>
+              <Height>0.9175cm</Height>
+              <TablixCells>
+                <TablixCell>
+                  <CellContents>
+                    <Rectangle Name="Rectangle2">
+                      <ReportItems>
+                        <Textbox Name="نتيجة_التشخيص">
+                          <CanGrow>true</CanGrow>
+                          <KeepTogether>true</KeepTogether>
+                          <Paragraphs>
+                            <Paragraph>
+                              <TextRuns>
+                                <TextRun>
+                                  <Value>=Fields!نتيجة_التشخيص.Value</Value>
+                                  <Style />
+                                </TextRun>
+                              </TextRuns>
+                              <Style>
+                                <TextAlign>Right</TextAlign>
+                              </Style>
+                            </Paragraph>
+                          </Paragraphs>
+                          <rd:DefaultName>نتيجة_التشخيص</rd:DefaultName>
+                          <Top>0.254cm</Top>
+                          <Left>3.59891cm</Left>
+                          <Height>0.6cm</Height>
+                          <Width>2.54233cm</Width>
+                          <Style>
+                            <Border>
+                              <Style>None</Style>
+                            </Border>
+                            <PaddingLeft>2pt</PaddingLeft>
+                            <PaddingRight>2pt</PaddingRight>
+                            <PaddingTop>2pt</PaddingTop>
+                            <PaddingBottom>2pt</PaddingBottom>
+                          </Style>
+                        </Textbox>
+                      </ReportItems>
+                      <KeepTogether>true</KeepTogether>
+                      <Style>
+                        <Border>
+                          <Style>None</Style>
+                        </Border>
+                      </Style>
+                    </Rectangle>
+                  </CellContents>
+                </TablixCell>
+              </TablixCells>
+            </TablixRow>
+          </TablixRows>
+        </TablixBody>
+        <TablixColumnHierarchy>
+          <TablixMembers>
+            <TablixMember />
+          </TablixMembers>
+        </TablixColumnHierarchy>
+        <TablixRowHierarchy>
+          <TablixMembers>
+            <TablixMember>
+              <Group Name="Details" />
+            </TablixMember>
+          </TablixMembers>
+        </TablixRowHierarchy>
+        <DataSetName>DataSet1</DataSetName>
+        <Top>5.57417cm</Top>
+        <Left>5.76991cm</Left>
+        <Height>0.9175cm</Height>
+        <Width>6.14124cm</Width>
+>>>>>>> e6a6e25e17389587885aa1b30dd1c49071cf2971
         <ZIndex>1</ZIndex>
         <Style>
           <Border>
             <Style>None</Style>
           </Border>
+<<<<<<< HEAD
           <PaddingLeft>2pt</PaddingLeft>
           <PaddingRight>2pt</PaddingRight>
           <PaddingTop>2pt</PaddingTop>
@@ -48,15 +135,26 @@
         </Style>
       </Textbox>
       <Textbox Name="Textbox14">
+=======
+        </Style>
+      </Tablix>
+      <Textbox Name="Textbox10">
+>>>>>>> e6a6e25e17389587885aa1b30dd1c49071cf2971
         <CanGrow>true</CanGrow>
         <KeepTogether>true</KeepTogether>
         <Paragraphs>
           <Paragraph>
             <TextRuns>
               <TextRun>
+<<<<<<< HEAD
                 <Value>/د</Value>
                 <Style>
                   <FontSize>14pt</FontSize>
+=======
+                <Value>رقم التشخيص</Value>
+                <Style>
+                  <FontSize>12pt</FontSize>
+>>>>>>> e6a6e25e17389587885aa1b30dd1c49071cf2971
                   <FontWeight>Bold</FontWeight>
                 </Style>
               </TextRun>
@@ -67,10 +165,17 @@
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>Textbox10</rd:DefaultName>
+<<<<<<< HEAD
         <Top>4.16291cm</Top>
         <Left>3.55024cm</Left>
         <Height>0.6cm</Height>
         <Width>0.595cm</Width>
+=======
+        <Top>4.48028cm</Top>
+        <Left>12.78559cm</Left>
+        <Height>0.6cm</Height>
+        <Width>2.5cm</Width>
+>>>>>>> e6a6e25e17389587885aa1b30dd1c49071cf2971
         <ZIndex>2</ZIndex>
         <Style>
           <Border>
@@ -82,16 +187,26 @@
           <PaddingBottom>2pt</PaddingBottom>
         </Style>
       </Textbox>
+<<<<<<< HEAD
       <Textbox Name="Textbox15">
+=======
+      <Textbox Name="Textbox11">
+>>>>>>> e6a6e25e17389587885aa1b30dd1c49071cf2971
         <CanGrow>true</CanGrow>
         <KeepTogether>true</KeepTogether>
         <Paragraphs>
           <Paragraph>
             <TextRuns>
               <TextRun>
+<<<<<<< HEAD
                 <Value>=First(Fields!اسم_الطبيب.Value, "DataSet1")</Value>
                 <Style>
                   <FontSize>14pt</FontSize>
+=======
+                <Value>نتيجة التشخيص</Value>
+                <Style>
+                  <FontSize>12pt</FontSize>
+>>>>>>> e6a6e25e17389587885aa1b30dd1c49071cf2971
                   <FontWeight>Bold</FontWeight>
                 </Style>
               </TextRun>
@@ -102,10 +217,17 @@
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>Textbox10</rd:DefaultName>
+<<<<<<< HEAD
         <Top>4.16291cm</Top>
         <Left>0.28824cm</Left>
         <Height>0.6cm</Height>
         <Width>3.262cm</Width>
+=======
+        <Top>5.89167cm</Top>
+        <Left>12.78559cm</Left>
+        <Height>0.6cm</Height>
+        <Width>2.5cm</Width>
+>>>>>>> e6a6e25e17389587885aa1b30dd1c49071cf2971
         <ZIndex>3</ZIndex>
         <Style>
           <Border>
@@ -117,14 +239,22 @@
           <PaddingBottom>2pt</PaddingBottom>
         </Style>
       </Textbox>
+<<<<<<< HEAD
       <Textbox Name="Textbox16">
+=======
+      <Textbox Name="Textbox12">
+>>>>>>> e6a6e25e17389587885aa1b30dd1c49071cf2971
         <CanGrow>true</CanGrow>
         <KeepTogether>true</KeepTogether>
         <Paragraphs>
           <Paragraph>
             <TextRuns>
               <TextRun>
+<<<<<<< HEAD
                 <Value>رقم الزيارة</Value>
+=======
+                <Value>تاريخ  التشخيص</Value>
+>>>>>>> e6a6e25e17389587885aa1b30dd1c49071cf2971
                 <Style>
                   <FontSize>12pt</FontSize>
                   <FontWeight>Bold</FontWeight>
@@ -137,10 +267,17 @@
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>Textbox10</rd:DefaultName>
+<<<<<<< HEAD
         <Top>0.70473cm</Top>
         <Left>4.68163cm</Left>
         <Height>0.6cm</Height>
         <Width>1.84384cm</Width>
+=======
+        <Top>4.48028cm</Top>
+        <Left>0.85725cm</Left>
+        <Height>0.6cm</Height>
+        <Width>2.627cm</Width>
+>>>>>>> e6a6e25e17389587885aa1b30dd1c49071cf2971
         <ZIndex>4</ZIndex>
         <Style>
           <Border>
@@ -152,13 +289,18 @@
           <PaddingBottom>2pt</PaddingBottom>
         </Style>
       </Textbox>
+<<<<<<< HEAD
       <Textbox Name="Textbox17">
+=======
+      <Textbox Name="Textbox13">
+>>>>>>> e6a6e25e17389587885aa1b30dd1c49071cf2971
         <CanGrow>true</CanGrow>
         <KeepTogether>true</KeepTogether>
         <Paragraphs>
           <Paragraph>
             <TextRuns>
               <TextRun>
+<<<<<<< HEAD
                 <Value>=First(Fields!رقم_الزيارة.Value, "DataSet1")</Value>
                 <Style>
                   <FontSize>12pt</FontSize>
@@ -176,6 +318,22 @@
         <Left>1.93924cm</Left>
         <Height>0.6cm</Height>
         <Width>1.611cm</Width>
+=======
+                <Value>=First(Fields!رقم_التشخيص.Value, "DataSet1")</Value>
+                <Style />
+              </TextRun>
+            </TextRuns>
+            <Style>
+              <TextAlign>Right</TextAlign>
+            </Style>
+          </Paragraph>
+        </Paragraphs>
+        <rd:DefaultName>Textbox13</rd:DefaultName>
+        <Top>4.48028cm</Top>
+        <Left>9.41115cm</Left>
+        <Height>0.6cm</Height>
+        <Width>2.5cm</Width>
+>>>>>>> e6a6e25e17389587885aa1b30dd1c49071cf2971
         <ZIndex>5</ZIndex>
         <Style>
           <Border>
@@ -187,18 +345,27 @@
           <PaddingBottom>2pt</PaddingBottom>
         </Style>
       </Textbox>
+<<<<<<< HEAD
       <Textbox Name="Textbox21">
+=======
+      <Textbox Name="Textbox26">
+>>>>>>> e6a6e25e17389587885aa1b30dd1c49071cf2971
         <CanGrow>true</CanGrow>
         <KeepTogether>true</KeepTogether>
         <Paragraphs>
           <Paragraph>
             <TextRuns>
               <TextRun>
+<<<<<<< HEAD
                 <Value>اسم المريض </Value>
                 <Style>
                   <FontSize>12pt</FontSize>
                   <FontWeight>Bold</FontWeight>
                 </Style>
+=======
+                <Value>=First(Fields!تاريخ_التشخيص.Value, "DataSet1")</Value>
+                <Style />
+>>>>>>> e6a6e25e17389587885aa1b30dd1c49071cf2971
               </TextRun>
             </TextRuns>
             <Style>
@@ -206,11 +373,19 @@
             </Style>
           </Paragraph>
         </Paragraphs>
+<<<<<<< HEAD
         <rd:DefaultName>Textbox21</rd:DefaultName>
         <Top>0.70473cm</Top>
         <Left>15.78198cm</Left>
         <Height>0.6cm</Height>
         <Width>1.94823cm</Width>
+=======
+        <rd:DefaultName>Textbox15</rd:DefaultName>
+        <Top>5.82817cm</Top>
+        <Left>0.98425cm</Left>
+        <Height>0.6cm</Height>
+        <Width>2.5cm</Width>
+>>>>>>> e6a6e25e17389587885aa1b30dd1c49071cf2971
         <ZIndex>6</ZIndex>
         <Style>
           <Border>
@@ -222,6 +397,7 @@
           <PaddingBottom>2pt</PaddingBottom>
         </Style>
       </Textbox>
+<<<<<<< HEAD
       <Textbox Name="Textbox22">
         <CanGrow>true</CanGrow>
         <KeepTogether>true</KeepTogether>
@@ -281,11 +457,346 @@
         <Left>16.67172cm</Left>
         <Height>0.6cm</Height>
         <Width>1.05849cm</Width>
+=======
+      <Line Name="Line3">
+        <Top>5.32553cm</Top>
+        <Left>3.61125cm</Left>
+        <Height>1.27cm</Height>
+        <Width>0cm</Width>
+        <ZIndex>7</ZIndex>
+        <Style>
+          <Border>
+            <Style>Solid</Style>
+          </Border>
+        </Style>
+      </Line>
+      <Tablix Name="Tablix4">
+        <TablixBody>
+          <TablixColumns>
+            <TablixColumn>
+              <Width>2.5cm</Width>
+            </TablixColumn>
+            <TablixColumn>
+              <Width>2.5cm</Width>
+            </TablixColumn>
+            <TablixColumn>
+              <Width>2.5cm</Width>
+            </TablixColumn>
+            <TablixColumn>
+              <Width>2.5cm</Width>
+            </TablixColumn>
+          </TablixColumns>
+          <TablixRows>
+            <TablixRow>
+              <Height>0.6cm</Height>
+              <TablixCells>
+                <TablixCell>
+                  <CellContents>
+                    <Textbox Name="Textbox66">
+                      <CanGrow>true</CanGrow>
+                      <KeepTogether>true</KeepTogether>
+                      <Paragraphs>
+                        <Paragraph>
+                          <TextRuns>
+                            <TextRun>
+                              <Value>الجنس</Value>
+                              <Style>
+                                <FontSize>12pt</FontSize>
+                                <FontWeight>Bold</FontWeight>
+                              </Style>
+                            </TextRun>
+                          </TextRuns>
+                          <Style>
+                            <TextAlign>Center</TextAlign>
+                          </Style>
+                        </Paragraph>
+                      </Paragraphs>
+                      <rd:DefaultName>Textbox66</rd:DefaultName>
+                      <Style>
+                        <Border>
+                          <Color>LightGrey</Color>
+                          <Style>Solid</Style>
+                        </Border>
+                        <PaddingLeft>2pt</PaddingLeft>
+                        <PaddingRight>2pt</PaddingRight>
+                        <PaddingTop>2pt</PaddingTop>
+                        <PaddingBottom>2pt</PaddingBottom>
+                      </Style>
+                    </Textbox>
+                  </CellContents>
+                </TablixCell>
+                <TablixCell>
+                  <CellContents>
+                    <Textbox Name="Textbox64">
+                      <CanGrow>true</CanGrow>
+                      <KeepTogether>true</KeepTogether>
+                      <Paragraphs>
+                        <Paragraph>
+                          <TextRuns>
+                            <TextRun>
+                              <Value>العمر</Value>
+                              <Style>
+                                <FontSize>12pt</FontSize>
+                                <FontWeight>Bold</FontWeight>
+                              </Style>
+                            </TextRun>
+                          </TextRuns>
+                          <Style>
+                            <TextAlign>Center</TextAlign>
+                          </Style>
+                        </Paragraph>
+                      </Paragraphs>
+                      <rd:DefaultName>Textbox64</rd:DefaultName>
+                      <Style>
+                        <Border>
+                          <Color>LightGrey</Color>
+                          <Style>Solid</Style>
+                        </Border>
+                        <PaddingLeft>2pt</PaddingLeft>
+                        <PaddingRight>2pt</PaddingRight>
+                        <PaddingTop>2pt</PaddingTop>
+                        <PaddingBottom>2pt</PaddingBottom>
+                      </Style>
+                    </Textbox>
+                  </CellContents>
+                </TablixCell>
+                <TablixCell>
+                  <CellContents>
+                    <Textbox Name="Textbox62">
+                      <CanGrow>true</CanGrow>
+                      <KeepTogether>true</KeepTogether>
+                      <Paragraphs>
+                        <Paragraph>
+                          <TextRuns>
+                            <TextRun>
+                              <Value>اللقب</Value>
+                              <Style>
+                                <FontSize>12pt</FontSize>
+                                <FontWeight>Bold</FontWeight>
+                              </Style>
+                            </TextRun>
+                          </TextRuns>
+                          <Style>
+                            <TextAlign>Center</TextAlign>
+                          </Style>
+                        </Paragraph>
+                      </Paragraphs>
+                      <rd:DefaultName>Textbox62</rd:DefaultName>
+                      <Style>
+                        <Border>
+                          <Color>LightGrey</Color>
+                          <Style>Solid</Style>
+                        </Border>
+                        <PaddingLeft>2pt</PaddingLeft>
+                        <PaddingRight>2pt</PaddingRight>
+                        <PaddingTop>2pt</PaddingTop>
+                        <PaddingBottom>2pt</PaddingBottom>
+                      </Style>
+                    </Textbox>
+                  </CellContents>
+                </TablixCell>
+                <TablixCell>
+                  <CellContents>
+                    <Textbox Name="Textbox60">
+                      <CanGrow>true</CanGrow>
+                      <KeepTogether>true</KeepTogether>
+                      <Paragraphs>
+                        <Paragraph>
+                          <TextRuns>
+                            <TextRun>
+                              <Value>اسم المريض</Value>
+                              <Style>
+                                <FontSize>12pt</FontSize>
+                                <FontWeight>Bold</FontWeight>
+                              </Style>
+                            </TextRun>
+                          </TextRuns>
+                          <Style>
+                            <TextAlign>Center</TextAlign>
+                          </Style>
+                        </Paragraph>
+                      </Paragraphs>
+                      <rd:DefaultName>Textbox60</rd:DefaultName>
+                      <Style>
+                        <Border>
+                          <Color>LightGrey</Color>
+                          <Style>Solid</Style>
+                        </Border>
+                        <PaddingLeft>2pt</PaddingLeft>
+                        <PaddingRight>2pt</PaddingRight>
+                        <PaddingTop>2pt</PaddingTop>
+                        <PaddingBottom>2pt</PaddingBottom>
+                      </Style>
+                    </Textbox>
+                  </CellContents>
+                </TablixCell>
+              </TablixCells>
+            </TablixRow>
+            <TablixRow>
+              <Height>0.6cm</Height>
+              <TablixCells>
+                <TablixCell>
+                  <CellContents>
+                    <Textbox Name="الجنس">
+                      <CanGrow>true</CanGrow>
+                      <KeepTogether>true</KeepTogether>
+                      <Paragraphs>
+                        <Paragraph>
+                          <TextRuns>
+                            <TextRun>
+                              <Value>=Fields!الجنس.Value</Value>
+                              <Style />
+                            </TextRun>
+                          </TextRuns>
+                          <Style>
+                            <TextAlign>Right</TextAlign>
+                          </Style>
+                        </Paragraph>
+                      </Paragraphs>
+                      <rd:DefaultName>الجنس</rd:DefaultName>
+                      <Style>
+                        <Border>
+                          <Color>LightGrey</Color>
+                          <Style>Solid</Style>
+                        </Border>
+                        <PaddingLeft>2pt</PaddingLeft>
+                        <PaddingRight>2pt</PaddingRight>
+                        <PaddingTop>2pt</PaddingTop>
+                        <PaddingBottom>2pt</PaddingBottom>
+                      </Style>
+                    </Textbox>
+                  </CellContents>
+                </TablixCell>
+                <TablixCell>
+                  <CellContents>
+                    <Textbox Name="العمر">
+                      <CanGrow>true</CanGrow>
+                      <KeepTogether>true</KeepTogether>
+                      <Paragraphs>
+                        <Paragraph>
+                          <TextRuns>
+                            <TextRun>
+                              <Value>=Fields!العمر.Value</Value>
+                              <Style />
+                            </TextRun>
+                          </TextRuns>
+                          <Style>
+                            <TextAlign>Right</TextAlign>
+                          </Style>
+                        </Paragraph>
+                      </Paragraphs>
+                      <rd:DefaultName>العمر</rd:DefaultName>
+                      <Style>
+                        <Border>
+                          <Color>LightGrey</Color>
+                          <Style>Solid</Style>
+                        </Border>
+                        <PaddingLeft>2pt</PaddingLeft>
+                        <PaddingRight>2pt</PaddingRight>
+                        <PaddingTop>2pt</PaddingTop>
+                        <PaddingBottom>2pt</PaddingBottom>
+                      </Style>
+                    </Textbox>
+                  </CellContents>
+                </TablixCell>
+                <TablixCell>
+                  <CellContents>
+                    <Textbox Name="اللقب">
+                      <CanGrow>true</CanGrow>
+                      <KeepTogether>true</KeepTogether>
+                      <Paragraphs>
+                        <Paragraph>
+                          <TextRuns>
+                            <TextRun>
+                              <Value>=Fields!اللقب.Value</Value>
+                              <Style />
+                            </TextRun>
+                          </TextRuns>
+                          <Style>
+                            <TextAlign>Right</TextAlign>
+                          </Style>
+                        </Paragraph>
+                      </Paragraphs>
+                      <rd:DefaultName>اللقب</rd:DefaultName>
+                      <Style>
+                        <Border>
+                          <Color>LightGrey</Color>
+                          <Style>Solid</Style>
+                        </Border>
+                        <PaddingLeft>2pt</PaddingLeft>
+                        <PaddingRight>2pt</PaddingRight>
+                        <PaddingTop>2pt</PaddingTop>
+                        <PaddingBottom>2pt</PaddingBottom>
+                      </Style>
+                    </Textbox>
+                  </CellContents>
+                </TablixCell>
+                <TablixCell>
+                  <CellContents>
+                    <Textbox Name="اسم_المريض">
+                      <CanGrow>true</CanGrow>
+                      <KeepTogether>true</KeepTogether>
+                      <Paragraphs>
+                        <Paragraph>
+                          <TextRuns>
+                            <TextRun>
+                              <Value>=Fields!اسم_المريض.Value</Value>
+                              <Style />
+                            </TextRun>
+                          </TextRuns>
+                          <Style>
+                            <TextAlign>Right</TextAlign>
+                          </Style>
+                        </Paragraph>
+                      </Paragraphs>
+                      <rd:DefaultName>اسم_المريض</rd:DefaultName>
+                      <Style>
+                        <Border>
+                          <Color>LightGrey</Color>
+                          <Style>Solid</Style>
+                        </Border>
+                        <PaddingLeft>2pt</PaddingLeft>
+                        <PaddingRight>2pt</PaddingRight>
+                        <PaddingTop>2pt</PaddingTop>
+                        <PaddingBottom>2pt</PaddingBottom>
+                      </Style>
+                    </Textbox>
+                  </CellContents>
+                </TablixCell>
+              </TablixCells>
+            </TablixRow>
+          </TablixRows>
+        </TablixBody>
+        <TablixColumnHierarchy>
+          <TablixMembers>
+            <TablixMember />
+            <TablixMember />
+            <TablixMember />
+            <TablixMember />
+          </TablixMembers>
+        </TablixColumnHierarchy>
+        <TablixRowHierarchy>
+          <TablixMembers>
+            <TablixMember>
+              <KeepWithGroup>After</KeepWithGroup>
+            </TablixMember>
+            <TablixMember>
+              <Group Name="Details1" />
+            </TablixMember>
+          </TablixMembers>
+        </TablixRowHierarchy>
+        <DataSetName>DataSet1</DataSetName>
+        <Top>2.00237cm</Top>
+        <Left>4.72865cm</Left>
+        <Height>1.2cm</Height>
+        <Width>10cm</Width>
+>>>>>>> e6a6e25e17389587885aa1b30dd1c49071cf2971
         <ZIndex>8</ZIndex>
         <Style>
           <Border>
             <Style>None</Style>
           </Border>
+<<<<<<< HEAD
           <PaddingLeft>2pt</PaddingLeft>
           <PaddingRight>2pt</PaddingRight>
           <PaddingTop>2pt</PaddingTop>
@@ -293,13 +804,22 @@
         </Style>
       </Textbox>
       <Textbox Name="Textbox24">
+=======
+        </Style>
+      </Tablix>
+      <Textbox Name="Textbox14">
+>>>>>>> e6a6e25e17389587885aa1b30dd1c49071cf2971
         <CanGrow>true</CanGrow>
         <KeepTogether>true</KeepTogether>
         <Paragraphs>
           <Paragraph>
             <TextRuns>
               <TextRun>
+<<<<<<< HEAD
                 <Value>=First(Fields!العمر.Value, "DataSet1")</Value>
+=======
+                <Value>الطبيب المعالج</Value>
+>>>>>>> e6a6e25e17389587885aa1b30dd1c49071cf2971
                 <Style>
                   <FontSize>12pt</FontSize>
                   <FontWeight>Bold</FontWeight>
@@ -311,11 +831,19 @@
             </Style>
           </Paragraph>
         </Paragraphs>
+<<<<<<< HEAD
         <rd:DefaultName>Textbox22</rd:DefaultName>
         <Top>2.2575cm</Top>
         <Left>15.03061cm</Left>
         <Height>0.6cm</Height>
         <Width>1.5cm</Width>
+=======
+        <rd:DefaultName>Textbox10</rd:DefaultName>
+        <Top>7.04158cm</Top>
+        <Left>12.78559cm</Left>
+        <Height>0.6cm</Height>
+        <Width>2.5cm</Width>
+>>>>>>> e6a6e25e17389587885aa1b30dd1c49071cf2971
         <ZIndex>9</ZIndex>
         <Style>
           <Border>
@@ -327,16 +855,25 @@
           <PaddingBottom>2pt</PaddingBottom>
         </Style>
       </Textbox>
+<<<<<<< HEAD
       <Textbox Name="Textbox25">
+=======
+      <Textbox Name="Textbox15">
+>>>>>>> e6a6e25e17389587885aa1b30dd1c49071cf2971
         <CanGrow>true</CanGrow>
         <KeepTogether>true</KeepTogether>
         <Paragraphs>
           <Paragraph>
             <TextRuns>
               <TextRun>
+<<<<<<< HEAD
                 <Value>الجنس</Value>
                 <Style>
                   <FontSize>12pt</FontSize>
+=======
+                <Value>=First(Fields!اسم_الطبيب.Value, "DataSet1")</Value>
+                <Style>
+>>>>>>> e6a6e25e17389587885aa1b30dd1c49071cf2971
                   <FontWeight>Bold</FontWeight>
                 </Style>
               </TextRun>
@@ -346,11 +883,19 @@
             </Style>
           </Paragraph>
         </Paragraphs>
+<<<<<<< HEAD
         <rd:DefaultName>Textbox21</rd:DefaultName>
         <Top>1.48112cm</Top>
         <Left>16.67172cm</Left>
         <Height>0.6cm</Height>
         <Width>1.05849cm</Width>
+=======
+        <rd:DefaultName>Textbox10</rd:DefaultName>
+        <Top>7.04158cm</Top>
+        <Left>9.41115cm</Left>
+        <Height>0.6cm</Height>
+        <Width>2.5cm</Width>
+>>>>>>> e6a6e25e17389587885aa1b30dd1c49071cf2971
         <ZIndex>10</ZIndex>
         <Style>
           <Border>
@@ -362,16 +907,25 @@
           <PaddingBottom>2pt</PaddingBottom>
         </Style>
       </Textbox>
+<<<<<<< HEAD
       <Textbox Name="Textbox27">
+=======
+      <Textbox Name="Textbox16">
+>>>>>>> e6a6e25e17389587885aa1b30dd1c49071cf2971
         <CanGrow>true</CanGrow>
         <KeepTogether>true</KeepTogether>
         <Paragraphs>
           <Paragraph>
             <TextRuns>
               <TextRun>
+<<<<<<< HEAD
                 <Value>=First(Fields!الجنس.Value, "DataSet1")</Value>
                 <Style>
                   <FontSize>12pt</FontSize>
+=======
+                <Value>رقم الزيارة</Value>
+                <Style>
+>>>>>>> e6a6e25e17389587885aa1b30dd1c49071cf2971
                   <FontWeight>Bold</FontWeight>
                 </Style>
               </TextRun>
@@ -381,11 +935,19 @@
             </Style>
           </Paragraph>
         </Paragraphs>
+<<<<<<< HEAD
         <rd:DefaultName>Textbox22</rd:DefaultName>
         <Top>1.48112cm</Top>
         <Left>15.03061cm</Left>
         <Height>0.6cm</Height>
         <Width>1.5cm</Width>
+=======
+        <rd:DefaultName>Textbox10</rd:DefaultName>
+        <Top>0.17667cm</Top>
+        <Left>2.03553cm</Left>
+        <Height>0.6cm</Height>
+        <Width>1.611cm</Width>
+>>>>>>> e6a6e25e17389587885aa1b30dd1c49071cf2971
         <ZIndex>11</ZIndex>
         <Style>
           <Border>
@@ -397,16 +959,25 @@
           <PaddingBottom>2pt</PaddingBottom>
         </Style>
       </Textbox>
+<<<<<<< HEAD
       <Textbox Name="Textbox32">
+=======
+      <Textbox Name="Textbox17">
+>>>>>>> e6a6e25e17389587885aa1b30dd1c49071cf2971
         <CanGrow>true</CanGrow>
         <KeepTogether>true</KeepTogether>
         <Paragraphs>
           <Paragraph>
             <TextRuns>
               <TextRun>
+<<<<<<< HEAD
                 <Value>=First(Fields!اللقب.Value, "DataSet1")</Value>
                 <Style>
                   <FontSize>12pt</FontSize>
+=======
+                <Value>=First(Fields!رقم_الزيارة.Value, "DataSet1")</Value>
+                <Style>
+>>>>>>> e6a6e25e17389587885aa1b30dd1c49071cf2971
                   <FontWeight>Bold</FontWeight>
                 </Style>
               </TextRun>
@@ -416,11 +987,19 @@
             </Style>
           </Paragraph>
         </Paragraphs>
+<<<<<<< HEAD
         <rd:DefaultName>Textbox32</rd:DefaultName>
         <Top>0.70473cm</Top>
         <Left>12.88175cm</Left>
         <Height>0.6cm</Height>
         <Width>1.40918cm</Width>
+=======
+        <rd:DefaultName>Textbox10</rd:DefaultName>
+        <Top>0.17667cm</Top>
+        <Left>0.35397cm</Left>
+        <Height>0.6cm</Height>
+        <Width>1.611cm</Width>
+>>>>>>> e6a6e25e17389587885aa1b30dd1c49071cf2971
         <ZIndex>12</ZIndex>
         <Style>
           <Border>
@@ -432,14 +1011,33 @@
           <PaddingBottom>2pt</PaddingBottom>
         </Style>
       </Textbox>
+<<<<<<< HEAD
       <Textbox Name="نتيجة_التشخيص">
+=======
+      <Line Name="Line6">
+        <Top>1.45203cm</Top>
+        <Height>0cm</Height>
+        <Width>19.02344cm</Width>
+        <ZIndex>13</ZIndex>
+        <Style>
+          <Border>
+            <Style>Solid</Style>
+          </Border>
+        </Style>
+      </Line>
+      <Textbox Name="Textbox29">
+>>>>>>> e6a6e25e17389587885aa1b30dd1c49071cf2971
         <CanGrow>true</CanGrow>
         <KeepTogether>true</KeepTogether>
         <Paragraphs>
           <Paragraph>
             <TextRuns>
               <TextRun>
+<<<<<<< HEAD
                 <Value>=First(Fields!نتيجة_التشخيص.Value, "DataSet1")</Value>
+=======
+                <Value> تقرير تشخيص المريض</Value>
+>>>>>>> e6a6e25e17389587885aa1b30dd1c49071cf2971
                 <Style>
                   <FontSize>12pt</FontSize>
                   <FontWeight>Bold</FontWeight>
@@ -451,12 +1049,21 @@
             </Style>
           </Paragraph>
         </Paragraphs>
+<<<<<<< HEAD
         <rd:DefaultName>نتيجة_التشخيص</rd:DefaultName>
         <Top>2.2575cm</Top>
         <Left>0.81844cm</Left>
         <Height>0.6cm</Height>
         <Width>2.7318cm</Width>
         <ZIndex>13</ZIndex>
+=======
+        <rd:DefaultName>Textbox10</rd:DefaultName>
+        <Top>0.17667cm</Top>
+        <Left>7.8913cm</Left>
+        <Height>0.76933cm</Height>
+        <Width>3.74883cm</Width>
+        <ZIndex>14</ZIndex>
+>>>>>>> e6a6e25e17389587885aa1b30dd1c49071cf2971
         <Style>
           <Border>
             <Style>None</Style>
@@ -467,6 +1074,7 @@
           <PaddingBottom>2pt</PaddingBottom>
         </Style>
       </Textbox>
+<<<<<<< HEAD
       <Line Name="Line2">
         <Height>0cm</Height>
         <Width>19.57185cm</Width>
@@ -492,6 +1100,16 @@
   <Page>
     <PageHeader>
       <Height>3.30087cm</Height>
+=======
+    </ReportItems>
+    <Height>3.29744in</Height>
+    <Style />
+  </Body>
+  <Width>7.87259in</Width>
+  <Page>
+    <PageHeader>
+      <Height>2.43417cm</Height>
+>>>>>>> e6a6e25e17389587885aa1b30dd1c49071cf2971
       <PrintOnFirstPage>true</PrintOnFirstPage>
       <PrintOnLastPage>true</PrintOnLastPage>
       <ReportItems>
@@ -503,6 +1121,7 @@
               <TextRuns>
                 <TextRun>
                   <Value>=First(Fields!hoNameA.Value, "DataSet3")</Value>
+<<<<<<< HEAD
                   <Style>
                     <FontStyle>Italic</FontStyle>
                     <FontSize>12pt</FontSize>
@@ -512,13 +1131,25 @@
               <Style>
                 <TextAlign>Right</TextAlign>
               </Style>
+=======
+                  <Style />
+                </TextRun>
+              </TextRuns>
+              <Style />
+>>>>>>> e6a6e25e17389587885aa1b30dd1c49071cf2971
             </Paragraph>
           </Paragraphs>
           <rd:DefaultName>Textbox2</rd:DefaultName>
           <Top>0.98806cm</Top>
+<<<<<<< HEAD
           <Left>14.68074cm</Left>
           <Height>0.6cm</Height>
           <Width>3.85467cm</Width>
+=======
+          <Left>16.52344cm</Left>
+          <Height>0.6cm</Height>
+          <Width>2.5cm</Width>
+>>>>>>> e6a6e25e17389587885aa1b30dd1c49071cf2971
           <Style>
             <Border>
               <Style>None</Style>
@@ -537,6 +1168,7 @@
               <TextRuns>
                 <TextRun>
                   <Value>=First(Fields!hoNameA.Value, "DataSet3")</Value>
+<<<<<<< HEAD
                   <Style>
                     <FontSize>12pt</FontSize>
                     <FontWeight>Bold</FontWeight>
@@ -546,13 +1178,25 @@
               <Style>
                 <TextAlign>Right</TextAlign>
               </Style>
+=======
+                  <Style />
+                </TextRun>
+              </TextRuns>
+              <Style />
+>>>>>>> e6a6e25e17389587885aa1b30dd1c49071cf2971
             </Paragraph>
           </Paragraphs>
           <rd:DefaultName>Textbox3</rd:DefaultName>
           <Top>0.21167cm</Top>
+<<<<<<< HEAD
           <Left>14.68074cm</Left>
           <Height>0.6cm</Height>
           <Width>3.85467cm</Width>
+=======
+          <Left>16.52344cm</Left>
+          <Height>0.6cm</Height>
+          <Width>2.5cm</Width>
+>>>>>>> e6a6e25e17389587885aa1b30dd1c49071cf2971
           <ZIndex>1</ZIndex>
           <Style>
             <Border>
@@ -572,20 +1216,31 @@
               <TextRuns>
                 <TextRun>
                   <Value>=First(Fields!hoAddressE.Value, "DataSet3")</Value>
+<<<<<<< HEAD
                   <Style>
                     <FontStyle>Italic</FontStyle>
                     <FontSize>12pt</FontSize>
                   </Style>
+=======
+                  <Style />
+>>>>>>> e6a6e25e17389587885aa1b30dd1c49071cf2971
                 </TextRun>
               </TextRuns>
               <Style />
             </Paragraph>
           </Paragraphs>
           <rd:DefaultName>Textbox2</rd:DefaultName>
+<<<<<<< HEAD
           <Top>0.91609cm</Top>
           <Left>0.81844cm</Left>
           <Height>0.6cm</Height>
           <Width>4.00283cm</Width>
+=======
+          <Top>0.98806cm</Top>
+          <Left>0.85725cm</Left>
+          <Height>0.6cm</Height>
+          <Width>2.5cm</Width>
+>>>>>>> e6a6e25e17389587885aa1b30dd1c49071cf2971
           <ZIndex>2</ZIndex>
           <Style>
             <Border>
@@ -605,20 +1260,31 @@
               <TextRuns>
                 <TextRun>
                   <Value>=First(Fields!hoNameE.Value, "DataSet3")</Value>
+<<<<<<< HEAD
                   <Style>
                     <FontSize>12pt</FontSize>
                     <FontWeight>Bold</FontWeight>
                   </Style>
+=======
+                  <Style />
+>>>>>>> e6a6e25e17389587885aa1b30dd1c49071cf2971
                 </TextRun>
               </TextRuns>
               <Style />
             </Paragraph>
           </Paragraphs>
           <rd:DefaultName>Textbox3</rd:DefaultName>
+<<<<<<< HEAD
           <Top>0.1397cm</Top>
           <Left>0.81844cm</Left>
           <Height>0.6cm</Height>
           <Width>4.00283cm</Width>
+=======
+          <Top>0.21167cm</Top>
+          <Left>0.85725cm</Left>
+          <Height>0.6cm</Height>
+          <Width>2.5cm</Width>
+>>>>>>> e6a6e25e17389587885aa1b30dd1c49071cf2971
           <ZIndex>3</ZIndex>
           <Style>
             <Border>
@@ -630,6 +1296,7 @@
             <PaddingBottom>2pt</PaddingBottom>
           </Style>
         </Textbox>
+<<<<<<< HEAD
         <Line Name="Line6">
           <Top>2.84932cm</Top>
           <Left>6.44095cm</Left>
@@ -753,6 +1420,17 @@
     </PageHeader>
     <PageFooter>
       <Height>1.316cm</Height>
+=======
+      </ReportItems>
+      <Style>
+        <Border>
+          <Style>None</Style>
+        </Border>
+      </Style>
+    </PageHeader>
+    <PageFooter>
+      <Height>2.54cm</Height>
+>>>>>>> e6a6e25e17389587885aa1b30dd1c49071cf2971
       <PrintOnFirstPage>true</PrintOnFirstPage>
       <PrintOnLastPage>true</PrintOnLastPage>
       <ReportItems>
@@ -773,8 +1451,13 @@
             </Paragraph>
           </Paragraphs>
           <rd:DefaultName>Textbox29</rd:DefaultName>
+<<<<<<< HEAD
           <Top>0.335cm</Top>
           <Left>8.72619cm</Left>
+=======
+          <Top>0.97cm</Top>
+          <Left>8.26172cm</Left>
+>>>>>>> e6a6e25e17389587885aa1b30dd1c49071cf2971
           <Height>0.6cm</Height>
           <Width>2.5cm</Width>
           <Style>
@@ -801,12 +1484,16 @@
     <TopMargin>2cm</TopMargin>
     <BottomMargin>2cm</BottomMargin>
     <ColumnSpacing>0.13cm</ColumnSpacing>
+<<<<<<< HEAD
     <Style>
       <Border>
         <Style>Solid</Style>
         <Width>3pt</Width>
       </Border>
     </Style>
+=======
+    <Style />
+>>>>>>> e6a6e25e17389587885aa1b30dd1c49071cf2971
   </Page>
   <AutoRefresh>0</AutoRefresh>
   <DataSources>

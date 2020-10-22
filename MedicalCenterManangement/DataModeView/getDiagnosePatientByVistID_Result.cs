@@ -23,7 +23,10 @@ namespace MedicalCenterManangement.DataModeView
         public string نتيجة_التشخيص { get; set; }
         public string تاريخ_التشخيص { get; set; }
         public string وقت_التشخيص { get; set; }
+<<<<<<< HEAD
         public string اسم_الطبيب { get; set; }
         public string تاريخ_الزيارة { get; set; }
+=======
+>>>>>>> e6a6e25e17389587885aa1b30dd1c49071cf2971
     }
 }

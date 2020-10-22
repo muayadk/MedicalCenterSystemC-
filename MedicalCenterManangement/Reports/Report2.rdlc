@@ -22,7 +22,7 @@
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>Textbox21</rd:DefaultName>
-        <Top>0.47258cm</Top>
+        <Top>0.15508cm</Top>
         <Left>8.37121cm</Left>
         <Height>0.6cm</Height>
         <Width>1.94823cm</Width>
@@ -56,7 +56,7 @@
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>Textbox22</rd:DefaultName>
-        <Top>0.47258cm</Top>
+        <Top>0.15508cm</Top>
         <Left>6.88016cm</Left>
         <Height>0.6cm</Height>
         <Width>1.37759cm</Width>
@@ -91,7 +91,7 @@
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>Textbox32</rd:DefaultName>
-        <Top>0.47258cm</Top>
+        <Top>0.15508cm</Top>
         <Left>5.47098cm</Left>
         <Height>0.6cm</Height>
         <Width>1.40918cm</Width>
@@ -126,7 +126,7 @@
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>اسم_الطبيب</rd:DefaultName>
-        <Top>4.66231cm</Top>
+        <Top>4.34481cm</Top>
         <Left>1.25117cm</Left>
         <Height>0.6cm</Height>
         <Width>2.46717cm</Width>
@@ -161,7 +161,7 @@
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>Textbox32</rd:DefaultName>
-        <Top>4.66231cm</Top>
+        <Top>4.34481cm</Top>
         <Left>3.75362cm</Left>
         <Height>0.6cm</Height>
         <Width>0.47785cm</Width>
@@ -191,7 +191,7 @@
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>رفم_الرشدة_</rd:DefaultName>
-        <Top>0.47258cm</Top>
+        <Top>0.15508cm</Top>
         <Left>13.21967cm</Left>
         <Height>0.6cm</Height>
         <Width>0.74682cm</Width>
@@ -226,7 +226,7 @@
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>Textbox32</rd:DefaultName>
-        <Top>0.47258cm</Top>
+        <Top>0.15508cm</Top>
         <Left>14.02544cm</Left>
         <Height>0.6cm</Height>
         <Width>1.69423cm</Width>
@@ -256,7 +256,7 @@
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>التاريخ</rd:DefaultName>
-        <Top>0.47258cm</Top>
+        <Top>0.15508cm</Top>
         <Left>1.25117cm</Left>
         <Height>0.6cm</Height>
         <Width>2.5cm</Width>
@@ -272,7 +272,7 @@
         </Style>
       </Textbox>
       <Line Name="Line8">
-        <Top>3.03685cm</Top>
+        <Top>2.76168cm</Top>
         <Height>0cm</Height>
         <Width>16.75787cm</Width>
         <ZIndex>8</ZIndex>
@@ -300,7 +300,7 @@
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>الملاحظات</rd:DefaultName>
-        <Top>3.6322cm</Top>
+        <Top>3.3147cm</Top>
         <Left>1.25117cm</Left>
         <Height>0.6cm</Height>
         <Width>14.4685cm</Width>
@@ -712,10 +712,10 @@
           </TablixMembers>
         </TablixRowHierarchy>
         <DataSetName>DataSet1</DataSetName>
-        <Top>1.55786cm</Top>
+        <Top>1.24036cm</Top>
         <Left>1.25117cm</Left>
         <Height>1.2cm</Height>
-        <Width>14.4685cm</Width>
+        <Width>14.46848cm</Width>
         <ZIndex>10</ZIndex>
         <Style>
           <Border>
@@ -724,10 +724,10 @@
         </Style>
       </Tablix>
     </ReportItems>
-    <Height>2.14122in</Height>
+    <Height>2.01622in</Height>
     <Style>
       <Border>
-        <Style>None</Style>
+        <Style>Solid</Style>
         <Width>2pt</Width>
       </Border>
       <TopBorder>
@@ -893,7 +893,7 @@
             <Paragraph>
               <TextRuns>
                 <TextRun>
-                  <Value>=Fields!clName.Value</Value>
+                  <Value>=First(Fields!clName.Value, "DataSet3")</Value>
                   <Style>
                     <FontStyle>Normal</FontStyle>
                     <FontSize>14pt</FontSize>
@@ -915,9 +915,9 @@
             </Paragraph>
           </Paragraphs>
           <rd:DefaultName>Textbox18</rd:DefaultName>
-          <Top>1.26181cm</Top>
+          <Top>1.01487cm</Top>
           <Left>6.03717cm</Left>
-          <Height>0.6cm</Height>
+          <Height>0.63528cm</Height>
           <Width>3.71453cm</Width>
           <ZIndex>4</ZIndex>
           <Style>
@@ -972,7 +972,7 @@
             </Paragraph>
           </Paragraphs>
           <rd:DefaultName>hoImg</rd:DefaultName>
-          <Top>0.30903cm</Top>
+          <Top>0.27375cm</Top>
           <Left>6.78603cm</Left>
           <Height>0.6cm</Height>
           <Width>2.5cm</Width>
@@ -1008,7 +1008,7 @@
             </Paragraph>
           </Paragraphs>
           <rd:DefaultName>Textbox18</rd:DefaultName>
-          <Top>2.0382cm</Top>
+          <Top>1.7207cm</Top>
           <Left>6.02089cm</Left>
           <Height>0.6cm</Height>
           <Width>3.71453cm</Width>
@@ -1029,6 +1029,18 @@
           <Style>Solid</Style>
           <Width>2pt</Width>
         </Border>
+        <TopBorder>
+          <Style>Solid</Style>
+        </TopBorder>
+        <BottomBorder>
+          <Style>Solid</Style>
+        </BottomBorder>
+        <LeftBorder>
+          <Style>Solid</Style>
+        </LeftBorder>
+        <RightBorder>
+          <Style>Solid</Style>
+        </RightBorder>
       </Style>
     </PageHeader>
     <PageFooter>
@@ -1070,7 +1082,8 @@
       </ReportItems>
       <Style>
         <Border>
-          <Style>None</Style>
+          <Style>Solid</Style>
+          <Width>2pt</Width>
         </Border>
       </Style>
     </PageFooter>

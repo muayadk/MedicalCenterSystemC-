@@ -27,9 +27,15 @@ namespace MedicalCenterManangement.DataModeView
         public Nullable<decimal> sePrice { get; set; }
         public string seNote { get; set; }
         public Nullable<decimal> ACC_Num { get; set; }
+<<<<<<< HEAD
         public Nullable<decimal> rateIn { get; set; }
         public Nullable<decimal> rateOut { get; set; }
         public Nullable<bool> isDeleted { get; set; }
+=======
+        public Nullable<bool> isDeleted { get; set; }
+        public Nullable<decimal> rateIn { get; set; }
+        public Nullable<decimal> rateOut { get; set; }
+>>>>>>> e6a6e25e17389587885aa1b30dd1c49071cf2971
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<servicesLestTab> servicesLestTab { get; set; }

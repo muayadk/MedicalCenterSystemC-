@@ -315,6 +315,14 @@
       <DependentUpon>FormUser_Activation.cs</DependentUpon>
     </Compile>
     <Compile Include="IsConstiant.cs" />
+<<<<<<< HEAD
+=======
+    <Compile Include="MedicalCenterDbDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>MedicalCenterDbDataSet.xsd</DependentUpon>
+    </Compile>
+>>>>>>> e6a6e25e17389587885aa1b30dd1c49071cf2971
     <Compile Include="Models\ClsDiagnoses.cs" />
     <Compile Include="Models\ClsDoctors.cs" />
     <Compile Include="Models\ClsPreviews.cs" />
@@ -329,12 +337,15 @@
     <Compile Include="Reports\diagnosePatientReport.Designer.cs">
       <DependentUpon>diagnosePatientReport.cs</DependentUpon>
     </Compile>
+<<<<<<< HEAD
     <Compile Include="Reports\recipePateintReport.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Reports\recipePateintReport.Designer.cs">
       <DependentUpon>recipePateintReport.cs</DependentUpon>
     </Compile>
+=======
+>>>>>>> e6a6e25e17389587885aa1b30dd1c49071cf2971
     <Compile Include="Secure.cs" />
     <Compile Include="Models\ClsPatient.cs" />
     <Compile Include="Program.cs" />
@@ -464,11 +475,15 @@
     <EmbeddedResource Include="Reports\diagnosePatientReport.resx">
       <DependentUpon>diagnosePatientReport.cs</DependentUpon>
     </EmbeddedResource>
+<<<<<<< HEAD
     <EmbeddedResource Include="Reports\recipePateintReport.resx">
       <DependentUpon>recipePateintReport.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Reports\Report1.rdlc" />
     <EmbeddedResource Include="Reports\Report2.rdlc" />
+=======
+    <EmbeddedResource Include="Reports\Report1.rdlc" />
+>>>>>>> e6a6e25e17389587885aa1b30dd1c49071cf2971
     <EmbeddedResource Include="View\Doctor\XtraFrmDoctor.resx">
       <DependentUpon>XtraFrmDoctor.cs</DependentUpon>
     </EmbeddedResource>
@@ -528,6 +543,7 @@
     <None Include="DataModeView\MedicalCenterDB.edmx.diagram">
       <DependentUpon>MedicalCenterDB.edmx</DependentUpon>
     </None>
+<<<<<<< HEAD
     <None Include="packages.config" />
     <None Include="Properties\DataSources\MedicalCenterManangement.DataModeView.getHeaderInformation_Result.datasource" />
     <None Include="Properties\DataSources\MedicalCenterManangement.DataModeView.getHeaderInformation_Result1.datasource" />
@@ -536,6 +552,23 @@
     <None Include="Properties\DataSources\MedicalCenterManangement.DataModeView.getRecipeByVisitID_Result.datasource" />
     <None Include="Properties\DataSources\MedicalCenterManangement.DataModeView.getRecipeByVisitID_Result1.datasource" />
     <None Include="Properties\DataSources\MedicalCenterManangement.DataModeView.getRecipeByVisitID_Result2.datasource" />
+=======
+    <None Include="MedicalCenterDbDataSet.xsc">
+      <DependentUpon>MedicalCenterDbDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="MedicalCenterDbDataSet.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>MedicalCenterDbDataSet.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="MedicalCenterDbDataSet.xss">
+      <DependentUpon>MedicalCenterDbDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="packages.config" />
+    <None Include="Properties\DataSources\MedicalCenterManangement.DataModeView.getDiagnosePatientByVistID_Result.datasource" />
+    <None Include="Properties\DataSources\MedicalCenterManangement.DataModeView.getHeaderInformation_Result.datasource" />
+    <None Include="Properties\DataSources\MedicalCenterManangement.DataModeView.getHeaderInformation_Result1.datasource" />
+>>>>>>> e6a6e25e17389587885aa1b30dd1c49071cf2971
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

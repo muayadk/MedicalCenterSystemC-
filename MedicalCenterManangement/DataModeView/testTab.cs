@@ -26,9 +26,15 @@ namespace MedicalCenterManangement.DataModeView
         public string teSname { get; set; }
         public string teNote { get; set; }
         public Nullable<decimal> grId { get; set; }
+<<<<<<< HEAD
         public Nullable<decimal> rateIn { get; set; }
         public Nullable<decimal> rateOut { get; set; }
         public Nullable<bool> isDeleted { get; set; }
+=======
+        public Nullable<bool> isDeleted { get; set; }
+        public Nullable<decimal> rateIn { get; set; }
+        public Nullable<decimal> rateOut { get; set; }
+>>>>>>> e6a6e25e17389587885aa1b30dd1c49071cf2971
     
         public virtual groupTestTab groupTestTab { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]

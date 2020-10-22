@@ -1295,6 +1295,7 @@ warning 6002: The table/view 'MedicalCenterDb.dbo.System_Options' does not have 
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="MedicalCenterDbModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+<<<<<<< HEAD
         <EntityContainer Name="MedicalCenterDbEntities" annotation:LazyLoadingEnabled="true">
           <FunctionImport Name="AddDiagnoses">
             <Parameter Name="diCode" Mode="In" Type="String" />
@@ -3229,22 +3230,1635 @@ warning 6002: The table/view 'MedicalCenterDb.dbo.System_Options' does not have 
                 <ScalarProperty Name="Acc_Type" ColumnName="Acc_Type" />
                 <ScalarProperty Name="Acc_Name" ColumnName="Acc_Name" />
                 <ScalarProperty Name="Acc_Num" ColumnName="Acc_Num" />
+=======
+        <EntityType Name="Accounts">
+          <Key>
+            <PropertyRef Name="Acc_Num" />
+          </Key>
+          <Property Name="Acc_Num" Type="Int32" Nullable="false" />
+          <Property Name="Acc_Name" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Acc_Type" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Parent_Acc" Type="Int32" Nullable="false" />
+          <Property Name="Degree" Type="Int32" Nullable="false" />
+          <Property Name="Report" Type="String" MaxLength="15" FixedLength="true" Unicode="false" />
+          <Property Name="Coin" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Acc_Nature" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Name="Coin_Num" Type="Int32" />
+          <Property Name="Acc_Stat" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="Cash" Relationship="Self.FK_Cash_Accounts" FromRole="Accounts" ToRole="Cash" />
+        </EntityType>
+        <EntityType Name="activeMaterialTab">
+          <Key>
+            <PropertyRef Name="acId" />
+          </Key>
+          <Property Name="acId" Type="Decimal" Precision="18" Scale="0" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="acCode" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="acName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="isDeleted" Type="Boolean" />
+          <NavigationProperty Name="dragTab" Relationship="Self.FK_dragTab_activeMaterialTab" FromRole="activeMaterialTab" ToRole="dragTab" />
+        </EntityType>
+        <EntityType Name="appointmentTab">
+          <Key>
+            <PropertyRef Name="apId" />
+          </Key>
+          <Property Name="apId" Type="Decimal" Precision="18" Scale="0" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="apCode" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="apName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="apDate" Type="DateTime" Precision="0" />
+          <Property Name="apTime" Type="Time" Precision="7" />
+          <Property Name="apNote" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="paId" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="isDeleted" Type="Boolean" />
+          <NavigationProperty Name="patientsTab" Relationship="Self.FK_appointmentTab_patientsTab" FromRole="appointmentTab" ToRole="patientsTab" />
+        </EntityType>
+        <EntityType Name="Branch">
+          <Key>
+            <PropertyRef Name="Branch_Num" />
+          </Key>
+          <Property Name="Branch_Num" Type="Int32" Nullable="false" />
+          <Property Name="Branch_Name" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Address" Type="String" MaxLength="1100" FixedLength="false" Unicode="true" />
+          <Property Name="isDeleted" Type="Boolean" />
+        </EntityType>
+        <EntityType Name="Cash">
+          <Key>
+            <PropertyRef Name="Cash_Num" />
+          </Key>
+          <Property Name="Cash_Num" Type="Int32" Nullable="false" />
+          <Property Name="Branch_Num" Type="Int32" />
+          <Property Name="Cash_Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Acc_Num" Type="Int32" Nullable="false" />
+          <Property Name="Coin_Num" Type="Int32" />
+          <NavigationProperty Name="Accounts" Relationship="Self.FK_Cash_Accounts" FromRole="Cash" ToRole="Accounts" />
+          <NavigationProperty Name="servicesRequestTab" Relationship="Self.FK_servicesRequestTab_Cash" FromRole="Cash" ToRole="servicesRequestTab" />
+          <NavigationProperty Name="testrRequesTab" Relationship="Self.FK_testrRequesTab_Cash" FromRole="Cash" ToRole="testrRequesTab" />
+        </EntityType>
+        <EntityType Name="clinicTab">
+          <Key>
+            <PropertyRef Name="clId" />
+          </Key>
+          <Property Name="clId" Type="Decimal" Precision="18" Scale="0" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="clCode" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="clName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="clMobile" Type="Int32" />
+          <Property Name="clAddress" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="clNote" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="hoId" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="isDeleted" Type="Boolean" />
+          <NavigationProperty Name="hospitalCenterTab" Relationship="Self.FK_clinicTab_hospitalCenterTab" FromRole="clinicTab" ToRole="hospitalCenterTab" />
+          <NavigationProperty Name="doctorsTab" Relationship="Self.FK_doctorsTab_clinicTab" FromRole="clinicTab" ToRole="doctorsTab" />
+        </EntityType>
+        <EntityType Name="Coin">
+          <Key>
+            <PropertyRef Name="Coin_Num" />
+          </Key>
+          <Property Name="Coin_Num" Type="Int32" Nullable="false" />
+          <Property Name="Coin_Name" Type="String" MaxLength="30" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Symbol" Type="String" MaxLength="5" FixedLength="true" Unicode="false" Nullable="false" />
+          <Property Name="Coin_Price" Type="Double" />
+          <Property Name="Coin_Type" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Coin_Max" Type="Double" />
+          <Property Name="Coin_Min" Type="Double" />
+          <Property Name="Coin_Sub" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="servicesRequestTab" Relationship="Self.FK_servicesRequestTab_Coin" FromRole="Coin" ToRole="servicesRequestTab" />
+          <NavigationProperty Name="testrRequesTab" Relationship="Self.FK_testrRequesTab_Coin" FromRole="Coin" ToRole="testrRequesTab" />
+        </EntityType>
+        <EntityType Name="companySuplierDragTab">
+          <Key>
+            <PropertyRef Name="comsId" />
+          </Key>
+          <Property Name="comsId" Type="Decimal" Precision="18" Scale="0" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="comsCode" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="comsName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="comsMobile1" Type="Int32" />
+          <Property Name="comsMobile2" Type="Int32" />
+          <Property Name="comsAddress" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="comsNote" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="isDeleted" Type="Boolean" />
+          <NavigationProperty Name="dragTab" Relationship="Self.FK_dragTab_companySuplierDragTab" FromRole="companySuplierDragTab" ToRole="dragTab" />
+        </EntityType>
+        <EntityType Name="Constriant">
+          <Key>
+            <PropertyRef Name="Cons_Num" />
+          </Key>
+          <Property Name="Cons_Num" Type="Int32" Nullable="false" />
+          <Property Name="Mony" Type="Double" Nullable="false" />
+          <Property Name="Date" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="Operation_Num" Type="Int32" />
+          <Property Name="Cons_Type" Type="String" MaxLength="40" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Coin_Num" Type="Int32" />
+          <Property Name="Is_Round" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Constriant_Affect" Relationship="Self.FK_Constriant_Affect_Constriant" FromRole="Constriant" ToRole="Constriant_Affect" />
+        </EntityType>
+        <EntityType Name="Constriant_Affect">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Cons_Num" Type="Int32" Nullable="false" />
+          <Property Name="Acc_Num" Type="Int32" Nullable="false" />
+          <Property Name="Debit" Type="Double" />
+          <Property Name="Cridit" Type="Double" />
+          <Property Name="Note" Type="String" MaxLength="300" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Change_Coin" Type="Double" />
+          <Property Name="Coin_Affect" Type="Int32" />
+          <Property Name="Cost_Centers_Num" Type="Int32" />
+          <NavigationProperty Name="Constriant" Relationship="Self.FK_Constriant_Affect_Constriant" FromRole="Constriant_Affect" ToRole="Constriant" />
+        </EntityType>
+        <EntityType Name="diagnoseTab">
+          <Key>
+            <PropertyRef Name="diId" />
+          </Key>
+          <Property Name="diId" Type="Decimal" Precision="18" Scale="0" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="diCode" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="diName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="diDate" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="diTime" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="viId" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="isDeleted" Type="Boolean" />
+        </EntityType>
+        <EntityType Name="doctorsTab">
+          <Key>
+            <PropertyRef Name="doId" />
+          </Key>
+          <Property Name="doId" Type="Decimal" Precision="18" Scale="0" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="doCode" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="doNameE" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="doNameA" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="doSex" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="doBrithday" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="doAge" Type="Int32" />
+          <Property Name="doMobile" Type="Int32" />
+          <Property Name="doAddress" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="doImg" Type="Binary" MaxLength="Max" FixedLength="false" />
+          <Property Name="doCountry" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="doCity" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="doSpecil" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="doQual" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="doType" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="doState" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="clId" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="isDeleted" Type="Boolean" />
+          <NavigationProperty Name="clinicTab" Relationship="Self.FK_doctorsTab_clinicTab" FromRole="doctorsTab" ToRole="clinicTab" />
+          <NavigationProperty Name="visitTab" Relationship="Self.FK_visitTab_doctorsTab" FromRole="doctorsTab" ToRole="visitTab" />
+        </EntityType>
+        <EntityType Name="doseTab">
+          <Key>
+            <PropertyRef Name="doseId" />
+          </Key>
+          <Property Name="doseId" Type="Decimal" Precision="18" Scale="0" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="doseCode" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="doseName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="doseQty" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="doseTime" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="doseSize" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="doseUse" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="isDeleted" Type="Boolean" />
+        </EntityType>
+        <EntityType Name="dragTab">
+          <Key>
+            <PropertyRef Name="drId" />
+          </Key>
+          <Property Name="drId" Type="Decimal" Precision="18" Scale="0" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="drCode" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="drName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="drSname" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="drNote" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="sciId" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="acId" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="grdrId" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="sfId" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="comsId" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="header0" Type="Int32" />
+          <Property Name="header1" Type="Int32" />
+          <Property Name="isDeleted" Type="Boolean" />
+          <NavigationProperty Name="activeMaterialTab" Relationship="Self.FK_dragTab_activeMaterialTab" FromRole="dragTab" ToRole="activeMaterialTab" />
+          <NavigationProperty Name="companySuplierDragTab" Relationship="Self.FK_dragTab_companySuplierDragTab" FromRole="dragTab" ToRole="companySuplierDragTab" />
+          <NavigationProperty Name="groupDragTab" Relationship="Self.FK_dragTab_groupDragTab" FromRole="dragTab" ToRole="groupDragTab" />
+          <NavigationProperty Name="scientificNameDragTab" Relationship="Self.FK_dragTab_scientificNameDragTab" FromRole="dragTab" ToRole="scientificNameDragTab" />
+          <NavigationProperty Name="shapeFarmacy" Relationship="Self.FK_dragTab_shapeFarmacy" FromRole="dragTab" ToRole="shapeFarmacy" />
+          <NavigationProperty Name="prescriptionTab" Relationship="Self.FK_presPriod_doctorsTab" FromRole="dragTab" ToRole="prescriptionTab" />
+        </EntityType>
+        <EntityType Name="groupDragTab">
+          <Key>
+            <PropertyRef Name="grdrId" />
+          </Key>
+          <Property Name="grdrId" Type="Decimal" Precision="18" Scale="0" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="grdrCode" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="grdrName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="grdrNote" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="isDeleted" Type="Boolean" />
+          <NavigationProperty Name="dragTab" Relationship="Self.FK_dragTab_groupDragTab" FromRole="groupDragTab" ToRole="dragTab" />
+        </EntityType>
+        <EntityType Name="groupTestTab">
+          <Key>
+            <PropertyRef Name="grId" />
+          </Key>
+          <Property Name="grId" Type="Decimal" Precision="18" Scale="0" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="grCode" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="grName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="ACC_Num" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="isDeleted" Type="Boolean" />
+          <NavigationProperty Name="testTab" Relationship="Self.FK_testTab_groupTestTab" FromRole="groupTestTab" ToRole="testTab" />
+        </EntityType>
+        <EntityType Name="hospitalCenterTab">
+          <Key>
+            <PropertyRef Name="hoId" />
+          </Key>
+          <Property Name="hoId" Type="Decimal" Precision="18" Scale="0" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="hoCode" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="hoNameE" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="hoNameA" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="hoMobile1" Type="Int32" />
+          <Property Name="hoMobile2" Type="Int32" />
+          <Property Name="hoAddressE" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="hoAddressA" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="hoFix" Type="Int32" />
+          <Property Name="hoImg" Type="Binary" MaxLength="Max" FixedLength="false" />
+          <Property Name="hoNote" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="isDeleted" Type="Boolean" />
+          <NavigationProperty Name="clinicTab" Relationship="Self.FK_clinicTab_hospitalCenterTab" FromRole="hospitalCenterTab" ToRole="clinicTab" />
+        </EntityType>
+        <EntityType Name="patientsTab">
+          <Key>
+            <PropertyRef Name="paId" />
+          </Key>
+          <Property Name="paId" Type="Decimal" Precision="18" Scale="0" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="paCode" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="paFname" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="paLname" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="paSex" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="paBrithday" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="paAge" Type="Int32" />
+          <Property Name="paMobile1" Type="Int32" />
+          <Property Name="paMobile2" Type="Int32" />
+          <Property Name="paImg" Type="Binary" MaxLength="Max" FixedLength="false" />
+          <Property Name="paAddress" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="paCountry" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="paCity" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="paBloodType" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="paState" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="paType" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="ACC_Num" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="isDeleted" Type="Boolean" />
+          <NavigationProperty Name="appointmentTab" Relationship="Self.FK_appointmentTab_patientsTab" FromRole="patientsTab" ToRole="appointmentTab" />
+          <NavigationProperty Name="visitTab" Relationship="Self.FK_visitTab_patientsTab" FromRole="patientsTab" ToRole="visitTab" />
+        </EntityType>
+        <EntityType Name="prescriptionTab">
+          <Key>
+            <PropertyRef Name="presId" />
+          </Key>
+          <Property Name="presId" Type="Decimal" Precision="18" Scale="0" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="presCode" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="presName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="presQyt" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="presTimeUse" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="presSize" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="presPriod" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="reId" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="drId" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="isDeleted" Type="Boolean" />
+          <NavigationProperty Name="dragTab" Relationship="Self.FK_presPriod_doctorsTab" FromRole="prescriptionTab" ToRole="dragTab" />
+          <NavigationProperty Name="recipeTab" Relationship="Self.FK_prescriptionTab_recipeTab" FromRole="prescriptionTab" ToRole="recipeTab" />
+        </EntityType>
+        <EntityType Name="previewTab">
+          <Key>
+            <PropertyRef Name="prId" />
+          </Key>
+          <Property Name="prId" Type="Decimal" Precision="18" Scale="0" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="prCode" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="prName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="prDate" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="prTime" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="prNote" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="viId" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="isDeleted" Type="Boolean" />
+          <NavigationProperty Name="visitTab" Relationship="Self.FK_Table_1_visitTab" FromRole="previewTab" ToRole="visitTab" />
+        </EntityType>
+        <EntityType Name="recipeTab">
+          <Key>
+            <PropertyRef Name="reId" />
+          </Key>
+          <Property Name="reId" Type="Decimal" Precision="18" Scale="0" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="reCode" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="reDate" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="reTime" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="reNote" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="viId" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="isDeleted" Type="Boolean" />
+          <NavigationProperty Name="prescriptionTab" Relationship="Self.FK_prescriptionTab_recipeTab" FromRole="recipeTab" ToRole="prescriptionTab" />
+          <NavigationProperty Name="visitTab" Relationship="Self.FK_recipeTab_visitTab" FromRole="recipeTab" ToRole="visitTab" />
+        </EntityType>
+        <EntityType Name="resultTestTab">
+          <Key>
+            <PropertyRef Name="rtId" />
+          </Key>
+          <Property Name="rtId" Type="Decimal" Precision="18" Scale="0" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="itId" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="trId" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="result" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="resultType" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="rtNote" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="isDeleted" Type="Boolean" />
+          <NavigationProperty Name="testItemTab" Relationship="Self.FK_resultTestTab_testItemTab" FromRole="resultTestTab" ToRole="testItemTab" />
+          <NavigationProperty Name="testrRequesTab" Relationship="Self.FK_resultTestTab_testrRequesTab" FromRole="resultTestTab" ToRole="testrRequesTab" />
+        </EntityType>
+        <EntityType Name="roles">
+          <Key>
+            <PropertyRef Name="roleId" />
+          </Key>
+          <Property Name="roleId" Type="Decimal" Precision="18" Scale="0" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="roleName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="samplesTab">
+          <Key>
+            <PropertyRef Name="saId" />
+          </Key>
+          <Property Name="saId" Type="Decimal" Precision="18" Scale="0" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="saCode" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="saName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="saAmount" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="saDate" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="saTime" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="saNote" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="trId" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="isDeleted" Type="Boolean" />
+          <NavigationProperty Name="testrRequesTab" Relationship="Self.FK_samplesTab_testrRequesTab" FromRole="samplesTab" ToRole="testrRequesTab" />
+        </EntityType>
+        <EntityType Name="scientificNameDragTab">
+          <Key>
+            <PropertyRef Name="sciId" />
+          </Key>
+          <Property Name="sciId" Type="Decimal" Precision="18" Scale="0" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="sciCode" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="sciName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="sciNote" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="isDeleted" Type="Boolean" />
+          <NavigationProperty Name="dragTab" Relationship="Self.FK_dragTab_scientificNameDragTab" FromRole="scientificNameDragTab" ToRole="dragTab" />
+        </EntityType>
+        <EntityType Name="servicesLestTab">
+          <Key>
+            <PropertyRef Name="slId" />
+          </Key>
+          <Property Name="slId" Type="Decimal" Precision="18" Scale="0" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="seId" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="srId" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="slnote" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="slPrice" Type="Double" />
+          <Property Name="isDeleted" Type="Boolean" />
+          <NavigationProperty Name="servicesRequestTab" Relationship="Self.FK_servicesLestTab_servicesRequestTab" FromRole="servicesLestTab" ToRole="servicesRequestTab" />
+          <NavigationProperty Name="serviecsTab" Relationship="Self.FK_servicesLestTab_serviecsTab" FromRole="servicesLestTab" ToRole="serviecsTab" />
+        </EntityType>
+        <EntityType Name="servicesRequestTab">
+          <Key>
+            <PropertyRef Name="srId" />
+          </Key>
+          <Property Name="srId" Type="Decimal" Precision="18" Scale="0" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="srCode" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="srDate" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="srManual" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="srDiscount" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="valueAdded" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="Coin_Num" Type="Int32" />
+          <Property Name="Cash_Num" Type="Int32" />
+          <Property Name="viId" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="methodPayment" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="Coin_change" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="state" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="cons_Num" Type="Int32" />
+          <Property Name="isDeleted" Type="Boolean" />
+          <NavigationProperty Name="Cash" Relationship="Self.FK_servicesRequestTab_Cash" FromRole="servicesRequestTab" ToRole="Cash" />
+          <NavigationProperty Name="Coin" Relationship="Self.FK_servicesRequestTab_Coin" FromRole="servicesRequestTab" ToRole="Coin" />
+          <NavigationProperty Name="servicesLestTab" Relationship="Self.FK_servicesLestTab_servicesRequestTab" FromRole="servicesRequestTab" ToRole="servicesLestTab" />
+          <NavigationProperty Name="visitTab" Relationship="Self.FK_servicesRequestTab_visitTab" FromRole="servicesRequestTab" ToRole="visitTab" />
+        </EntityType>
+        <EntityType Name="serviecsTab">
+          <Key>
+            <PropertyRef Name="seId" />
+          </Key>
+          <Property Name="seId" Type="Decimal" Precision="18" Scale="0" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="seCode" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="seName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="seType" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="sePrice" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="seNote" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="ACC_Num" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="isDeleted" Type="Boolean" />
+          <NavigationProperty Name="servicesLestTab" Relationship="Self.FK_servicesLestTab_serviecsTab" FromRole="serviecsTab" ToRole="servicesLestTab" />
+          <Property Name="rateIn" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="rateOut" Type="Decimal" Precision="18" Scale="0" />
+        </EntityType>
+        <EntityType Name="shapeFarmacy">
+          <Key>
+            <PropertyRef Name="sfId" />
+          </Key>
+          <Property Name="sfId" Type="Decimal" Precision="18" Scale="0" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="sfCode" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="sfName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="isDeleted" Type="Boolean" />
+          <NavigationProperty Name="dragTab" Relationship="Self.FK_dragTab_shapeFarmacy" FromRole="shapeFarmacy" ToRole="dragTab" />
+        </EntityType>
+        <EntityType Name="sysdiagrams">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="principal_id" Type="Int32" Nullable="false" />
+          <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="version" Type="Int32" />
+          <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+        </EntityType>
+        <EntityType Name="testItemTab">
+          <Key>
+            <PropertyRef Name="itId" />
+          </Key>
+          <Property Name="itId" Type="Decimal" Precision="18" Scale="0" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="itCode" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="itName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="itSname" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="maxValue" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="minValue" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="unitName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="itPrice" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="qty" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="teId" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="isDeleted" Type="Boolean" />
+          <NavigationProperty Name="resultTestTab" Relationship="Self.FK_resultTestTab_testItemTab" FromRole="testItemTab" ToRole="resultTestTab" />
+          <NavigationProperty Name="testTab" Relationship="Self.FK_testItemTab_testTab" FromRole="testItemTab" ToRole="testTab" />
+        </EntityType>
+        <EntityType Name="testrRequesTab">
+          <Key>
+            <PropertyRef Name="trId" />
+          </Key>
+          <Property Name="trId" Type="Decimal" Precision="18" Scale="0" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="trCode" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="trManual" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="trDate" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="trDiscount" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="valueAdded" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="Coin_Num" Type="Int32" />
+          <Property Name="Cash_Num" Type="Int32" />
+          <Property Name="viId" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="methodPayment" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="Coin_change" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="state" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="consId" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="isDeleted" Type="Boolean" />
+          <NavigationProperty Name="Cash" Relationship="Self.FK_testrRequesTab_Cash" FromRole="testrRequesTab" ToRole="Cash" />
+          <NavigationProperty Name="Coin" Relationship="Self.FK_testrRequesTab_Coin" FromRole="testrRequesTab" ToRole="Coin" />
+          <NavigationProperty Name="resultTestTab" Relationship="Self.FK_resultTestTab_testrRequesTab" FromRole="testrRequesTab" ToRole="resultTestTab" />
+          <NavigationProperty Name="samplesTab" Relationship="Self.FK_samplesTab_testrRequesTab" FromRole="testrRequesTab" ToRole="samplesTab" />
+          <NavigationProperty Name="visitTab" Relationship="Self.FK_testrRequesTab_visitTab" FromRole="testrRequesTab" ToRole="visitTab" />
+        </EntityType>
+        <EntityType Name="testTab">
+          <Key>
+            <PropertyRef Name="teId" />
+          </Key>
+          <Property Name="teId" Type="Decimal" Precision="18" Scale="0" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="teCode" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="teName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="teSname" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="teNote" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="grId" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="isDeleted" Type="Boolean" />
+          <NavigationProperty Name="groupTestTab" Relationship="Self.FK_testTab_groupTestTab" FromRole="testTab" ToRole="groupTestTab" />
+          <NavigationProperty Name="testItemTab" Relationship="Self.FK_testItemTab_testTab" FromRole="testTab" ToRole="testItemTab" />
+          <Property Name="rateIn" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="rateOut" Type="Decimal" Precision="18" Scale="0" />
+        </EntityType>
+        <EntityType Name="Users">
+          <Key>
+            <PropertyRef Name="User_Num" />
+          </Key>
+          <Property Name="User_Num" Type="Int32" Nullable="false" />
+          <Property Name="Full_Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="User_Login_Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="User_Pass" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Permission_Level" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Address" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Name="Phone_Num" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Name="Is_Admin" Type="Boolean" />
+          <Property Name="Status" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="isDeleted" Type="Boolean" />
+        </EntityType>
+        <EntityType Name="users1">
+          <Key>
+            <PropertyRef Name="userId" />
+          </Key>
+          <Property Name="userId" Type="Decimal" Precision="18" Scale="0" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="userName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="Password" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="confirmPassword" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="userType" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="userState" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="email" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="userIdentifier" Type="Decimal" Precision="18" Scale="0" />
+        </EntityType>
+        <EntityType Name="visitTab">
+          <Key>
+            <PropertyRef Name="viId" />
+          </Key>
+          <Property Name="viId" Type="Decimal" Precision="18" Scale="0" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="viCode" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="viName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="viDate" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="viTime" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="paId" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="apId" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="viNote" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="doId" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="isDeleted" Type="Boolean" />
+          <NavigationProperty Name="doctorsTab" Relationship="Self.FK_visitTab_doctorsTab" FromRole="visitTab" ToRole="doctorsTab" />
+          <NavigationProperty Name="patientsTab" Relationship="Self.FK_visitTab_patientsTab" FromRole="visitTab" ToRole="patientsTab" />
+          <NavigationProperty Name="previewTab" Relationship="Self.FK_Table_1_visitTab" FromRole="visitTab" ToRole="previewTab" />
+          <NavigationProperty Name="recipeTab" Relationship="Self.FK_recipeTab_visitTab" FromRole="visitTab" ToRole="recipeTab" />
+          <NavigationProperty Name="servicesRequestTab" Relationship="Self.FK_servicesRequestTab_visitTab" FromRole="visitTab" ToRole="servicesRequestTab" />
+          <NavigationProperty Name="testrRequesTab" Relationship="Self.FK_testrRequesTab_visitTab" FromRole="visitTab" ToRole="testrRequesTab" />
+        </EntityType>
+        <EntityType Name="Cost_Centers">
+          <Key>
+            <PropertyRef Name="Cost_Centers_Num" />
+            <PropertyRef Name="Cost_Centers_Name" />
+          </Key>
+          <Property Name="Cost_Centers_Num" Type="Int32" Nullable="false" />
+          <Property Name="Cost_Centers_Name" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Serial_Table">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Key_Num" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="Serial_Num" Type="String" MaxLength="300" FixedLength="false" Unicode="true" />
+          <Property Name="Install" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="use_date" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="isDeleted" Type="Boolean" />
+        </EntityType>
+        <EntityType Name="System_Options">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" />
+          <Property Name="Options_Num" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Options_Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Options" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="isDeleted" Type="Boolean" />
+        </EntityType>
+        <Association Name="FK_Cash_Accounts">
+          <End Role="Accounts" Type="Self.Accounts" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Cash" Type="Self.Cash" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Accounts">
+              <PropertyRef Name="Acc_Num" />
+            </Principal>
+            <Dependent Role="Cash">
+              <PropertyRef Name="Acc_Num" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dragTab_activeMaterialTab">
+          <End Role="activeMaterialTab" Type="Self.activeMaterialTab" Multiplicity="0..1" />
+          <End Role="dragTab" Type="Self.dragTab" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="activeMaterialTab">
+              <PropertyRef Name="acId" />
+            </Principal>
+            <Dependent Role="dragTab">
+              <PropertyRef Name="acId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_appointmentTab_patientsTab">
+          <End Role="patientsTab" Type="Self.patientsTab" Multiplicity="0..1" />
+          <End Role="appointmentTab" Type="Self.appointmentTab" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="patientsTab">
+              <PropertyRef Name="paId" />
+            </Principal>
+            <Dependent Role="appointmentTab">
+              <PropertyRef Name="paId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_servicesRequestTab_Cash">
+          <End Role="Cash" Type="Self.Cash" Multiplicity="0..1" />
+          <End Role="servicesRequestTab" Type="Self.servicesRequestTab" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Cash">
+              <PropertyRef Name="Cash_Num" />
+            </Principal>
+            <Dependent Role="servicesRequestTab">
+              <PropertyRef Name="Cash_Num" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_testrRequesTab_Cash">
+          <End Role="Cash" Type="Self.Cash" Multiplicity="0..1" />
+          <End Role="testrRequesTab" Type="Self.testrRequesTab" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Cash">
+              <PropertyRef Name="Cash_Num" />
+            </Principal>
+            <Dependent Role="testrRequesTab">
+              <PropertyRef Name="Cash_Num" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_clinicTab_hospitalCenterTab">
+          <End Role="hospitalCenterTab" Type="Self.hospitalCenterTab" Multiplicity="0..1" />
+          <End Role="clinicTab" Type="Self.clinicTab" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="hospitalCenterTab">
+              <PropertyRef Name="hoId" />
+            </Principal>
+            <Dependent Role="clinicTab">
+              <PropertyRef Name="hoId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_doctorsTab_clinicTab">
+          <End Role="clinicTab" Type="Self.clinicTab" Multiplicity="0..1" />
+          <End Role="doctorsTab" Type="Self.doctorsTab" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="clinicTab">
+              <PropertyRef Name="clId" />
+            </Principal>
+            <Dependent Role="doctorsTab">
+              <PropertyRef Name="clId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_servicesRequestTab_Coin">
+          <End Role="Coin" Type="Self.Coin" Multiplicity="0..1" />
+          <End Role="servicesRequestTab" Type="Self.servicesRequestTab" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Coin">
+              <PropertyRef Name="Coin_Num" />
+            </Principal>
+            <Dependent Role="servicesRequestTab">
+              <PropertyRef Name="Coin_Num" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_testrRequesTab_Coin">
+          <End Role="Coin" Type="Self.Coin" Multiplicity="0..1" />
+          <End Role="testrRequesTab" Type="Self.testrRequesTab" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Coin">
+              <PropertyRef Name="Coin_Num" />
+            </Principal>
+            <Dependent Role="testrRequesTab">
+              <PropertyRef Name="Coin_Num" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dragTab_companySuplierDragTab">
+          <End Role="companySuplierDragTab" Type="Self.companySuplierDragTab" Multiplicity="0..1" />
+          <End Role="dragTab" Type="Self.dragTab" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="companySuplierDragTab">
+              <PropertyRef Name="comsId" />
+            </Principal>
+            <Dependent Role="dragTab">
+              <PropertyRef Name="comsId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Constriant_Affect_Constriant">
+          <End Role="Constriant" Type="Self.Constriant" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Constriant_Affect" Type="Self.Constriant_Affect" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Constriant">
+              <PropertyRef Name="Cons_Num" />
+            </Principal>
+            <Dependent Role="Constriant_Affect">
+              <PropertyRef Name="Cons_Num" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_visitTab_doctorsTab">
+          <End Role="doctorsTab" Type="Self.doctorsTab" Multiplicity="0..1" />
+          <End Role="visitTab" Type="Self.visitTab" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="doctorsTab">
+              <PropertyRef Name="doId" />
+            </Principal>
+            <Dependent Role="visitTab">
+              <PropertyRef Name="doId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dragTab_groupDragTab">
+          <End Role="groupDragTab" Type="Self.groupDragTab" Multiplicity="0..1" />
+          <End Role="dragTab" Type="Self.dragTab" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="groupDragTab">
+              <PropertyRef Name="grdrId" />
+            </Principal>
+            <Dependent Role="dragTab">
+              <PropertyRef Name="grdrId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dragTab_scientificNameDragTab">
+          <End Role="scientificNameDragTab" Type="Self.scientificNameDragTab" Multiplicity="0..1" />
+          <End Role="dragTab" Type="Self.dragTab" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="scientificNameDragTab">
+              <PropertyRef Name="sciId" />
+            </Principal>
+            <Dependent Role="dragTab">
+              <PropertyRef Name="sciId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dragTab_shapeFarmacy">
+          <End Role="shapeFarmacy" Type="Self.shapeFarmacy" Multiplicity="0..1" />
+          <End Role="dragTab" Type="Self.dragTab" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="shapeFarmacy">
+              <PropertyRef Name="sfId" />
+            </Principal>
+            <Dependent Role="dragTab">
+              <PropertyRef Name="sfId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_presPriod_doctorsTab">
+          <End Role="dragTab" Type="Self.dragTab" Multiplicity="0..1" />
+          <End Role="prescriptionTab" Type="Self.prescriptionTab" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="dragTab">
+              <PropertyRef Name="drId" />
+            </Principal>
+            <Dependent Role="prescriptionTab">
+              <PropertyRef Name="drId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_testTab_groupTestTab">
+          <End Role="groupTestTab" Type="Self.groupTestTab" Multiplicity="0..1" />
+          <End Role="testTab" Type="Self.testTab" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="groupTestTab">
+              <PropertyRef Name="grId" />
+            </Principal>
+            <Dependent Role="testTab">
+              <PropertyRef Name="grId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_visitTab_patientsTab">
+          <End Role="patientsTab" Type="Self.patientsTab" Multiplicity="0..1" />
+          <End Role="visitTab" Type="Self.visitTab" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="patientsTab">
+              <PropertyRef Name="paId" />
+            </Principal>
+            <Dependent Role="visitTab">
+              <PropertyRef Name="paId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_prescriptionTab_recipeTab">
+          <End Role="recipeTab" Type="Self.recipeTab" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="prescriptionTab" Type="Self.prescriptionTab" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="recipeTab">
+              <PropertyRef Name="reId" />
+            </Principal>
+            <Dependent Role="prescriptionTab">
+              <PropertyRef Name="reId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Table_1_visitTab">
+          <End Role="visitTab" Type="Self.visitTab" Multiplicity="0..1" />
+          <End Role="previewTab" Type="Self.previewTab" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="visitTab">
+              <PropertyRef Name="viId" />
+            </Principal>
+            <Dependent Role="previewTab">
+              <PropertyRef Name="viId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_recipeTab_visitTab">
+          <End Role="visitTab" Type="Self.visitTab" Multiplicity="0..1" />
+          <End Role="recipeTab" Type="Self.recipeTab" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="visitTab">
+              <PropertyRef Name="viId" />
+            </Principal>
+            <Dependent Role="recipeTab">
+              <PropertyRef Name="viId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_resultTestTab_testItemTab">
+          <End Role="testItemTab" Type="Self.testItemTab" Multiplicity="0..1" />
+          <End Role="resultTestTab" Type="Self.resultTestTab" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="testItemTab">
+              <PropertyRef Name="itId" />
+            </Principal>
+            <Dependent Role="resultTestTab">
+              <PropertyRef Name="itId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_resultTestTab_testrRequesTab">
+          <End Role="testrRequesTab" Type="Self.testrRequesTab" Multiplicity="0..1" />
+          <End Role="resultTestTab" Type="Self.resultTestTab" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="testrRequesTab">
+              <PropertyRef Name="trId" />
+            </Principal>
+            <Dependent Role="resultTestTab">
+              <PropertyRef Name="trId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_samplesTab_testrRequesTab">
+          <End Role="testrRequesTab" Type="Self.testrRequesTab" Multiplicity="0..1" />
+          <End Role="samplesTab" Type="Self.samplesTab" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="testrRequesTab">
+              <PropertyRef Name="trId" />
+            </Principal>
+            <Dependent Role="samplesTab">
+              <PropertyRef Name="trId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_servicesLestTab_servicesRequestTab">
+          <End Role="servicesRequestTab" Type="Self.servicesRequestTab" Multiplicity="0..1" />
+          <End Role="servicesLestTab" Type="Self.servicesLestTab" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="servicesRequestTab">
+              <PropertyRef Name="srId" />
+            </Principal>
+            <Dependent Role="servicesLestTab">
+              <PropertyRef Name="srId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_servicesLestTab_serviecsTab">
+          <End Role="serviecsTab" Type="Self.serviecsTab" Multiplicity="0..1" />
+          <End Role="servicesLestTab" Type="Self.servicesLestTab" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="serviecsTab">
+              <PropertyRef Name="seId" />
+            </Principal>
+            <Dependent Role="servicesLestTab">
+              <PropertyRef Name="seId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_servicesRequestTab_visitTab">
+          <End Role="visitTab" Type="Self.visitTab" Multiplicity="0..1" />
+          <End Role="servicesRequestTab" Type="Self.servicesRequestTab" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="visitTab">
+              <PropertyRef Name="viId" />
+            </Principal>
+            <Dependent Role="servicesRequestTab">
+              <PropertyRef Name="viId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_testItemTab_testTab">
+          <End Role="testTab" Type="Self.testTab" Multiplicity="0..1" />
+          <End Role="testItemTab" Type="Self.testItemTab" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="testTab">
+              <PropertyRef Name="teId" />
+            </Principal>
+            <Dependent Role="testItemTab">
+              <PropertyRef Name="teId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_testrRequesTab_visitTab">
+          <End Role="visitTab" Type="Self.visitTab" Multiplicity="0..1" />
+          <End Role="testrRequesTab" Type="Self.testrRequesTab" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="visitTab">
+              <PropertyRef Name="viId" />
+            </Principal>
+            <Dependent Role="testrRequesTab">
+              <PropertyRef Name="viId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="MedicalCenterDbEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Accounts" EntityType="Self.Accounts" />
+          <EntitySet Name="activeMaterialTab" EntityType="Self.activeMaterialTab" />
+          <EntitySet Name="appointmentTab" EntityType="Self.appointmentTab" />
+          <EntitySet Name="Branch" EntityType="Self.Branch" />
+          <EntitySet Name="Cash" EntityType="Self.Cash" />
+          <EntitySet Name="clinicTab" EntityType="Self.clinicTab" />
+          <EntitySet Name="Coin" EntityType="Self.Coin" />
+          <EntitySet Name="companySuplierDragTab" EntityType="Self.companySuplierDragTab" />
+          <EntitySet Name="Constriant" EntityType="Self.Constriant" />
+          <EntitySet Name="Constriant_Affect" EntityType="Self.Constriant_Affect" />
+          <EntitySet Name="diagnoseTab" EntityType="Self.diagnoseTab" />
+          <EntitySet Name="doctorsTab" EntityType="Self.doctorsTab" />
+          <EntitySet Name="doseTab" EntityType="Self.doseTab" />
+          <EntitySet Name="dragTab" EntityType="Self.dragTab" />
+          <EntitySet Name="groupDragTab" EntityType="Self.groupDragTab" />
+          <EntitySet Name="groupTestTab" EntityType="Self.groupTestTab" />
+          <EntitySet Name="hospitalCenterTab" EntityType="Self.hospitalCenterTab" />
+          <EntitySet Name="patientsTab" EntityType="Self.patientsTab" />
+          <EntitySet Name="prescriptionTab" EntityType="Self.prescriptionTab" />
+          <EntitySet Name="previewTab" EntityType="Self.previewTab" />
+          <EntitySet Name="recipeTab" EntityType="Self.recipeTab" />
+          <EntitySet Name="resultTestTab" EntityType="Self.resultTestTab" />
+          <EntitySet Name="roles" EntityType="Self.roles" />
+          <EntitySet Name="samplesTab" EntityType="Self.samplesTab" />
+          <EntitySet Name="scientificNameDragTab" EntityType="Self.scientificNameDragTab" />
+          <EntitySet Name="servicesLestTab" EntityType="Self.servicesLestTab" />
+          <EntitySet Name="servicesRequestTab" EntityType="Self.servicesRequestTab" />
+          <EntitySet Name="serviecsTab" EntityType="Self.serviecsTab" />
+          <EntitySet Name="shapeFarmacy" EntityType="Self.shapeFarmacy" />
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" />
+          <EntitySet Name="testItemTab" EntityType="Self.testItemTab" />
+          <EntitySet Name="testrRequesTab" EntityType="Self.testrRequesTab" />
+          <EntitySet Name="testTab" EntityType="Self.testTab" />
+          <EntitySet Name="Users" EntityType="Self.Users" />
+          <EntitySet Name="users1" EntityType="Self.users1" />
+          <EntitySet Name="visitTab" EntityType="Self.visitTab" />
+          <EntitySet Name="Cost_Centers" EntityType="Self.Cost_Centers" />
+          <EntitySet Name="Serial_Table" EntityType="Self.Serial_Table" />
+          <EntitySet Name="System_Options" EntityType="Self.System_Options" />
+          <AssociationSet Name="FK_Cash_Accounts" Association="Self.FK_Cash_Accounts">
+            <End Role="Accounts" EntitySet="Accounts" />
+            <End Role="Cash" EntitySet="Cash" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dragTab_activeMaterialTab" Association="Self.FK_dragTab_activeMaterialTab">
+            <End Role="activeMaterialTab" EntitySet="activeMaterialTab" />
+            <End Role="dragTab" EntitySet="dragTab" />
+          </AssociationSet>
+          <AssociationSet Name="FK_appointmentTab_patientsTab" Association="Self.FK_appointmentTab_patientsTab">
+            <End Role="patientsTab" EntitySet="patientsTab" />
+            <End Role="appointmentTab" EntitySet="appointmentTab" />
+          </AssociationSet>
+          <AssociationSet Name="FK_servicesRequestTab_Cash" Association="Self.FK_servicesRequestTab_Cash">
+            <End Role="Cash" EntitySet="Cash" />
+            <End Role="servicesRequestTab" EntitySet="servicesRequestTab" />
+          </AssociationSet>
+          <AssociationSet Name="FK_testrRequesTab_Cash" Association="Self.FK_testrRequesTab_Cash">
+            <End Role="Cash" EntitySet="Cash" />
+            <End Role="testrRequesTab" EntitySet="testrRequesTab" />
+          </AssociationSet>
+          <AssociationSet Name="FK_clinicTab_hospitalCenterTab" Association="Self.FK_clinicTab_hospitalCenterTab">
+            <End Role="hospitalCenterTab" EntitySet="hospitalCenterTab" />
+            <End Role="clinicTab" EntitySet="clinicTab" />
+          </AssociationSet>
+          <AssociationSet Name="FK_doctorsTab_clinicTab" Association="Self.FK_doctorsTab_clinicTab">
+            <End Role="clinicTab" EntitySet="clinicTab" />
+            <End Role="doctorsTab" EntitySet="doctorsTab" />
+          </AssociationSet>
+          <AssociationSet Name="FK_servicesRequestTab_Coin" Association="Self.FK_servicesRequestTab_Coin">
+            <End Role="Coin" EntitySet="Coin" />
+            <End Role="servicesRequestTab" EntitySet="servicesRequestTab" />
+          </AssociationSet>
+          <AssociationSet Name="FK_testrRequesTab_Coin" Association="Self.FK_testrRequesTab_Coin">
+            <End Role="Coin" EntitySet="Coin" />
+            <End Role="testrRequesTab" EntitySet="testrRequesTab" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dragTab_companySuplierDragTab" Association="Self.FK_dragTab_companySuplierDragTab">
+            <End Role="companySuplierDragTab" EntitySet="companySuplierDragTab" />
+            <End Role="dragTab" EntitySet="dragTab" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Constriant_Affect_Constriant" Association="Self.FK_Constriant_Affect_Constriant">
+            <End Role="Constriant" EntitySet="Constriant" />
+            <End Role="Constriant_Affect" EntitySet="Constriant_Affect" />
+          </AssociationSet>
+          <AssociationSet Name="FK_visitTab_doctorsTab" Association="Self.FK_visitTab_doctorsTab">
+            <End Role="doctorsTab" EntitySet="doctorsTab" />
+            <End Role="visitTab" EntitySet="visitTab" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dragTab_groupDragTab" Association="Self.FK_dragTab_groupDragTab">
+            <End Role="groupDragTab" EntitySet="groupDragTab" />
+            <End Role="dragTab" EntitySet="dragTab" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dragTab_scientificNameDragTab" Association="Self.FK_dragTab_scientificNameDragTab">
+            <End Role="scientificNameDragTab" EntitySet="scientificNameDragTab" />
+            <End Role="dragTab" EntitySet="dragTab" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dragTab_shapeFarmacy" Association="Self.FK_dragTab_shapeFarmacy">
+            <End Role="shapeFarmacy" EntitySet="shapeFarmacy" />
+            <End Role="dragTab" EntitySet="dragTab" />
+          </AssociationSet>
+          <AssociationSet Name="FK_presPriod_doctorsTab" Association="Self.FK_presPriod_doctorsTab">
+            <End Role="dragTab" EntitySet="dragTab" />
+            <End Role="prescriptionTab" EntitySet="prescriptionTab" />
+          </AssociationSet>
+          <AssociationSet Name="FK_testTab_groupTestTab" Association="Self.FK_testTab_groupTestTab">
+            <End Role="groupTestTab" EntitySet="groupTestTab" />
+            <End Role="testTab" EntitySet="testTab" />
+          </AssociationSet>
+          <AssociationSet Name="FK_visitTab_patientsTab" Association="Self.FK_visitTab_patientsTab">
+            <End Role="patientsTab" EntitySet="patientsTab" />
+            <End Role="visitTab" EntitySet="visitTab" />
+          </AssociationSet>
+          <AssociationSet Name="FK_prescriptionTab_recipeTab" Association="Self.FK_prescriptionTab_recipeTab">
+            <End Role="recipeTab" EntitySet="recipeTab" />
+            <End Role="prescriptionTab" EntitySet="prescriptionTab" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Table_1_visitTab" Association="Self.FK_Table_1_visitTab">
+            <End Role="visitTab" EntitySet="visitTab" />
+            <End Role="previewTab" EntitySet="previewTab" />
+          </AssociationSet>
+          <AssociationSet Name="FK_recipeTab_visitTab" Association="Self.FK_recipeTab_visitTab">
+            <End Role="visitTab" EntitySet="visitTab" />
+            <End Role="recipeTab" EntitySet="recipeTab" />
+          </AssociationSet>
+          <AssociationSet Name="FK_resultTestTab_testItemTab" Association="Self.FK_resultTestTab_testItemTab">
+            <End Role="testItemTab" EntitySet="testItemTab" />
+            <End Role="resultTestTab" EntitySet="resultTestTab" />
+          </AssociationSet>
+          <AssociationSet Name="FK_resultTestTab_testrRequesTab" Association="Self.FK_resultTestTab_testrRequesTab">
+            <End Role="testrRequesTab" EntitySet="testrRequesTab" />
+            <End Role="resultTestTab" EntitySet="resultTestTab" />
+          </AssociationSet>
+          <AssociationSet Name="FK_samplesTab_testrRequesTab" Association="Self.FK_samplesTab_testrRequesTab">
+            <End Role="testrRequesTab" EntitySet="testrRequesTab" />
+            <End Role="samplesTab" EntitySet="samplesTab" />
+          </AssociationSet>
+          <AssociationSet Name="FK_servicesLestTab_servicesRequestTab" Association="Self.FK_servicesLestTab_servicesRequestTab">
+            <End Role="servicesRequestTab" EntitySet="servicesRequestTab" />
+            <End Role="servicesLestTab" EntitySet="servicesLestTab" />
+          </AssociationSet>
+          <AssociationSet Name="FK_servicesLestTab_serviecsTab" Association="Self.FK_servicesLestTab_serviecsTab">
+            <End Role="serviecsTab" EntitySet="serviecsTab" />
+            <End Role="servicesLestTab" EntitySet="servicesLestTab" />
+          </AssociationSet>
+          <AssociationSet Name="FK_servicesRequestTab_visitTab" Association="Self.FK_servicesRequestTab_visitTab">
+            <End Role="visitTab" EntitySet="visitTab" />
+            <End Role="servicesRequestTab" EntitySet="servicesRequestTab" />
+          </AssociationSet>
+          <AssociationSet Name="FK_testItemTab_testTab" Association="Self.FK_testItemTab_testTab">
+            <End Role="testTab" EntitySet="testTab" />
+            <End Role="testItemTab" EntitySet="testItemTab" />
+          </AssociationSet>
+          <AssociationSet Name="FK_testrRequesTab_visitTab" Association="Self.FK_testrRequesTab_visitTab">
+            <End Role="visitTab" EntitySet="visitTab" />
+            <End Role="testrRequesTab" EntitySet="testrRequesTab" />
+          </AssociationSet>
+          <FunctionImport Name="AddDiagnoses">
+            <Parameter Name="diCode" Mode="In" Type="String" />
+            <Parameter Name="diName" Mode="In" Type="String" />
+            <Parameter Name="diDate" Mode="In" Type="String" />
+            <Parameter Name="diTime" Mode="In" Type="String" />
+            <Parameter Name="viId" Mode="In" Type="Decimal" />
+          </FunctionImport>
+          <FunctionImport Name="AddPatient">
+            <Parameter Name="paCode" Mode="In" Type="String" />
+            <Parameter Name="paFname" Mode="In" Type="String" />
+            <Parameter Name="paLname" Mode="In" Type="String" />
+            <Parameter Name="paSex" Mode="In" Type="String" />
+            <Parameter Name="paBrithday" Mode="In" Type="String" />
+            <Parameter Name="paAge" Mode="In" Type="Int32" />
+            <Parameter Name="paMobile1" Mode="In" Type="Int32" />
+            <Parameter Name="paMobile2" Mode="In" Type="Int32" />
+            <Parameter Name="paImg" Mode="In" Type="Binary" />
+            <Parameter Name="paAddress" Mode="In" Type="String" />
+            <Parameter Name="paCountry" Mode="In" Type="String" />
+            <Parameter Name="paCity" Mode="In" Type="String" />
+            <Parameter Name="paBloodType" Mode="In" Type="String" />
+            <Parameter Name="paState" Mode="In" Type="String" />
+            <Parameter Name="paType" Mode="In" Type="String" />
+            <Parameter Name="ACC_Num" Mode="In" Type="Decimal" />
+          </FunctionImport>
+          <FunctionImport Name="AddPrescription">
+            <Parameter Name="presCode" Mode="In" Type="String" />
+            <Parameter Name="presName" Mode="In" Type="String" />
+            <Parameter Name="presQyt" Mode="In" Type="String" />
+            <Parameter Name="presTimeUse" Mode="In" Type="String" />
+            <Parameter Name="presSize" Mode="In" Type="String" />
+            <Parameter Name="presPriod" Mode="In" Type="String" />
+            <Parameter Name="reId" Mode="In" Type="Decimal" />
+            <Parameter Name="drId" Mode="In" Type="Decimal" />
+          </FunctionImport>
+          <FunctionImport Name="AddPreview">
+            <Parameter Name="prCode" Mode="In" Type="String" />
+            <Parameter Name="prName" Mode="In" Type="String" />
+            <Parameter Name="prDate" Mode="In" Type="String" />
+            <Parameter Name="prTime" Mode="In" Type="String" />
+            <Parameter Name="prNote" Mode="In" Type="String" />
+            <Parameter Name="viId" Mode="In" Type="Decimal" />
+          </FunctionImport>
+          <FunctionImport Name="AddRecipe">
+            <Parameter Name="reCode" Mode="In" Type="String" />
+            <Parameter Name="reDate" Mode="In" Type="String" />
+            <Parameter Name="reTime" Mode="In" Type="String" />
+            <Parameter Name="reNote" Mode="In" Type="String" />
+            <Parameter Name="viId" Mode="In" Type="Decimal" />
+          </FunctionImport>
+          <FunctionImport Name="AddServiecs">
+            <Parameter Name="seCode" Mode="In" Type="String" />
+            <Parameter Name="seName" Mode="In" Type="String" />
+            <Parameter Name="seType" Mode="In" Type="String" />
+            <Parameter Name="sePrice" Mode="In" Type="Decimal" />
+            <Parameter Name="seNote" Mode="In" Type="String" />
+            <Parameter Name="ACC_Num" Mode="In" Type="Decimal" />
+          </FunctionImport>
+          <FunctionImport Name="AddVisit">
+            <Parameter Name="viCode" Mode="In" Type="String" />
+            <Parameter Name="viName" Mode="In" Type="String" />
+            <Parameter Name="viDate" Mode="In" Type="String" />
+            <Parameter Name="viTime" Mode="In" Type="String" />
+            <Parameter Name="paId" Mode="In" Type="Decimal" />
+            <Parameter Name="apId" Mode="In" Type="Decimal" />
+            <Parameter Name="viNote" Mode="In" Type="String" />
+            <Parameter Name="doId" Mode="In" Type="Decimal" />
+          </FunctionImport>
+          <FunctionImport Name="DeleteDiagnoseByUpdate">
+            <Parameter Name="diId" Mode="In" Type="Decimal" />
+            <Parameter Name="isDeleted" Mode="In" Type="Boolean" />
+          </FunctionImport>
+          <FunctionImport Name="DeletePatient">
+          <Parameter Name="paId" Mode="In" Type="Decimal" />
+          </FunctionImport>
+          <FunctionImport Name="DeletePrescription">
+          <Parameter Name="presId" Mode="In" Type="Decimal" />
+          </FunctionImport>
+          <FunctionImport Name="DeletePreviewByUpdate">
+            <Parameter Name="prId" Mode="In" Type="Decimal" />
+            <Parameter Name="isDeleted" Mode="In" Type="Boolean" />
+          </FunctionImport>
+          <FunctionImport Name="DeleteRecipeByUpdate">
+            <Parameter Name="reId" Mode="In" Type="Decimal" />
+            <Parameter Name="isDeleted" Mode="In" Type="Boolean" />
+          </FunctionImport>
+          <FunctionImport Name="DeleteVisitPatient">
+          <Parameter Name="viId" Mode="In" Type="Decimal" />
+          </FunctionImport>
+          <FunctionImport Name="getAllPatient" ReturnType="Collection(MedicalCenterDbModel.getAllPatient_Result)" />
+          <FunctionImport Name="getAllServiecs" ReturnType="Collection(MedicalCenterDbModel.getAllServiecs_Result)" />
+          <FunctionImport Name="getAllVisitPatient" ReturnType="Collection(MedicalCenterDbModel.getAllVisitPatient_Result)" />
+          <FunctionImport Name="getDiagnosePatientByVistID" ReturnType="Collection(MedicalCenterDbModel.getDiagnosePatientByVistID_Result)">
+          <Parameter Name="Id" Mode="In" Type="Decimal" />
+          </FunctionImport>
+          <FunctionImport Name="getMaxRecipeID" ReturnType="Collection(Decimal)" />
+          <FunctionImport Name="getPreviewPatientByVistID" ReturnType="Collection(MedicalCenterDbModel.getPreviewPatientByVistID_Result)">
+          <Parameter Name="Id" Mode="In" Type="Decimal" />
+          </FunctionImport>
+          <FunctionImport Name="getRecipeByRecipeId" ReturnType="Collection(MedicalCenterDbModel.getRecipeByRecipeId_Result)">
+          <Parameter Name="Id" Mode="In" Type="Decimal" />
+          </FunctionImport>
+          <FunctionImport Name="getRecipeByVisitID" ReturnType="Collection(MedicalCenterDbModel.getRecipeByVisitID_Result)">
+          <Parameter Name="Id" Mode="In" Type="Decimal" />
+          </FunctionImport>
+          <FunctionImport Name="getTestResultPatient" ReturnType="Collection(MedicalCenterDbModel.getTestResultPatient_Result)">
+          <Parameter Name="ID" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="getVisitPatientByID" ReturnType="Collection(MedicalCenterDbModel.getVisitPatientByID_Result)">
+          <Parameter Name="ID" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="getVisitPatientByName" ReturnType="Collection(MedicalCenterDbModel.getVisitPatientByName_Result)">
+          <Parameter Name="Name" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="SearchVisitById" ReturnType="Collection(MedicalCenterDbModel.SearchVisitById_Result)">
+          <Parameter Name="ID" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="SearchVisitPatient" ReturnType="Collection(MedicalCenterDbModel.SearchVisitPatient_Result)">
+          <Parameter Name="ID" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="SearchVisitPatientByDate" ReturnType="Collection(MedicalCenterDbModel.SearchVisitPatientByDate_Result)">
+          <Parameter Name="viDate" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="sp_alterdiagram">
+            <Parameter Name="diagramname" Mode="In" Type="String" />
+            <Parameter Name="owner_id" Mode="In" Type="Int32" />
+            <Parameter Name="version" Mode="In" Type="Int32" />
+            <Parameter Name="definition" Mode="In" Type="Binary" />
+          </FunctionImport>
+          <FunctionImport Name="sp_creatediagram">
+            <Parameter Name="diagramname" Mode="In" Type="String" />
+            <Parameter Name="owner_id" Mode="In" Type="Int32" />
+            <Parameter Name="version" Mode="In" Type="Int32" />
+            <Parameter Name="definition" Mode="In" Type="Binary" />
+          </FunctionImport>
+          <FunctionImport Name="sp_dropdiagram">
+            <Parameter Name="diagramname" Mode="In" Type="String" />
+            <Parameter Name="owner_id" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="sp_helpdiagramdefinition" ReturnType="Collection(MedicalCenterDbModel.sp_helpdiagramdefinition_Result)">
+            <Parameter Name="diagramname" Mode="In" Type="String" />
+            <Parameter Name="owner_id" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="sp_helpdiagrams" ReturnType="Collection(MedicalCenterDbModel.sp_helpdiagrams_Result)">
+            <Parameter Name="diagramname" Mode="In" Type="String" />
+            <Parameter Name="owner_id" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="sp_renamediagram">
+            <Parameter Name="diagramname" Mode="In" Type="String" />
+            <Parameter Name="owner_id" Mode="In" Type="Int32" />
+            <Parameter Name="new_diagramname" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="sp_upgraddiagrams" />
+          <FunctionImport Name="UpdateDiagnoses">
+            <Parameter Name="diId" Mode="In" Type="Decimal" />
+            <Parameter Name="diCode" Mode="In" Type="String" />
+            <Parameter Name="diName" Mode="In" Type="String" />
+            <Parameter Name="diDate" Mode="In" Type="String" />
+            <Parameter Name="diTime" Mode="In" Type="String" />
+            <Parameter Name="viId" Mode="In" Type="Decimal" />
+          </FunctionImport>
+          <FunctionImport Name="updatePatient">
+            <Parameter Name="paId" Mode="In" Type="Decimal" />
+            <Parameter Name="paCode" Mode="In" Type="String" />
+            <Parameter Name="paFname" Mode="In" Type="String" />
+            <Parameter Name="paLname" Mode="In" Type="String" />
+            <Parameter Name="paSex" Mode="In" Type="String" />
+            <Parameter Name="paBrithday" Mode="In" Type="String" />
+            <Parameter Name="paAge" Mode="In" Type="Int32" />
+            <Parameter Name="paMobile1" Mode="In" Type="Int32" />
+            <Parameter Name="paMobile2" Mode="In" Type="Int32" />
+            <Parameter Name="paImg" Mode="In" Type="Binary" />
+            <Parameter Name="paAddress" Mode="In" Type="String" />
+            <Parameter Name="paCountry" Mode="In" Type="String" />
+            <Parameter Name="paCity" Mode="In" Type="String" />
+            <Parameter Name="paBloodType" Mode="In" Type="String" />
+            <Parameter Name="paState" Mode="In" Type="String" />
+            <Parameter Name="paType" Mode="In" Type="String" />
+            <Parameter Name="ACC_Num" Mode="In" Type="Decimal" />
+          </FunctionImport>
+          <FunctionImport Name="UpdatePrescription">
+            <Parameter Name="presId" Mode="In" Type="Decimal" />
+            <Parameter Name="presCode" Mode="In" Type="String" />
+            <Parameter Name="presName" Mode="In" Type="String" />
+            <Parameter Name="presQyt" Mode="In" Type="String" />
+            <Parameter Name="presTimeUse" Mode="In" Type="String" />
+            <Parameter Name="presSize" Mode="In" Type="String" />
+            <Parameter Name="presPriod" Mode="In" Type="String" />
+            <Parameter Name="reId" Mode="In" Type="Decimal" />
+            <Parameter Name="drId" Mode="In" Type="Decimal" />
+          </FunctionImport>
+          <FunctionImport Name="UpdatePreview">
+            <Parameter Name="prId" Mode="In" Type="Decimal" />
+            <Parameter Name="prCode" Mode="In" Type="String" />
+            <Parameter Name="prName" Mode="In" Type="String" />
+            <Parameter Name="prDate" Mode="In" Type="String" />
+            <Parameter Name="prTime" Mode="In" Type="String" />
+            <Parameter Name="prNote" Mode="In" Type="String" />
+            <Parameter Name="viId" Mode="In" Type="Decimal" />
+          </FunctionImport>
+          <FunctionImport Name="UpdateRecipe">
+            <Parameter Name="reId" Mode="In" Type="Decimal" />
+            <Parameter Name="reCode" Mode="In" Type="String" />
+            <Parameter Name="reDate" Mode="In" Type="String" />
+            <Parameter Name="reTime" Mode="In" Type="String" />
+            <Parameter Name="reNote" Mode="In" Type="String" />
+            <Parameter Name="viId" Mode="In" Type="Decimal" />
+          </FunctionImport>
+          <FunctionImport Name="UpdateServiecs">
+            <Parameter Name="seId" Mode="In" Type="Decimal" />
+            <Parameter Name="seCode" Mode="In" Type="String" />
+            <Parameter Name="seName" Mode="In" Type="String" />
+            <Parameter Name="seType" Mode="In" Type="String" />
+            <Parameter Name="sePrice" Mode="In" Type="Decimal" />
+            <Parameter Name="seNote" Mode="In" Type="String" />
+            <Parameter Name="ACC_Num" Mode="In" Type="Decimal" />
+          </FunctionImport>
+          <FunctionImport Name="UpdateVisit">
+            <Parameter Name="viId" Mode="In" Type="Decimal" />
+            <Parameter Name="viCode" Mode="In" Type="String" />
+            <Parameter Name="viName" Mode="In" Type="String" />
+            <Parameter Name="viDate" Mode="In" Type="String" />
+            <Parameter Name="viTime" Mode="In" Type="String" />
+            <Parameter Name="paId" Mode="In" Type="Decimal" />
+            <Parameter Name="apId" Mode="In" Type="Decimal" />
+            <Parameter Name="viNote" Mode="In" Type="String" />
+            <Parameter Name="doId" Mode="In" Type="Decimal" />
+          </FunctionImport>
+          <FunctionImport Name="getHeaderInformation" ReturnType="Collection(MedicalCenterDbModel.getHeaderInformation_Result)">
+          <Parameter Name="Id" Mode="In" Type="Decimal" />
+          </FunctionImport>
+        </EntityContainer>
+        <ComplexType Name="getAllPatient_Result">
+          <Property Type="Decimal" Name="الرقم" Nullable="false" Precision="18" Scale="0" />
+          <Property Type="String" Name="رقم_الكود" Nullable="true" MaxLength="100" />
+          <Property Type="String" Name="الاسم" Nullable="true" MaxLength="100" />
+          <Property Type="String" Name="اللقب" Nullable="true" MaxLength="100" />
+          <Property Type="String" Name="الجنس" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="تاريخ_الميلاد" Nullable="true" MaxLength="50" />
+          <Property Type="Int32" Name="العمر" Nullable="true" />
+          <Property Type="Int32" Name="رقم_الموبيل" Nullable="true" />
+          <Property Type="Int32" Name="رقم_التلفون" Nullable="true" />
+          <Property Type="Binary" Name="الصورة" Nullable="true" MaxLength="Max" />
+          <Property Type="String" Name="العنوان" Nullable="true" MaxLength="100" />
+          <Property Type="String" Name="الدولة" Nullable="true" MaxLength="100" />
+          <Property Type="String" Name="المدينة" Nullable="true" MaxLength="100" />
+          <Property Type="String" Name="فصيلة_الدم" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="حالة_المريض" Nullable="true" MaxLength="100" />
+          <Property Type="String" Name="نوع_المريض" Nullable="true" MaxLength="100" />
+          <Property Type="Decimal" Name="رقم_الحساب" Nullable="true" Precision="18" Scale="0" />
+        </ComplexType>
+        <ComplexType Name="getAllServiecs_Result">
+          <Property Type="Decimal" Name="الرقم" Nullable="false" Precision="18" Scale="0" />
+          <Property Type="String" Name="رقم_الكود" Nullable="true" MaxLength="100" />
+          <Property Type="String" Name="الخدمة_" Nullable="true" MaxLength="100" />
+          <Property Type="String" Name="توع_الخدمة" Nullable="true" MaxLength="100" />
+          <Property Type="Decimal" Name="السعر" Nullable="true" Precision="18" Scale="0" />
+          <Property Type="String" Name="ملاحظات" Nullable="true" MaxLength="200" />
+          <Property Type="Decimal" Name="رقم_الحساب" Nullable="true" Precision="18" Scale="0" />
+        </ComplexType>
+        <ComplexType Name="getAllVisitPatient_Result">
+          <Property Type="Decimal" Name="رقم_الزيارة" Nullable="false" Precision="18" Scale="0" />
+          <Property Type="String" Name="رفم_الكود" Nullable="true" MaxLength="100" />
+          <Property Type="String" Name="الزيارة" Nullable="true" MaxLength="100" />
+          <Property Type="String" Name="تاريخ_الزبارة" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="وقت_الزيارة" Nullable="true" MaxLength="50" />
+          <Property Type="Decimal" Name="رقم_الطبيب" Nullable="false" Precision="18" Scale="0" />
+          <Property Type="String" Name="اسم_الطبيب" Nullable="true" MaxLength="100" />
+          <Property Type="String" Name="ملاحظات_" Nullable="true" MaxLength="200" />
+          <Property Type="Decimal" Name="الرقم" Nullable="false" Precision="18" Scale="0" />
+          <Property Type="String" Name="رقم_الكود" Nullable="true" MaxLength="100" />
+          <Property Type="String" Name="اسم_المريض" Nullable="true" MaxLength="100" />
+          <Property Type="String" Name="اللقب" Nullable="true" MaxLength="100" />
+          <Property Type="String" Name="الجنس" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="تاريخ_الميلاد" Nullable="true" MaxLength="50" />
+          <Property Type="Int32" Name="العمر" Nullable="true" />
+          <Property Type="Int32" Name="رقم_الموبيل" Nullable="true" />
+          <Property Type="Int32" Name="رقم_التلفون" Nullable="true" />
+          <Property Type="Binary" Name="الصورة" Nullable="true" MaxLength="Max" />
+          <Property Type="String" Name="العنوان" Nullable="true" MaxLength="100" />
+          <Property Type="String" Name="الدولة" Nullable="true" MaxLength="100" />
+          <Property Type="String" Name="المدينة" Nullable="true" MaxLength="100" />
+          <Property Type="String" Name="فصيلة_الدم" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="حالة_المريض" Nullable="true" MaxLength="100" />
+          <Property Type="String" Name="نوع_المريض" Nullable="true" MaxLength="100" />
+          <Property Type="Decimal" Name="رقم_الحساب" Nullable="true" Precision="18" Scale="0" />
+        </ComplexType>
+        <ComplexType Name="getDiagnosePatientByVistID_Result">
+          <Property Type="Decimal" Name="رقم_الزيارة" Nullable="false" Precision="18" Scale="0" />
+          <Property Type="Decimal" Name="رقم_التشخيص" Nullable="false" Precision="18" Scale="0" />
+          <Property Type="String" Name="الكود" Nullable="true" MaxLength="100" />
+          <Property Type="String" Name="اسم_المريض" Nullable="true" MaxLength="100" />
+          <Property Type="String" Name="اللقب" Nullable="true" MaxLength="100" />
+          <Property Type="String" Name="الجنس" Nullable="true" MaxLength="50" />
+          <Property Type="Int32" Name="العمر" Nullable="true" />
+          <Property Type="String" Name="نتيجة_التشخيص" Nullable="true" MaxLength="100" />
+          <Property Type="String" Name="تاريخ_التشخيص" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="وقت_التشخيص" Nullable="true" MaxLength="50" />
+        </ComplexType>
+        <ComplexType Name="getPreviewPatientByVistID_Result">
+          <Property Type="Decimal" Name="رقم_المعانية" Nullable="false" Precision="18" Scale="0" />
+          <Property Type="String" Name="الكود" Nullable="true" MaxLength="100" />
+          <Property Type="String" Name="المعاينة" Nullable="true" MaxLength="100" />
+          <Property Type="String" Name="تاريخ_المعاينة" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="وقت_المعاينة" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="ملاحظات" Nullable="true" MaxLength="200" />
+          <Property Type="Decimal" Name="رقم_المريض" Nullable="false" Precision="18" Scale="0" />
+          <Property Type="String" Name="اسم_المريض" Nullable="true" MaxLength="100" />
+          <Property Type="String" Name="اللقب" Nullable="true" MaxLength="100" />
+          <Property Type="String" Name="الجنس" Nullable="true" MaxLength="50" />
+          <Property Type="Int32" Name="العمر" Nullable="true" />
+          <Property Type="Decimal" Name="رقم_الزيارة" Nullable="false" Precision="18" Scale="0" />
+          <Property Type="String" Name="الزيارة" Nullable="true" MaxLength="100" />
+          <Property Type="String" Name="تاريخ_الزبارة" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="وقت_الزيارة" Nullable="true" MaxLength="50" />
+        </ComplexType>
+        <ComplexType Name="getRecipeByRecipeId_Result">
+          <Property Type="String" Name="presCode" Nullable="true" MaxLength="100" />
+          <Property Type="Decimal" Name="drId" Nullable="true" Precision="18" Scale="0" />
+          <Property Type="String" Name="presName" Nullable="true" MaxLength="100" />
+          <Property Type="String" Name="presQyt" Nullable="true" MaxLength="100" />
+          <Property Type="String" Name="presSize" Nullable="true" MaxLength="100" />
+          <Property Type="String" Name="presTimeUse" Nullable="true" MaxLength="100" />
+          <Property Type="String" Name="presPriod" Nullable="true" MaxLength="100" />
+          <Property Type="Decimal" Name="presId" Nullable="false" Precision="18" Scale="0" />
+        </ComplexType>
+        <ComplexType Name="getRecipeByVisitID_Result">
+          <Property Type="Decimal" Name="رفم_الرشدة_" Nullable="false" Precision="18" Scale="0" />
+          <Property Type="Decimal" Name="رقم_الزيارة" Nullable="true" Precision="18" Scale="0" />
+          <Property Type="String" Name="العلاج" Nullable="true" MaxLength="100" />
+          <Property Type="String" Name="C_الوصفة" Nullable="true" MaxLength="100" />
+          <Property Type="String" Name="الكمية" Nullable="true" MaxLength="100" />
+          <Property Type="String" Name="طريقة_الاستخدام" Nullable="true" MaxLength="100" />
+          <Property Type="String" Name="فترات_الاستخدام" Nullable="true" MaxLength="100" />
+          <Property Type="String" Name="الحجم" Nullable="true" MaxLength="100" />
+          <Property Type="String" Name="كود_الرشدة" Nullable="true" MaxLength="100" />
+          <Property Type="String" Name="التاريخ" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="الوقت" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="الملاحظات" Nullable="true" MaxLength="200" />
+        </ComplexType>
+        <ComplexType Name="getTestResultPatient_Result">
+          <Property Type="Decimal" Name="رقم_الزيارة" Nullable="true" Precision="18" Scale="0" />
+          <Property Type="Decimal" Name="الرقم" Nullable="false" Precision="18" Scale="0" />
+          <Property Type="String" Name="C_الفحص" Nullable="true" MaxLength="100" />
+          <Property Type="String" Name="C_الاسم" Nullable="true" MaxLength="100" />
+          <Property Type="String" Name="الاختصار" Nullable="true" MaxLength="100" />
+          <Property Type="String" Name="النتيجة_الطبيعية" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="نتيجة_الفحص" Nullable="true" MaxLength="100" />
+          <Property Type="String" Name="نوع_النتيجة" Nullable="true" MaxLength="100" />
+          <Property Type="String" Name="C_التاريخ" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="ملاحظات" Nullable="true" MaxLength="200" />
+        </ComplexType>
+        <ComplexType Name="getVisitPatientByID_Result">
+          <Property Type="Decimal" Name="الرقم" Nullable="false" Precision="18" Scale="0" />
+          <Property Type="String" Name="رقم_الكود" Nullable="true" MaxLength="100" />
+          <Property Type="String" Name="اسم_المريض" Nullable="true" MaxLength="100" />
+          <Property Type="String" Name="اللقب" Nullable="true" MaxLength="100" />
+          <Property Type="String" Name="الجنس" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="تاريخ_الميلاد" Nullable="true" MaxLength="50" />
+          <Property Type="Int32" Name="العمر" Nullable="true" />
+          <Property Type="Int32" Name="رقم_الموبيل" Nullable="true" />
+          <Property Type="Int32" Name="رقم_التلفون" Nullable="true" />
+          <Property Type="Binary" Name="الصورة" Nullable="true" MaxLength="Max" />
+          <Property Type="String" Name="العنوان" Nullable="true" MaxLength="100" />
+          <Property Type="String" Name="الدولة" Nullable="true" MaxLength="100" />
+          <Property Type="String" Name="المدينة" Nullable="true" MaxLength="100" />
+          <Property Type="String" Name="فصيلة_الدم" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="حالة_المريض" Nullable="true" MaxLength="100" />
+          <Property Type="String" Name="نوع_المريض" Nullable="true" MaxLength="100" />
+          <Property Type="Decimal" Name="رقم_الحساب" Nullable="true" Precision="18" Scale="0" />
+          <Property Type="Decimal" Name="رقم_الزيارة" Nullable="false" Precision="18" Scale="0" />
+          <Property Type="String" Name="رفم_الكود" Nullable="true" MaxLength="100" />
+          <Property Type="String" Name="الزيارة" Nullable="true" MaxLength="100" />
+          <Property Type="String" Name="تاريخ_الزبارة" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="وقت_الزيارة" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="ملاحظات_" Nullable="true" MaxLength="200" />
+        </ComplexType>
+        <ComplexType Name="getVisitPatientByName_Result">
+          <Property Type="Decimal" Name="الرقم" Nullable="false" Precision="18" Scale="0" />
+          <Property Type="String" Name="رقم_الكود" Nullable="true" MaxLength="100" />
+          <Property Type="String" Name="اسم_المريض" Nullable="true" MaxLength="100" />
+          <Property Type="String" Name="اللقب" Nullable="true" MaxLength="100" />
+          <Property Type="String" Name="الجنس" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="تاريخ_الميلاد" Nullable="true" MaxLength="50" />
+          <Property Type="Int32" Name="العمر" Nullable="true" />
+          <Property Type="Int32" Name="رقم_الموبيل" Nullable="true" />
+          <Property Type="Int32" Name="رقم_التلفون" Nullable="true" />
+          <Property Type="Binary" Name="الصورة" Nullable="true" MaxLength="Max" />
+          <Property Type="String" Name="العنوان" Nullable="true" MaxLength="100" />
+          <Property Type="String" Name="الدولة" Nullable="true" MaxLength="100" />
+          <Property Type="String" Name="المدينة" Nullable="true" MaxLength="100" />
+          <Property Type="String" Name="فصيلة_الدم" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="حالة_المريض" Nullable="true" MaxLength="100" />
+          <Property Type="String" Name="نوع_المريض" Nullable="true" MaxLength="100" />
+          <Property Type="Decimal" Name="رقم_الحساب" Nullable="true" Precision="18" Scale="0" />
+          <Property Type="Decimal" Name="رقم_الزيارة" Nullable="false" Precision="18" Scale="0" />
+          <Property Type="String" Name="رفم_الكود" Nullable="true" MaxLength="100" />
+          <Property Type="String" Name="الزيارة" Nullable="true" MaxLength="100" />
+          <Property Type="String" Name="تاريخ_الزبارة" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="وقت_الزيارة" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="ملاحظات_" Nullable="true" MaxLength="200" />
+        </ComplexType>
+        <ComplexType Name="SearchVisitById_Result">
+          <Property Type="Decimal" Name="الرقم" Nullable="false" Precision="18" Scale="0" />
+          <Property Type="String" Name="رقم_الكود" Nullable="true" MaxLength="100" />
+          <Property Type="String" Name="اسم_المريض" Nullable="true" MaxLength="100" />
+          <Property Type="String" Name="اللقب" Nullable="true" MaxLength="100" />
+          <Property Type="String" Name="الجنس" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="تاريخ_الميلاد" Nullable="true" MaxLength="50" />
+          <Property Type="Int32" Name="العمر" Nullable="true" />
+          <Property Type="Int32" Name="رقم_الموبيل" Nullable="true" />
+          <Property Type="Int32" Name="رقم_التلفون" Nullable="true" />
+          <Property Type="Binary" Name="الصورة" Nullable="true" MaxLength="Max" />
+          <Property Type="String" Name="العنوان" Nullable="true" MaxLength="100" />
+          <Property Type="String" Name="الدولة" Nullable="true" MaxLength="100" />
+          <Property Type="String" Name="المدينة" Nullable="true" MaxLength="100" />
+          <Property Type="String" Name="فصيلة_الدم" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="حالة_المريض" Nullable="true" MaxLength="100" />
+          <Property Type="String" Name="نوع_المريض" Nullable="true" MaxLength="100" />
+          <Property Type="Decimal" Name="رقم_الحساب" Nullable="true" Precision="18" Scale="0" />
+          <Property Type="Decimal" Name="رقم_الزيارة" Nullable="false" Precision="18" Scale="0" />
+          <Property Type="String" Name="رفم_الكود" Nullable="true" MaxLength="100" />
+          <Property Type="String" Name="الزيارة" Nullable="true" MaxLength="100" />
+          <Property Type="String" Name="تاريخ_الزبارة" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="وقت_الزيارة" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="ملاحظات_" Nullable="true" MaxLength="200" />
+        </ComplexType>
+        <ComplexType Name="SearchVisitPatient_Result">
+          <Property Type="Decimal" Name="الرقم" Nullable="false" Precision="18" Scale="0" />
+          <Property Type="String" Name="رقم_الكود" Nullable="true" MaxLength="100" />
+          <Property Type="String" Name="اسم_المريض" Nullable="true" MaxLength="100" />
+          <Property Type="String" Name="اللقب" Nullable="true" MaxLength="100" />
+          <Property Type="String" Name="الجنس" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="تاريخ_الميلاد" Nullable="true" MaxLength="50" />
+          <Property Type="Int32" Name="العمر" Nullable="true" />
+          <Property Type="Int32" Name="رقم_الموبيل" Nullable="true" />
+          <Property Type="Int32" Name="رقم_التلفون" Nullable="true" />
+          <Property Type="Binary" Name="الصورة" Nullable="true" MaxLength="Max" />
+          <Property Type="String" Name="العنوان" Nullable="true" MaxLength="100" />
+          <Property Type="String" Name="الدولة" Nullable="true" MaxLength="100" />
+          <Property Type="String" Name="المدينة" Nullable="true" MaxLength="100" />
+          <Property Type="String" Name="فصيلة_الدم" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="حالة_المريض" Nullable="true" MaxLength="100" />
+          <Property Type="String" Name="نوع_المريض" Nullable="true" MaxLength="100" />
+          <Property Type="Decimal" Name="رقم_الحساب" Nullable="true" Precision="18" Scale="0" />
+          <Property Type="Decimal" Name="رقم_الزيارة" Nullable="false" Precision="18" Scale="0" />
+          <Property Type="String" Name="رفم_الكود" Nullable="true" MaxLength="100" />
+          <Property Type="String" Name="الزيارة" Nullable="true" MaxLength="100" />
+          <Property Type="String" Name="تاريخ_الزبارة" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="وقت_الزيارة" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="ملاحظات_" Nullable="true" MaxLength="200" />
+        </ComplexType>
+        <ComplexType Name="SearchVisitPatientByDate_Result">
+          <Property Type="Decimal" Name="الرقم" Nullable="false" Precision="18" Scale="0" />
+          <Property Type="String" Name="رقم_الكود" Nullable="true" MaxLength="100" />
+          <Property Type="String" Name="اسم_المريض" Nullable="true" MaxLength="100" />
+          <Property Type="String" Name="اللقب" Nullable="true" MaxLength="100" />
+          <Property Type="String" Name="الجنس" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="تاريخ_الميلاد" Nullable="true" MaxLength="50" />
+          <Property Type="Int32" Name="العمر" Nullable="true" />
+          <Property Type="Int32" Name="رقم_الموبيل" Nullable="true" />
+          <Property Type="Int32" Name="رقم_التلفون" Nullable="true" />
+          <Property Type="Binary" Name="الصورة" Nullable="true" MaxLength="Max" />
+          <Property Type="String" Name="العنوان" Nullable="true" MaxLength="100" />
+          <Property Type="String" Name="الدولة" Nullable="true" MaxLength="100" />
+          <Property Type="String" Name="المدينة" Nullable="true" MaxLength="100" />
+          <Property Type="String" Name="فصيلة_الدم" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="حالة_المريض" Nullable="true" MaxLength="100" />
+          <Property Type="String" Name="نوع_المريض" Nullable="true" MaxLength="100" />
+          <Property Type="Decimal" Name="رقم_الحساب" Nullable="true" Precision="18" Scale="0" />
+          <Property Type="Decimal" Name="رقم_الزيارة" Nullable="false" Precision="18" Scale="0" />
+          <Property Type="String" Name="رفم_الكود" Nullable="true" MaxLength="100" />
+          <Property Type="String" Name="الزيارة" Nullable="true" MaxLength="100" />
+          <Property Type="String" Name="تاريخ_الزبارة" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="وقت_الزيارة" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="ملاحظات_" Nullable="true" MaxLength="200" />
+        </ComplexType>
+        <ComplexType Name="sp_helpdiagramdefinition_Result">
+          <Property Type="Int32" Name="version" Nullable="true" />
+          <Property Type="Binary" Name="definition" Nullable="true" />
+        </ComplexType>
+        <ComplexType Name="sp_helpdiagrams_Result">
+          <Property Type="String" Name="Database" Nullable="true" MaxLength="128" />
+          <Property Type="String" Name="Name" Nullable="false" MaxLength="128" />
+          <Property Type="Int32" Name="ID" Nullable="false" />
+          <Property Type="String" Name="Owner" Nullable="true" MaxLength="128" />
+          <Property Type="Int32" Name="OwnerID" Nullable="false" />
+        </ComplexType>
+        <ComplexType Name="getHeaderInformation_Result">
+          <Property Type="String" Name="hoNameE" Nullable="true" MaxLength="100" />
+          <Property Type="String" Name="hoNameA" Nullable="true" MaxLength="100" />
+          <Property Type="Int32" Name="hoMobile1" Nullable="true" />
+          <Property Type="Int32" Name="hoMobile2" Nullable="true" />
+          <Property Type="String" Name="hoAddressE" Nullable="true" MaxLength="100" />
+          <Property Type="String" Name="hoAddressA" Nullable="true" MaxLength="100" />
+          <Property Type="Int32" Name="hoFix" Nullable="true" />
+          <Property Type="Binary" Name="hoImg" Nullable="true" MaxLength="Max" />
+          <Property Type="String" Name="clName" Nullable="true" MaxLength="100" />
+          <Property Type="Int32" Name="clMobile" Nullable="true" />
+          <Property Type="String" Name="clAddress" Nullable="true" MaxLength="100" />
+        </ComplexType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="MedicalCenterDbModelStoreContainer" CdmEntityContainer="MedicalCenterDbEntities">
+          <EntitySetMapping Name="Accounts">
+            <EntityTypeMapping TypeName="MedicalCenterDbModel.Accounts">
+              <MappingFragment StoreEntitySet="Accounts">
+                <ScalarProperty Name="Acc_Num" ColumnName="Acc_Num" />
+                <ScalarProperty Name="Acc_Name" ColumnName="Acc_Name" />
+                <ScalarProperty Name="Acc_Type" ColumnName="Acc_Type" />
+                <ScalarProperty Name="Parent_Acc" ColumnName="Parent_Acc" />
+                <ScalarProperty Name="Degree" ColumnName="Degree" />
+                <ScalarProperty Name="Report" ColumnName="Report" />
+                <ScalarProperty Name="Coin" ColumnName="Coin" />
+                <ScalarProperty Name="Acc_Nature" ColumnName="Acc_Nature" />
+                <ScalarProperty Name="Coin_Num" ColumnName="Coin_Num" />
+                <ScalarProperty Name="Acc_Stat" ColumnName="Acc_Stat" />
+>>>>>>> e6a6e25e17389587885aa1b30dd1c49071cf2971
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="activeMaterialTab">
             <EntityTypeMapping TypeName="MedicalCenterDbModel.activeMaterialTab">
               <MappingFragment StoreEntitySet="activeMaterialTab">
+<<<<<<< HEAD
                 <ScalarProperty Name="isDeleted" ColumnName="isDeleted" />
                 <ScalarProperty Name="acName" ColumnName="acName" />
                 <ScalarProperty Name="acCode" ColumnName="acCode" />
                 <ScalarProperty Name="acId" ColumnName="acId" />
+=======
+                <ScalarProperty Name="acId" ColumnName="acId" />
+                <ScalarProperty Name="acCode" ColumnName="acCode" />
+                <ScalarProperty Name="acName" ColumnName="acName" />
+                <ScalarProperty Name="isDeleted" ColumnName="isDeleted" />
+>>>>>>> e6a6e25e17389587885aa1b30dd1c49071cf2971
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="appointmentTab">
             <EntityTypeMapping TypeName="MedicalCenterDbModel.appointmentTab">
               <MappingFragment StoreEntitySet="appointmentTab">
+<<<<<<< HEAD
                 <ScalarProperty Name="isDeleted" ColumnName="isDeleted" />
                 <ScalarProperty Name="paId" ColumnName="paId" />
                 <ScalarProperty Name="apNote" ColumnName="apNote" />
@@ -3253,33 +4867,59 @@ warning 6002: The table/view 'MedicalCenterDb.dbo.System_Options' does not have 
                 <ScalarProperty Name="apName" ColumnName="apName" />
                 <ScalarProperty Name="apCode" ColumnName="apCode" />
                 <ScalarProperty Name="apId" ColumnName="apId" />
+=======
+                <ScalarProperty Name="apId" ColumnName="apId" />
+                <ScalarProperty Name="apCode" ColumnName="apCode" />
+                <ScalarProperty Name="apName" ColumnName="apName" />
+                <ScalarProperty Name="apDate" ColumnName="apDate" />
+                <ScalarProperty Name="apTime" ColumnName="apTime" />
+                <ScalarProperty Name="apNote" ColumnName="apNote" />
+                <ScalarProperty Name="paId" ColumnName="paId" />
+                <ScalarProperty Name="isDeleted" ColumnName="isDeleted" />
+>>>>>>> e6a6e25e17389587885aa1b30dd1c49071cf2971
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Branch">
             <EntityTypeMapping TypeName="MedicalCenterDbModel.Branch">
               <MappingFragment StoreEntitySet="Branch">
+<<<<<<< HEAD
                 <ScalarProperty Name="isDeleted" ColumnName="isDeleted" />
                 <ScalarProperty Name="Address" ColumnName="Address" />
                 <ScalarProperty Name="Branch_Name" ColumnName="Branch_Name" />
                 <ScalarProperty Name="Branch_Num" ColumnName="Branch_Num" />
+=======
+                <ScalarProperty Name="Branch_Num" ColumnName="Branch_Num" />
+                <ScalarProperty Name="Branch_Name" ColumnName="Branch_Name" />
+                <ScalarProperty Name="Address" ColumnName="Address" />
+                <ScalarProperty Name="isDeleted" ColumnName="isDeleted" />
+>>>>>>> e6a6e25e17389587885aa1b30dd1c49071cf2971
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Cash">
             <EntityTypeMapping TypeName="MedicalCenterDbModel.Cash">
               <MappingFragment StoreEntitySet="Cash">
+<<<<<<< HEAD
                 <ScalarProperty Name="Coin_Num" ColumnName="Coin_Num" />
                 <ScalarProperty Name="Acc_Num" ColumnName="Acc_Num" />
                 <ScalarProperty Name="Cash_Name" ColumnName="Cash_Name" />
                 <ScalarProperty Name="Branch_Num" ColumnName="Branch_Num" />
                 <ScalarProperty Name="Cash_Num" ColumnName="Cash_Num" />
+=======
+                <ScalarProperty Name="Cash_Num" ColumnName="Cash_Num" />
+                <ScalarProperty Name="Branch_Num" ColumnName="Branch_Num" />
+                <ScalarProperty Name="Cash_Name" ColumnName="Cash_Name" />
+                <ScalarProperty Name="Acc_Num" ColumnName="Acc_Num" />
+                <ScalarProperty Name="Coin_Num" ColumnName="Coin_Num" />
+>>>>>>> e6a6e25e17389587885aa1b30dd1c49071cf2971
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="clinicTab">
             <EntityTypeMapping TypeName="MedicalCenterDbModel.clinicTab">
               <MappingFragment StoreEntitySet="clinicTab">
+<<<<<<< HEAD
                 <ScalarProperty Name="isDeleted" ColumnName="isDeleted" />
                 <ScalarProperty Name="hoId" ColumnName="hoId" />
                 <ScalarProperty Name="clNote" ColumnName="clNote" />
@@ -3288,12 +4928,23 @@ warning 6002: The table/view 'MedicalCenterDb.dbo.System_Options' does not have 
                 <ScalarProperty Name="clName" ColumnName="clName" />
                 <ScalarProperty Name="clCode" ColumnName="clCode" />
                 <ScalarProperty Name="clId" ColumnName="clId" />
+=======
+                <ScalarProperty Name="clId" ColumnName="clId" />
+                <ScalarProperty Name="clCode" ColumnName="clCode" />
+                <ScalarProperty Name="clName" ColumnName="clName" />
+                <ScalarProperty Name="clMobile" ColumnName="clMobile" />
+                <ScalarProperty Name="clAddress" ColumnName="clAddress" />
+                <ScalarProperty Name="clNote" ColumnName="clNote" />
+                <ScalarProperty Name="hoId" ColumnName="hoId" />
+                <ScalarProperty Name="isDeleted" ColumnName="isDeleted" />
+>>>>>>> e6a6e25e17389587885aa1b30dd1c49071cf2971
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Coin">
             <EntityTypeMapping TypeName="MedicalCenterDbModel.Coin">
               <MappingFragment StoreEntitySet="Coin">
+<<<<<<< HEAD
                 <ScalarProperty Name="Coin_Sub" ColumnName="Coin_Sub" />
                 <ScalarProperty Name="Coin_Min" ColumnName="Coin_Min" />
                 <ScalarProperty Name="Coin_Max" ColumnName="Coin_Max" />
@@ -3302,12 +4953,23 @@ warning 6002: The table/view 'MedicalCenterDb.dbo.System_Options' does not have 
                 <ScalarProperty Name="Symbol" ColumnName="Symbol" />
                 <ScalarProperty Name="Coin_Name" ColumnName="Coin_Name" />
                 <ScalarProperty Name="Coin_Num" ColumnName="Coin_Num" />
+=======
+                <ScalarProperty Name="Coin_Num" ColumnName="Coin_Num" />
+                <ScalarProperty Name="Coin_Name" ColumnName="Coin_Name" />
+                <ScalarProperty Name="Symbol" ColumnName="Symbol" />
+                <ScalarProperty Name="Coin_Price" ColumnName="Coin_Price" />
+                <ScalarProperty Name="Coin_Type" ColumnName="Coin_Type" />
+                <ScalarProperty Name="Coin_Max" ColumnName="Coin_Max" />
+                <ScalarProperty Name="Coin_Min" ColumnName="Coin_Min" />
+                <ScalarProperty Name="Coin_Sub" ColumnName="Coin_Sub" />
+>>>>>>> e6a6e25e17389587885aa1b30dd1c49071cf2971
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="companySuplierDragTab">
             <EntityTypeMapping TypeName="MedicalCenterDbModel.companySuplierDragTab">
               <MappingFragment StoreEntitySet="companySuplierDragTab">
+<<<<<<< HEAD
                 <ScalarProperty Name="isDeleted" ColumnName="isDeleted" />
                 <ScalarProperty Name="comsNote" ColumnName="comsNote" />
                 <ScalarProperty Name="comsAddress" ColumnName="comsAddress" />
@@ -3316,12 +4978,23 @@ warning 6002: The table/view 'MedicalCenterDb.dbo.System_Options' does not have 
                 <ScalarProperty Name="comsName" ColumnName="comsName" />
                 <ScalarProperty Name="comsCode" ColumnName="comsCode" />
                 <ScalarProperty Name="comsId" ColumnName="comsId" />
+=======
+                <ScalarProperty Name="comsId" ColumnName="comsId" />
+                <ScalarProperty Name="comsCode" ColumnName="comsCode" />
+                <ScalarProperty Name="comsName" ColumnName="comsName" />
+                <ScalarProperty Name="comsMobile1" ColumnName="comsMobile1" />
+                <ScalarProperty Name="comsMobile2" ColumnName="comsMobile2" />
+                <ScalarProperty Name="comsAddress" ColumnName="comsAddress" />
+                <ScalarProperty Name="comsNote" ColumnName="comsNote" />
+                <ScalarProperty Name="isDeleted" ColumnName="isDeleted" />
+>>>>>>> e6a6e25e17389587885aa1b30dd1c49071cf2971
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Constriant">
             <EntityTypeMapping TypeName="MedicalCenterDbModel.Constriant">
               <MappingFragment StoreEntitySet="Constriant">
+<<<<<<< HEAD
                 <ScalarProperty Name="Is_Round" ColumnName="Is_Round" />
                 <ScalarProperty Name="Coin_Num" ColumnName="Coin_Num" />
                 <ScalarProperty Name="Cons_Type" ColumnName="Cons_Type" />
@@ -3329,11 +5002,21 @@ warning 6002: The table/view 'MedicalCenterDb.dbo.System_Options' does not have 
                 <ScalarProperty Name="Date" ColumnName="Date" />
                 <ScalarProperty Name="Mony" ColumnName="Mony" />
                 <ScalarProperty Name="Cons_Num" ColumnName="Cons_Num" />
+=======
+                <ScalarProperty Name="Cons_Num" ColumnName="Cons_Num" />
+                <ScalarProperty Name="Mony" ColumnName="Mony" />
+                <ScalarProperty Name="Date" ColumnName="Date" />
+                <ScalarProperty Name="Operation_Num" ColumnName="Operation_Num" />
+                <ScalarProperty Name="Cons_Type" ColumnName="Cons_Type" />
+                <ScalarProperty Name="Coin_Num" ColumnName="Coin_Num" />
+                <ScalarProperty Name="Is_Round" ColumnName="Is_Round" />
+>>>>>>> e6a6e25e17389587885aa1b30dd1c49071cf2971
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Constriant_Affect">
             <EntityTypeMapping TypeName="MedicalCenterDbModel.Constriant_Affect">
+<<<<<<< HEAD
               <MappingFragment StoreEntitySet="Constriant_Affect">
                 <ScalarProperty Name="Cost_Centers_Num" ColumnName="Cost_Centers_Num" />
                 <ScalarProperty Name="Coin_Affect" ColumnName="Coin_Affect" />
@@ -3344,12 +5027,25 @@ warning 6002: The table/view 'MedicalCenterDb.dbo.System_Options' does not have 
                 <ScalarProperty Name="Acc_Num" ColumnName="Acc_Num" />
                 <ScalarProperty Name="Cons_Num" ColumnName="Cons_Num" />
                 <ScalarProperty Name="id" ColumnName="id" />
+=======
+              <MappingFragment StoreEntitySet="Constriant_Affect">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="Cons_Num" ColumnName="Cons_Num" />
+                <ScalarProperty Name="Acc_Num" ColumnName="Acc_Num" />
+                <ScalarProperty Name="Debit" ColumnName="Debit" />
+                <ScalarProperty Name="Cridit" ColumnName="Cridit" />
+                <ScalarProperty Name="Note" ColumnName="Note" />
+                <ScalarProperty Name="Change_Coin" ColumnName="Change_Coin" />
+                <ScalarProperty Name="Coin_Affect" ColumnName="Coin_Affect" />
+                <ScalarProperty Name="Cost_Centers_Num" ColumnName="Cost_Centers_Num" />
+>>>>>>> e6a6e25e17389587885aa1b30dd1c49071cf2971
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="diagnoseTab">
             <EntityTypeMapping TypeName="MedicalCenterDbModel.diagnoseTab">
               <MappingFragment StoreEntitySet="diagnoseTab">
+<<<<<<< HEAD
                 <ScalarProperty Name="isDeleted" ColumnName="isDeleted" />
                 <ScalarProperty Name="viId" ColumnName="viId" />
                 <ScalarProperty Name="diTime" ColumnName="diTime" />
@@ -3357,12 +5053,22 @@ warning 6002: The table/view 'MedicalCenterDb.dbo.System_Options' does not have 
                 <ScalarProperty Name="diName" ColumnName="diName" />
                 <ScalarProperty Name="diCode" ColumnName="diCode" />
                 <ScalarProperty Name="diId" ColumnName="diId" />
+=======
+                <ScalarProperty Name="diId" ColumnName="diId" />
+                <ScalarProperty Name="diCode" ColumnName="diCode" />
+                <ScalarProperty Name="diName" ColumnName="diName" />
+                <ScalarProperty Name="diDate" ColumnName="diDate" />
+                <ScalarProperty Name="diTime" ColumnName="diTime" />
+                <ScalarProperty Name="viId" ColumnName="viId" />
+                <ScalarProperty Name="isDeleted" ColumnName="isDeleted" />
+>>>>>>> e6a6e25e17389587885aa1b30dd1c49071cf2971
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="doctorsTab">
             <EntityTypeMapping TypeName="MedicalCenterDbModel.doctorsTab">
               <MappingFragment StoreEntitySet="doctorsTab">
+<<<<<<< HEAD
                 <ScalarProperty Name="isDeleted" ColumnName="isDeleted" />
                 <ScalarProperty Name="clId" ColumnName="clId" />
                 <ScalarProperty Name="doState" ColumnName="doState" />
@@ -3381,12 +5087,33 @@ warning 6002: The table/view 'MedicalCenterDb.dbo.System_Options' does not have 
                 <ScalarProperty Name="doNameE" ColumnName="doNameE" />
                 <ScalarProperty Name="doCode" ColumnName="doCode" />
                 <ScalarProperty Name="doId" ColumnName="doId" />
+=======
+                <ScalarProperty Name="doId" ColumnName="doId" />
+                <ScalarProperty Name="doCode" ColumnName="doCode" />
+                <ScalarProperty Name="doNameE" ColumnName="doNameE" />
+                <ScalarProperty Name="doNameA" ColumnName="doNameA" />
+                <ScalarProperty Name="doSex" ColumnName="doSex" />
+                <ScalarProperty Name="doBrithday" ColumnName="doBrithday" />
+                <ScalarProperty Name="doAge" ColumnName="doAge" />
+                <ScalarProperty Name="doMobile" ColumnName="doMobile" />
+                <ScalarProperty Name="doAddress" ColumnName="doAddress" />
+                <ScalarProperty Name="doImg" ColumnName="doImg" />
+                <ScalarProperty Name="doCountry" ColumnName="doCountry" />
+                <ScalarProperty Name="doCity" ColumnName="doCity" />
+                <ScalarProperty Name="doSpecil" ColumnName="doSpecil" />
+                <ScalarProperty Name="doQual" ColumnName="doQual" />
+                <ScalarProperty Name="doType" ColumnName="doType" />
+                <ScalarProperty Name="doState" ColumnName="doState" />
+                <ScalarProperty Name="clId" ColumnName="clId" />
+                <ScalarProperty Name="isDeleted" ColumnName="isDeleted" />
+>>>>>>> e6a6e25e17389587885aa1b30dd1c49071cf2971
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="doseTab">
             <EntityTypeMapping TypeName="MedicalCenterDbModel.doseTab">
               <MappingFragment StoreEntitySet="doseTab">
+<<<<<<< HEAD
                 <ScalarProperty Name="isDeleted" ColumnName="isDeleted" />
                 <ScalarProperty Name="doseUse" ColumnName="doseUse" />
                 <ScalarProperty Name="doseSize" ColumnName="doseSize" />
@@ -3395,12 +5122,23 @@ warning 6002: The table/view 'MedicalCenterDb.dbo.System_Options' does not have 
                 <ScalarProperty Name="doseName" ColumnName="doseName" />
                 <ScalarProperty Name="doseCode" ColumnName="doseCode" />
                 <ScalarProperty Name="doseId" ColumnName="doseId" />
+=======
+                <ScalarProperty Name="doseId" ColumnName="doseId" />
+                <ScalarProperty Name="doseCode" ColumnName="doseCode" />
+                <ScalarProperty Name="doseName" ColumnName="doseName" />
+                <ScalarProperty Name="doseQty" ColumnName="doseQty" />
+                <ScalarProperty Name="doseTime" ColumnName="doseTime" />
+                <ScalarProperty Name="doseSize" ColumnName="doseSize" />
+                <ScalarProperty Name="doseUse" ColumnName="doseUse" />
+                <ScalarProperty Name="isDeleted" ColumnName="isDeleted" />
+>>>>>>> e6a6e25e17389587885aa1b30dd1c49071cf2971
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="dragTab">
             <EntityTypeMapping TypeName="MedicalCenterDbModel.dragTab">
               <MappingFragment StoreEntitySet="dragTab">
+<<<<<<< HEAD
                 <ScalarProperty Name="isDeleted" ColumnName="isDeleted" />
                 <ScalarProperty Name="header1" ColumnName="header1" />
                 <ScalarProperty Name="header0" ColumnName="header0" />
@@ -3414,34 +5152,66 @@ warning 6002: The table/view 'MedicalCenterDb.dbo.System_Options' does not have 
                 <ScalarProperty Name="drName" ColumnName="drName" />
                 <ScalarProperty Name="drCode" ColumnName="drCode" />
                 <ScalarProperty Name="drId" ColumnName="drId" />
+=======
+                <ScalarProperty Name="drId" ColumnName="drId" />
+                <ScalarProperty Name="drCode" ColumnName="drCode" />
+                <ScalarProperty Name="drName" ColumnName="drName" />
+                <ScalarProperty Name="drSname" ColumnName="drSname" />
+                <ScalarProperty Name="drNote" ColumnName="drNote" />
+                <ScalarProperty Name="sciId" ColumnName="sciId" />
+                <ScalarProperty Name="acId" ColumnName="acId" />
+                <ScalarProperty Name="grdrId" ColumnName="grdrId" />
+                <ScalarProperty Name="sfId" ColumnName="sfId" />
+                <ScalarProperty Name="comsId" ColumnName="comsId" />
+                <ScalarProperty Name="header0" ColumnName="header0" />
+                <ScalarProperty Name="header1" ColumnName="header1" />
+                <ScalarProperty Name="isDeleted" ColumnName="isDeleted" />
+>>>>>>> e6a6e25e17389587885aa1b30dd1c49071cf2971
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="groupDragTab">
             <EntityTypeMapping TypeName="MedicalCenterDbModel.groupDragTab">
               <MappingFragment StoreEntitySet="groupDragTab">
+<<<<<<< HEAD
                 <ScalarProperty Name="isDeleted" ColumnName="isDeleted" />
                 <ScalarProperty Name="grdrNote" ColumnName="grdrNote" />
                 <ScalarProperty Name="grdrName" ColumnName="grdrName" />
                 <ScalarProperty Name="grdrCode" ColumnName="grdrCode" />
                 <ScalarProperty Name="grdrId" ColumnName="grdrId" />
+=======
+                <ScalarProperty Name="grdrId" ColumnName="grdrId" />
+                <ScalarProperty Name="grdrCode" ColumnName="grdrCode" />
+                <ScalarProperty Name="grdrName" ColumnName="grdrName" />
+                <ScalarProperty Name="grdrNote" ColumnName="grdrNote" />
+                <ScalarProperty Name="isDeleted" ColumnName="isDeleted" />
+>>>>>>> e6a6e25e17389587885aa1b30dd1c49071cf2971
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="groupTestTab">
             <EntityTypeMapping TypeName="MedicalCenterDbModel.groupTestTab">
               <MappingFragment StoreEntitySet="groupTestTab">
+<<<<<<< HEAD
                 <ScalarProperty Name="isDeleted" ColumnName="isDeleted" />
                 <ScalarProperty Name="ACC_Num" ColumnName="ACC_Num" />
                 <ScalarProperty Name="grName" ColumnName="grName" />
                 <ScalarProperty Name="grCode" ColumnName="grCode" />
                 <ScalarProperty Name="grId" ColumnName="grId" />
+=======
+                <ScalarProperty Name="grId" ColumnName="grId" />
+                <ScalarProperty Name="grCode" ColumnName="grCode" />
+                <ScalarProperty Name="grName" ColumnName="grName" />
+                <ScalarProperty Name="ACC_Num" ColumnName="ACC_Num" />
+                <ScalarProperty Name="isDeleted" ColumnName="isDeleted" />
+>>>>>>> e6a6e25e17389587885aa1b30dd1c49071cf2971
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="hospitalCenterTab">
             <EntityTypeMapping TypeName="MedicalCenterDbModel.hospitalCenterTab">
               <MappingFragment StoreEntitySet="hospitalCenterTab">
+<<<<<<< HEAD
                 <ScalarProperty Name="isDeleted" ColumnName="isDeleted" />
                 <ScalarProperty Name="hoNote" ColumnName="hoNote" />
                 <ScalarProperty Name="hoImg" ColumnName="hoImg" />
@@ -3454,12 +5224,27 @@ warning 6002: The table/view 'MedicalCenterDb.dbo.System_Options' does not have 
                 <ScalarProperty Name="hoNameE" ColumnName="hoNameE" />
                 <ScalarProperty Name="hoCode" ColumnName="hoCode" />
                 <ScalarProperty Name="hoId" ColumnName="hoId" />
+=======
+                <ScalarProperty Name="hoId" ColumnName="hoId" />
+                <ScalarProperty Name="hoCode" ColumnName="hoCode" />
+                <ScalarProperty Name="hoNameE" ColumnName="hoNameE" />
+                <ScalarProperty Name="hoNameA" ColumnName="hoNameA" />
+                <ScalarProperty Name="hoMobile1" ColumnName="hoMobile1" />
+                <ScalarProperty Name="hoMobile2" ColumnName="hoMobile2" />
+                <ScalarProperty Name="hoAddressE" ColumnName="hoAddressE" />
+                <ScalarProperty Name="hoAddressA" ColumnName="hoAddressA" />
+                <ScalarProperty Name="hoFix" ColumnName="hoFix" />
+                <ScalarProperty Name="hoImg" ColumnName="hoImg" />
+                <ScalarProperty Name="hoNote" ColumnName="hoNote" />
+                <ScalarProperty Name="isDeleted" ColumnName="isDeleted" />
+>>>>>>> e6a6e25e17389587885aa1b30dd1c49071cf2971
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="patientsTab">
             <EntityTypeMapping TypeName="MedicalCenterDbModel.patientsTab">
               <MappingFragment StoreEntitySet="patientsTab">
+<<<<<<< HEAD
                 <ScalarProperty Name="isDeleted" ColumnName="isDeleted" />
                 <ScalarProperty Name="ACC_Num" ColumnName="ACC_Num" />
                 <ScalarProperty Name="paType" ColumnName="paType" />
@@ -3478,12 +5263,33 @@ warning 6002: The table/view 'MedicalCenterDb.dbo.System_Options' does not have 
                 <ScalarProperty Name="paFname" ColumnName="paFname" />
                 <ScalarProperty Name="paCode" ColumnName="paCode" />
                 <ScalarProperty Name="paId" ColumnName="paId" />
+=======
+                <ScalarProperty Name="paId" ColumnName="paId" />
+                <ScalarProperty Name="paCode" ColumnName="paCode" />
+                <ScalarProperty Name="paFname" ColumnName="paFname" />
+                <ScalarProperty Name="paLname" ColumnName="paLname" />
+                <ScalarProperty Name="paSex" ColumnName="paSex" />
+                <ScalarProperty Name="paBrithday" ColumnName="paBrithday" />
+                <ScalarProperty Name="paAge" ColumnName="paAge" />
+                <ScalarProperty Name="paMobile1" ColumnName="paMobile1" />
+                <ScalarProperty Name="paMobile2" ColumnName="paMobile2" />
+                <ScalarProperty Name="paImg" ColumnName="paImg" />
+                <ScalarProperty Name="paAddress" ColumnName="paAddress" />
+                <ScalarProperty Name="paCountry" ColumnName="paCountry" />
+                <ScalarProperty Name="paCity" ColumnName="paCity" />
+                <ScalarProperty Name="paBloodType" ColumnName="paBloodType" />
+                <ScalarProperty Name="paState" ColumnName="paState" />
+                <ScalarProperty Name="paType" ColumnName="paType" />
+                <ScalarProperty Name="ACC_Num" ColumnName="ACC_Num" />
+                <ScalarProperty Name="isDeleted" ColumnName="isDeleted" />
+>>>>>>> e6a6e25e17389587885aa1b30dd1c49071cf2971
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="prescriptionTab">
             <EntityTypeMapping TypeName="MedicalCenterDbModel.prescriptionTab">
               <MappingFragment StoreEntitySet="prescriptionTab">
+<<<<<<< HEAD
                 <ScalarProperty Name="isDeleted" ColumnName="isDeleted" />
                 <ScalarProperty Name="drId" ColumnName="drId" />
                 <ScalarProperty Name="reId" ColumnName="reId" />
@@ -3494,12 +5300,25 @@ warning 6002: The table/view 'MedicalCenterDb.dbo.System_Options' does not have 
                 <ScalarProperty Name="presName" ColumnName="presName" />
                 <ScalarProperty Name="presCode" ColumnName="presCode" />
                 <ScalarProperty Name="presId" ColumnName="presId" />
+=======
+                <ScalarProperty Name="presId" ColumnName="presId" />
+                <ScalarProperty Name="presCode" ColumnName="presCode" />
+                <ScalarProperty Name="presName" ColumnName="presName" />
+                <ScalarProperty Name="presQyt" ColumnName="presQyt" />
+                <ScalarProperty Name="presTimeUse" ColumnName="presTimeUse" />
+                <ScalarProperty Name="presSize" ColumnName="presSize" />
+                <ScalarProperty Name="presPriod" ColumnName="presPriod" />
+                <ScalarProperty Name="reId" ColumnName="reId" />
+                <ScalarProperty Name="drId" ColumnName="drId" />
+                <ScalarProperty Name="isDeleted" ColumnName="isDeleted" />
+>>>>>>> e6a6e25e17389587885aa1b30dd1c49071cf2971
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="previewTab">
             <EntityTypeMapping TypeName="MedicalCenterDbModel.previewTab">
               <MappingFragment StoreEntitySet="previewTab">
+<<<<<<< HEAD
                 <ScalarProperty Name="isDeleted" ColumnName="isDeleted" />
                 <ScalarProperty Name="viId" ColumnName="viId" />
                 <ScalarProperty Name="prNote" ColumnName="prNote" />
@@ -3508,12 +5327,23 @@ warning 6002: The table/view 'MedicalCenterDb.dbo.System_Options' does not have 
                 <ScalarProperty Name="prName" ColumnName="prName" />
                 <ScalarProperty Name="prCode" ColumnName="prCode" />
                 <ScalarProperty Name="prId" ColumnName="prId" />
+=======
+                <ScalarProperty Name="prId" ColumnName="prId" />
+                <ScalarProperty Name="prCode" ColumnName="prCode" />
+                <ScalarProperty Name="prName" ColumnName="prName" />
+                <ScalarProperty Name="prDate" ColumnName="prDate" />
+                <ScalarProperty Name="prTime" ColumnName="prTime" />
+                <ScalarProperty Name="prNote" ColumnName="prNote" />
+                <ScalarProperty Name="viId" ColumnName="viId" />
+                <ScalarProperty Name="isDeleted" ColumnName="isDeleted" />
+>>>>>>> e6a6e25e17389587885aa1b30dd1c49071cf2971
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="recipeTab">
             <EntityTypeMapping TypeName="MedicalCenterDbModel.recipeTab">
               <MappingFragment StoreEntitySet="recipeTab">
+<<<<<<< HEAD
                 <ScalarProperty Name="isDeleted" ColumnName="isDeleted" />
                 <ScalarProperty Name="viId" ColumnName="viId" />
                 <ScalarProperty Name="reNote" ColumnName="reNote" />
@@ -3521,12 +5351,22 @@ warning 6002: The table/view 'MedicalCenterDb.dbo.System_Options' does not have 
                 <ScalarProperty Name="reDate" ColumnName="reDate" />
                 <ScalarProperty Name="reCode" ColumnName="reCode" />
                 <ScalarProperty Name="reId" ColumnName="reId" />
+=======
+                <ScalarProperty Name="reId" ColumnName="reId" />
+                <ScalarProperty Name="reCode" ColumnName="reCode" />
+                <ScalarProperty Name="reDate" ColumnName="reDate" />
+                <ScalarProperty Name="reTime" ColumnName="reTime" />
+                <ScalarProperty Name="reNote" ColumnName="reNote" />
+                <ScalarProperty Name="viId" ColumnName="viId" />
+                <ScalarProperty Name="isDeleted" ColumnName="isDeleted" />
+>>>>>>> e6a6e25e17389587885aa1b30dd1c49071cf2971
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="resultTestTab">
             <EntityTypeMapping TypeName="MedicalCenterDbModel.resultTestTab">
               <MappingFragment StoreEntitySet="resultTestTab">
+<<<<<<< HEAD
                 <ScalarProperty Name="isDeleted" ColumnName="isDeleted" />
                 <ScalarProperty Name="rtNote" ColumnName="rtNote" />
                 <ScalarProperty Name="resultType" ColumnName="resultType" />
@@ -3534,20 +5374,35 @@ warning 6002: The table/view 'MedicalCenterDb.dbo.System_Options' does not have 
                 <ScalarProperty Name="trId" ColumnName="trId" />
                 <ScalarProperty Name="itId" ColumnName="itId" />
                 <ScalarProperty Name="rtId" ColumnName="rtId" />
+=======
+                <ScalarProperty Name="rtId" ColumnName="rtId" />
+                <ScalarProperty Name="itId" ColumnName="itId" />
+                <ScalarProperty Name="trId" ColumnName="trId" />
+                <ScalarProperty Name="result" ColumnName="result" />
+                <ScalarProperty Name="resultType" ColumnName="resultType" />
+                <ScalarProperty Name="rtNote" ColumnName="rtNote" />
+                <ScalarProperty Name="isDeleted" ColumnName="isDeleted" />
+>>>>>>> e6a6e25e17389587885aa1b30dd1c49071cf2971
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="roles">
             <EntityTypeMapping TypeName="MedicalCenterDbModel.roles">
               <MappingFragment StoreEntitySet="roles">
+<<<<<<< HEAD
                 <ScalarProperty Name="roleName" ColumnName="roleName" />
                 <ScalarProperty Name="roleId" ColumnName="roleId" />
+=======
+                <ScalarProperty Name="roleId" ColumnName="roleId" />
+                <ScalarProperty Name="roleName" ColumnName="roleName" />
+>>>>>>> e6a6e25e17389587885aa1b30dd1c49071cf2971
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="samplesTab">
             <EntityTypeMapping TypeName="MedicalCenterDbModel.samplesTab">
               <MappingFragment StoreEntitySet="samplesTab">
+<<<<<<< HEAD
                 <ScalarProperty Name="isDeleted" ColumnName="isDeleted" />
                 <ScalarProperty Name="trId" ColumnName="trId" />
                 <ScalarProperty Name="saNote" ColumnName="saNote" />
@@ -3557,35 +5412,64 @@ warning 6002: The table/view 'MedicalCenterDb.dbo.System_Options' does not have 
                 <ScalarProperty Name="saName" ColumnName="saName" />
                 <ScalarProperty Name="saCode" ColumnName="saCode" />
                 <ScalarProperty Name="saId" ColumnName="saId" />
+=======
+                <ScalarProperty Name="saId" ColumnName="saId" />
+                <ScalarProperty Name="saCode" ColumnName="saCode" />
+                <ScalarProperty Name="saName" ColumnName="saName" />
+                <ScalarProperty Name="saAmount" ColumnName="saAmount" />
+                <ScalarProperty Name="saDate" ColumnName="saDate" />
+                <ScalarProperty Name="saTime" ColumnName="saTime" />
+                <ScalarProperty Name="saNote" ColumnName="saNote" />
+                <ScalarProperty Name="trId" ColumnName="trId" />
+                <ScalarProperty Name="isDeleted" ColumnName="isDeleted" />
+>>>>>>> e6a6e25e17389587885aa1b30dd1c49071cf2971
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="scientificNameDragTab">
             <EntityTypeMapping TypeName="MedicalCenterDbModel.scientificNameDragTab">
               <MappingFragment StoreEntitySet="scientificNameDragTab">
+<<<<<<< HEAD
                 <ScalarProperty Name="isDeleted" ColumnName="isDeleted" />
                 <ScalarProperty Name="sciNote" ColumnName="sciNote" />
                 <ScalarProperty Name="sciName" ColumnName="sciName" />
                 <ScalarProperty Name="sciCode" ColumnName="sciCode" />
                 <ScalarProperty Name="sciId" ColumnName="sciId" />
+=======
+                <ScalarProperty Name="sciId" ColumnName="sciId" />
+                <ScalarProperty Name="sciCode" ColumnName="sciCode" />
+                <ScalarProperty Name="sciName" ColumnName="sciName" />
+                <ScalarProperty Name="sciNote" ColumnName="sciNote" />
+                <ScalarProperty Name="isDeleted" ColumnName="isDeleted" />
+>>>>>>> e6a6e25e17389587885aa1b30dd1c49071cf2971
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="servicesLestTab">
             <EntityTypeMapping TypeName="MedicalCenterDbModel.servicesLestTab">
               <MappingFragment StoreEntitySet="servicesLestTab">
+<<<<<<< HEAD
                 <ScalarProperty Name="isDeleted" ColumnName="isDeleted" />
                 <ScalarProperty Name="slPrice" ColumnName="slPrice" />
                 <ScalarProperty Name="slnote" ColumnName="slnote" />
                 <ScalarProperty Name="srId" ColumnName="srId" />
                 <ScalarProperty Name="seId" ColumnName="seId" />
                 <ScalarProperty Name="slId" ColumnName="slId" />
+=======
+                <ScalarProperty Name="slId" ColumnName="slId" />
+                <ScalarProperty Name="seId" ColumnName="seId" />
+                <ScalarProperty Name="srId" ColumnName="srId" />
+                <ScalarProperty Name="slnote" ColumnName="slnote" />
+                <ScalarProperty Name="slPrice" ColumnName="slPrice" />
+                <ScalarProperty Name="isDeleted" ColumnName="isDeleted" />
+>>>>>>> e6a6e25e17389587885aa1b30dd1c49071cf2971
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="servicesRequestTab">
             <EntityTypeMapping TypeName="MedicalCenterDbModel.servicesRequestTab">
               <MappingFragment StoreEntitySet="servicesRequestTab">
+<<<<<<< HEAD
                 <ScalarProperty Name="isDeleted" ColumnName="isDeleted" />
                 <ScalarProperty Name="cons_Num" ColumnName="cons_Num" />
                 <ScalarProperty Name="state" ColumnName="state" />
@@ -3600,12 +5484,29 @@ warning 6002: The table/view 'MedicalCenterDb.dbo.System_Options' does not have 
                 <ScalarProperty Name="srDate" ColumnName="srDate" />
                 <ScalarProperty Name="srCode" ColumnName="srCode" />
                 <ScalarProperty Name="srId" ColumnName="srId" />
+=======
+                <ScalarProperty Name="srId" ColumnName="srId" />
+                <ScalarProperty Name="srCode" ColumnName="srCode" />
+                <ScalarProperty Name="srDate" ColumnName="srDate" />
+                <ScalarProperty Name="srManual" ColumnName="srManual" />
+                <ScalarProperty Name="srDiscount" ColumnName="srDiscount" />
+                <ScalarProperty Name="valueAdded" ColumnName="valueAdded" />
+                <ScalarProperty Name="Coin_Num" ColumnName="Coin_Num" />
+                <ScalarProperty Name="Cash_Num" ColumnName="Cash_Num" />
+                <ScalarProperty Name="viId" ColumnName="viId" />
+                <ScalarProperty Name="methodPayment" ColumnName="methodPayment" />
+                <ScalarProperty Name="Coin_change" ColumnName="Coin_change" />
+                <ScalarProperty Name="state" ColumnName="state" />
+                <ScalarProperty Name="cons_Num" ColumnName="cons_Num" />
+                <ScalarProperty Name="isDeleted" ColumnName="isDeleted" />
+>>>>>>> e6a6e25e17389587885aa1b30dd1c49071cf2971
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="serviecsTab">
             <EntityTypeMapping TypeName="MedicalCenterDbModel.serviecsTab">
               <MappingFragment StoreEntitySet="serviecsTab">
+<<<<<<< HEAD
                 <ScalarProperty Name="isDeleted" ColumnName="isDeleted" />
                 <ScalarProperty Name="rateOut" ColumnName="rateOut" />
                 <ScalarProperty Name="rateIn" ColumnName="rateIn" />
@@ -3616,33 +5517,61 @@ warning 6002: The table/view 'MedicalCenterDb.dbo.System_Options' does not have 
                 <ScalarProperty Name="seName" ColumnName="seName" />
                 <ScalarProperty Name="seCode" ColumnName="seCode" />
                 <ScalarProperty Name="seId" ColumnName="seId" />
+=======
+                <ScalarProperty Name="rateOut" ColumnName="rateOut" />
+                <ScalarProperty Name="rateIn" ColumnName="rateIn" />
+                <ScalarProperty Name="seId" ColumnName="seId" />
+                <ScalarProperty Name="seCode" ColumnName="seCode" />
+                <ScalarProperty Name="seName" ColumnName="seName" />
+                <ScalarProperty Name="seType" ColumnName="seType" />
+                <ScalarProperty Name="sePrice" ColumnName="sePrice" />
+                <ScalarProperty Name="seNote" ColumnName="seNote" />
+                <ScalarProperty Name="ACC_Num" ColumnName="ACC_Num" />
+                <ScalarProperty Name="isDeleted" ColumnName="isDeleted" />
+>>>>>>> e6a6e25e17389587885aa1b30dd1c49071cf2971
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="shapeFarmacy">
             <EntityTypeMapping TypeName="MedicalCenterDbModel.shapeFarmacy">
               <MappingFragment StoreEntitySet="shapeFarmacy">
+<<<<<<< HEAD
                 <ScalarProperty Name="isDeleted" ColumnName="isDeleted" />
                 <ScalarProperty Name="sfName" ColumnName="sfName" />
                 <ScalarProperty Name="sfCode" ColumnName="sfCode" />
                 <ScalarProperty Name="sfId" ColumnName="sfId" />
+=======
+                <ScalarProperty Name="sfId" ColumnName="sfId" />
+                <ScalarProperty Name="sfCode" ColumnName="sfCode" />
+                <ScalarProperty Name="sfName" ColumnName="sfName" />
+                <ScalarProperty Name="isDeleted" ColumnName="isDeleted" />
+>>>>>>> e6a6e25e17389587885aa1b30dd1c49071cf2971
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="sysdiagrams">
             <EntityTypeMapping TypeName="MedicalCenterDbModel.sysdiagrams">
               <MappingFragment StoreEntitySet="sysdiagrams">
+<<<<<<< HEAD
                 <ScalarProperty Name="definition" ColumnName="definition" />
                 <ScalarProperty Name="version" ColumnName="version" />
                 <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
                 <ScalarProperty Name="principal_id" ColumnName="principal_id" />
                 <ScalarProperty Name="name" ColumnName="name" />
+=======
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+                <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+                <ScalarProperty Name="version" ColumnName="version" />
+                <ScalarProperty Name="definition" ColumnName="definition" />
+>>>>>>> e6a6e25e17389587885aa1b30dd1c49071cf2971
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="testItemTab">
             <EntityTypeMapping TypeName="MedicalCenterDbModel.testItemTab">
               <MappingFragment StoreEntitySet="testItemTab">
+<<<<<<< HEAD
                 <ScalarProperty Name="isDeleted" ColumnName="isDeleted" />
                 <ScalarProperty Name="teId" ColumnName="teId" />
                 <ScalarProperty Name="qty" ColumnName="qty" />
@@ -3654,12 +5583,26 @@ warning 6002: The table/view 'MedicalCenterDb.dbo.System_Options' does not have 
                 <ScalarProperty Name="itName" ColumnName="itName" />
                 <ScalarProperty Name="itCode" ColumnName="itCode" />
                 <ScalarProperty Name="itId" ColumnName="itId" />
+=======
+                <ScalarProperty Name="itId" ColumnName="itId" />
+                <ScalarProperty Name="itCode" ColumnName="itCode" />
+                <ScalarProperty Name="itName" ColumnName="itName" />
+                <ScalarProperty Name="itSname" ColumnName="itSname" />
+                <ScalarProperty Name="maxValue" ColumnName="maxValue" />
+                <ScalarProperty Name="minValue" ColumnName="minValue" />
+                <ScalarProperty Name="unitName" ColumnName="unitName" />
+                <ScalarProperty Name="itPrice" ColumnName="itPrice" />
+                <ScalarProperty Name="qty" ColumnName="qty" />
+                <ScalarProperty Name="teId" ColumnName="teId" />
+                <ScalarProperty Name="isDeleted" ColumnName="isDeleted" />
+>>>>>>> e6a6e25e17389587885aa1b30dd1c49071cf2971
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="testrRequesTab">
             <EntityTypeMapping TypeName="MedicalCenterDbModel.testrRequesTab">
               <MappingFragment StoreEntitySet="testrRequesTab">
+<<<<<<< HEAD
                 <ScalarProperty Name="isDeleted" ColumnName="isDeleted" />
                 <ScalarProperty Name="consId" ColumnName="consId" />
                 <ScalarProperty Name="state" ColumnName="state" />
@@ -3674,12 +5617,29 @@ warning 6002: The table/view 'MedicalCenterDb.dbo.System_Options' does not have 
                 <ScalarProperty Name="trManual" ColumnName="trManual" />
                 <ScalarProperty Name="trCode" ColumnName="trCode" />
                 <ScalarProperty Name="trId" ColumnName="trId" />
+=======
+                <ScalarProperty Name="trId" ColumnName="trId" />
+                <ScalarProperty Name="trCode" ColumnName="trCode" />
+                <ScalarProperty Name="trManual" ColumnName="trManual" />
+                <ScalarProperty Name="trDate" ColumnName="trDate" />
+                <ScalarProperty Name="trDiscount" ColumnName="trDiscount" />
+                <ScalarProperty Name="valueAdded" ColumnName="valueAdded" />
+                <ScalarProperty Name="Coin_Num" ColumnName="Coin_Num" />
+                <ScalarProperty Name="Cash_Num" ColumnName="Cash_Num" />
+                <ScalarProperty Name="viId" ColumnName="viId" />
+                <ScalarProperty Name="methodPayment" ColumnName="methodPayment" />
+                <ScalarProperty Name="Coin_change" ColumnName="Coin_change" />
+                <ScalarProperty Name="state" ColumnName="state" />
+                <ScalarProperty Name="consId" ColumnName="consId" />
+                <ScalarProperty Name="isDeleted" ColumnName="isDeleted" />
+>>>>>>> e6a6e25e17389587885aa1b30dd1c49071cf2971
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="testTab">
             <EntityTypeMapping TypeName="MedicalCenterDbModel.testTab">
               <MappingFragment StoreEntitySet="testTab">
+<<<<<<< HEAD
                 <ScalarProperty Name="isDeleted" ColumnName="isDeleted" />
                 <ScalarProperty Name="rateOut" ColumnName="rateOut" />
                 <ScalarProperty Name="rateIn" ColumnName="rateIn" />
@@ -3689,12 +5649,24 @@ warning 6002: The table/view 'MedicalCenterDb.dbo.System_Options' does not have 
                 <ScalarProperty Name="teName" ColumnName="teName" />
                 <ScalarProperty Name="teCode" ColumnName="teCode" />
                 <ScalarProperty Name="teId" ColumnName="teId" />
+=======
+                <ScalarProperty Name="rateOut" ColumnName="rateOut" />
+                <ScalarProperty Name="rateIn" ColumnName="rateIn" />
+                <ScalarProperty Name="teId" ColumnName="teId" />
+                <ScalarProperty Name="teCode" ColumnName="teCode" />
+                <ScalarProperty Name="teName" ColumnName="teName" />
+                <ScalarProperty Name="teSname" ColumnName="teSname" />
+                <ScalarProperty Name="teNote" ColumnName="teNote" />
+                <ScalarProperty Name="grId" ColumnName="grId" />
+                <ScalarProperty Name="isDeleted" ColumnName="isDeleted" />
+>>>>>>> e6a6e25e17389587885aa1b30dd1c49071cf2971
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Users">
             <EntityTypeMapping TypeName="MedicalCenterDbModel.Users">
               <MappingFragment StoreEntitySet="Users">
+<<<<<<< HEAD
                 <ScalarProperty Name="isDeleted" ColumnName="isDeleted" />
                 <ScalarProperty Name="Status" ColumnName="Status" />
                 <ScalarProperty Name="Is_Admin" ColumnName="Is_Admin" />
@@ -3705,12 +5677,25 @@ warning 6002: The table/view 'MedicalCenterDb.dbo.System_Options' does not have 
                 <ScalarProperty Name="User_Login_Name" ColumnName="User_Login_Name" />
                 <ScalarProperty Name="Full_Name" ColumnName="Full_Name" />
                 <ScalarProperty Name="User_Num" ColumnName="User_Num" />
+=======
+                <ScalarProperty Name="User_Num" ColumnName="User_Num" />
+                <ScalarProperty Name="Full_Name" ColumnName="Full_Name" />
+                <ScalarProperty Name="User_Login_Name" ColumnName="User_Login_Name" />
+                <ScalarProperty Name="User_Pass" ColumnName="User_Pass" />
+                <ScalarProperty Name="Permission_Level" ColumnName="Permission_Level" />
+                <ScalarProperty Name="Address" ColumnName="Address" />
+                <ScalarProperty Name="Phone_Num" ColumnName="Phone_Num" />
+                <ScalarProperty Name="Is_Admin" ColumnName="Is_Admin" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="isDeleted" ColumnName="isDeleted" />
+>>>>>>> e6a6e25e17389587885aa1b30dd1c49071cf2971
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="users1">
             <EntityTypeMapping TypeName="MedicalCenterDbModel.users1">
               <MappingFragment StoreEntitySet="users1">
+<<<<<<< HEAD
                 <ScalarProperty Name="userIdentifier" ColumnName="userIdentifier" />
                 <ScalarProperty Name="email" ColumnName="email" />
                 <ScalarProperty Name="userState" ColumnName="userState" />
@@ -3719,12 +5704,23 @@ warning 6002: The table/view 'MedicalCenterDb.dbo.System_Options' does not have 
                 <ScalarProperty Name="Password" ColumnName="Password" />
                 <ScalarProperty Name="userName" ColumnName="userName" />
                 <ScalarProperty Name="userId" ColumnName="userId" />
+=======
+                <ScalarProperty Name="userId" ColumnName="userId" />
+                <ScalarProperty Name="userName" ColumnName="userName" />
+                <ScalarProperty Name="Password" ColumnName="Password" />
+                <ScalarProperty Name="confirmPassword" ColumnName="confirmPassword" />
+                <ScalarProperty Name="userType" ColumnName="userType" />
+                <ScalarProperty Name="userState" ColumnName="userState" />
+                <ScalarProperty Name="email" ColumnName="email" />
+                <ScalarProperty Name="userIdentifier" ColumnName="userIdentifier" />
+>>>>>>> e6a6e25e17389587885aa1b30dd1c49071cf2971
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="visitTab">
             <EntityTypeMapping TypeName="MedicalCenterDbModel.visitTab">
               <MappingFragment StoreEntitySet="visitTab">
+<<<<<<< HEAD
                 <ScalarProperty Name="isDeleted" ColumnName="isDeleted" />
                 <ScalarProperty Name="doId" ColumnName="doId" />
                 <ScalarProperty Name="viNote" ColumnName="viNote" />
@@ -3735,32 +5731,59 @@ warning 6002: The table/view 'MedicalCenterDb.dbo.System_Options' does not have 
                 <ScalarProperty Name="viName" ColumnName="viName" />
                 <ScalarProperty Name="viCode" ColumnName="viCode" />
                 <ScalarProperty Name="viId" ColumnName="viId" />
+=======
+                <ScalarProperty Name="viId" ColumnName="viId" />
+                <ScalarProperty Name="viCode" ColumnName="viCode" />
+                <ScalarProperty Name="viName" ColumnName="viName" />
+                <ScalarProperty Name="viDate" ColumnName="viDate" />
+                <ScalarProperty Name="viTime" ColumnName="viTime" />
+                <ScalarProperty Name="paId" ColumnName="paId" />
+                <ScalarProperty Name="apId" ColumnName="apId" />
+                <ScalarProperty Name="viNote" ColumnName="viNote" />
+                <ScalarProperty Name="doId" ColumnName="doId" />
+                <ScalarProperty Name="isDeleted" ColumnName="isDeleted" />
+>>>>>>> e6a6e25e17389587885aa1b30dd1c49071cf2971
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Cost_Centers">
             <EntityTypeMapping TypeName="MedicalCenterDbModel.Cost_Centers">
               <MappingFragment StoreEntitySet="Cost_Centers">
+<<<<<<< HEAD
                 <ScalarProperty Name="Cost_Centers_Name" ColumnName="Cost_Centers_Name" />
                 <ScalarProperty Name="Cost_Centers_Num" ColumnName="Cost_Centers_Num" />
+=======
+                <ScalarProperty Name="Cost_Centers_Num" ColumnName="Cost_Centers_Num" />
+                <ScalarProperty Name="Cost_Centers_Name" ColumnName="Cost_Centers_Name" />
+>>>>>>> e6a6e25e17389587885aa1b30dd1c49071cf2971
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Serial_Table">
             <EntityTypeMapping TypeName="MedicalCenterDbModel.Serial_Table">
               <MappingFragment StoreEntitySet="Serial_Table">
+<<<<<<< HEAD
                 <ScalarProperty Name="isDeleted" ColumnName="isDeleted" />
                 <ScalarProperty Name="use_date" ColumnName="use_date" />
                 <ScalarProperty Name="Install" ColumnName="Install" />
                 <ScalarProperty Name="Serial_Num" ColumnName="Serial_Num" />
                 <ScalarProperty Name="Key_Num" ColumnName="Key_Num" />
                 <ScalarProperty Name="Id" ColumnName="Id" />
+=======
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Key_Num" ColumnName="Key_Num" />
+                <ScalarProperty Name="Serial_Num" ColumnName="Serial_Num" />
+                <ScalarProperty Name="Install" ColumnName="Install" />
+                <ScalarProperty Name="use_date" ColumnName="use_date" />
+                <ScalarProperty Name="isDeleted" ColumnName="isDeleted" />
+>>>>>>> e6a6e25e17389587885aa1b30dd1c49071cf2971
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="System_Options">
             <EntityTypeMapping TypeName="MedicalCenterDbModel.System_Options">
               <MappingFragment StoreEntitySet="System_Options">
+<<<<<<< HEAD
                 <ScalarProperty Name="isDeleted" ColumnName="isDeleted" />
                 <ScalarProperty Name="Options" ColumnName="Options" />
                 <ScalarProperty Name="Options_Name" ColumnName="Options_Name" />
@@ -3769,6 +5792,96 @@ warning 6002: The table/view 'MedicalCenterDb.dbo.System_Options' does not have 
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
+=======
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Options_Num" ColumnName="Options_Num" />
+                <ScalarProperty Name="Options_Name" ColumnName="Options_Name" />
+                <ScalarProperty Name="Options" ColumnName="Options" />
+                <ScalarProperty Name="isDeleted" ColumnName="isDeleted" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="AddDiagnoses" FunctionName="MedicalCenterDbModel.Store.AddDiagnoses" />
+          <FunctionImportMapping FunctionImportName="AddPatient" FunctionName="MedicalCenterDbModel.Store.AddPatient" />
+          <FunctionImportMapping FunctionImportName="AddPrescription" FunctionName="MedicalCenterDbModel.Store.AddPrescription" />
+          <FunctionImportMapping FunctionImportName="AddPreview" FunctionName="MedicalCenterDbModel.Store.AddPreview" />
+          <FunctionImportMapping FunctionImportName="AddRecipe" FunctionName="MedicalCenterDbModel.Store.AddRecipe" />
+          <FunctionImportMapping FunctionImportName="AddServiecs" FunctionName="MedicalCenterDbModel.Store.AddServiecs" />
+          <FunctionImportMapping FunctionImportName="AddVisit" FunctionName="MedicalCenterDbModel.Store.AddVisit" />
+          <FunctionImportMapping FunctionImportName="DeleteDiagnoseByUpdate" FunctionName="MedicalCenterDbModel.Store.DeleteDiagnoseByUpdate" />
+          <FunctionImportMapping FunctionImportName="DeletePatient" FunctionName="MedicalCenterDbModel.Store.DeletePatient" />
+          <FunctionImportMapping FunctionImportName="DeletePrescription" FunctionName="MedicalCenterDbModel.Store.DeletePrescription" />
+          <FunctionImportMapping FunctionImportName="DeletePreviewByUpdate" FunctionName="MedicalCenterDbModel.Store.DeletePreviewByUpdate" />
+          <FunctionImportMapping FunctionImportName="DeleteRecipeByUpdate" FunctionName="MedicalCenterDbModel.Store.DeleteRecipeByUpdate" />
+          <FunctionImportMapping FunctionImportName="DeleteVisitPatient" FunctionName="MedicalCenterDbModel.Store.DeleteVisitPatient" />
+          <FunctionImportMapping FunctionImportName="getAllPatient" FunctionName="MedicalCenterDbModel.Store.getAllPatient">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="MedicalCenterDbModel.getAllPatient_Result">
+                <ScalarProperty Name="الرقم" ColumnName="الرقم" />
+                <ScalarProperty Name="رقم_الكود" ColumnName="رقم الكود" />
+                <ScalarProperty Name="الاسم" ColumnName="الاسم" />
+                <ScalarProperty Name="اللقب" ColumnName="اللقب" />
+                <ScalarProperty Name="الجنس" ColumnName="الجنس" />
+                <ScalarProperty Name="تاريخ_الميلاد" ColumnName="تاريخ الميلاد" />
+                <ScalarProperty Name="العمر" ColumnName="العمر" />
+                <ScalarProperty Name="رقم_الموبيل" ColumnName="رقم الموبيل" />
+                <ScalarProperty Name="رقم_التلفون" ColumnName="رقم التلفون" />
+                <ScalarProperty Name="الصورة" ColumnName="الصورة" />
+                <ScalarProperty Name="العنوان" ColumnName="العنوان" />
+                <ScalarProperty Name="الدولة" ColumnName="الدولة" />
+                <ScalarProperty Name="المدينة" ColumnName="المدينة" />
+                <ScalarProperty Name="فصيلة_الدم" ColumnName="فصيلة الدم" />
+                <ScalarProperty Name="حالة_المريض" ColumnName="حالة المريض" />
+                <ScalarProperty Name="نوع_المريض" ColumnName="نوع المريض" />
+                <ScalarProperty Name="رقم_الحساب" ColumnName="رقم الحساب" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="getAllServiecs" FunctionName="MedicalCenterDbModel.Store.getAllServiecs">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="MedicalCenterDbModel.getAllServiecs_Result">
+                <ScalarProperty Name="الرقم" ColumnName="الرقم" />
+                <ScalarProperty Name="رقم_الكود" ColumnName="رقم الكود" />
+                <ScalarProperty Name="الخدمة_" ColumnName="الخدمة " />
+                <ScalarProperty Name="توع_الخدمة" ColumnName="توع الخدمة" />
+                <ScalarProperty Name="السعر" ColumnName="السعر" />
+                <ScalarProperty Name="ملاحظات" ColumnName="ملاحظات" />
+                <ScalarProperty Name="رقم_الحساب" ColumnName="رقم الحساب" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="getAllVisitPatient" FunctionName="MedicalCenterDbModel.Store.getAllVisitPatient">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="MedicalCenterDbModel.getAllVisitPatient_Result">
+                <ScalarProperty Name="رقم_الزيارة" ColumnName="رقم الزيارة" />
+                <ScalarProperty Name="رفم_الكود" ColumnName="رفم الكود" />
+                <ScalarProperty Name="الزيارة" ColumnName="الزيارة" />
+                <ScalarProperty Name="تاريخ_الزبارة" ColumnName="تاريخ الزبارة" />
+                <ScalarProperty Name="وقت_الزيارة" ColumnName="وقت الزيارة" />
+                <ScalarProperty Name="رقم_الطبيب" ColumnName="رقم الطبيب" />
+                <ScalarProperty Name="اسم_الطبيب" ColumnName="اسم الطبيب" />
+                <ScalarProperty Name="ملاحظات_" ColumnName="ملاحظات " />
+                <ScalarProperty Name="الرقم" ColumnName="الرقم" />
+                <ScalarProperty Name="رقم_الكود" ColumnName="رقم الكود" />
+                <ScalarProperty Name="اسم_المريض" ColumnName="اسم المريض" />
+                <ScalarProperty Name="اللقب" ColumnName="اللقب" />
+                <ScalarProperty Name="الجنس" ColumnName="الجنس" />
+                <ScalarProperty Name="تاريخ_الميلاد" ColumnName="تاريخ الميلاد" />
+                <ScalarProperty Name="العمر" ColumnName="العمر" />
+                <ScalarProperty Name="رقم_الموبيل" ColumnName="رقم الموبيل" />
+                <ScalarProperty Name="رقم_التلفون" ColumnName="رقم التلفون" />
+                <ScalarProperty Name="الصورة" ColumnName="الصورة" />
+                <ScalarProperty Name="العنوان" ColumnName="العنوان" />
+                <ScalarProperty Name="الدولة" ColumnName="الدولة" />
+                <ScalarProperty Name="المدينة" ColumnName="المدينة" />
+                <ScalarProperty Name="فصيلة_الدم" ColumnName="فصيلة الدم" />
+                <ScalarProperty Name="حالة_المريض" ColumnName="حالة المريض" />
+                <ScalarProperty Name="نوع_المريض" ColumnName="نوع المريض" />
+                <ScalarProperty Name="رقم_الحساب" ColumnName="رقم الحساب" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+>>>>>>> e6a6e25e17389587885aa1b30dd1c49071cf2971
           <FunctionImportMapping FunctionImportName="getDiagnosePatientByVistID" FunctionName="MedicalCenterDbModel.Store.getDiagnosePatientByVistID">
             <ResultMapping>
               <ComplexTypeMapping TypeName="MedicalCenterDbModel.getDiagnosePatientByVistID_Result">
@@ -3782,8 +5895,47 @@ warning 6002: The table/view 'MedicalCenterDb.dbo.System_Options' does not have 
                 <ScalarProperty Name="نتيجة_التشخيص" ColumnName="نتيجة التشخيص" />
                 <ScalarProperty Name="تاريخ_التشخيص" ColumnName="تاريخ التشخيص" />
                 <ScalarProperty Name="وقت_التشخيص" ColumnName="وقت التشخيص" />
+<<<<<<< HEAD
                 <ScalarProperty Name="اسم_الطبيب" ColumnName="اسم الطبيب" />
                 <ScalarProperty Name="تاريخ_الزيارة" ColumnName="تاريخ الزيارة" />
+=======
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="getMaxRecipeID" FunctionName="MedicalCenterDbModel.Store.getMaxRecipeID" />
+          <FunctionImportMapping FunctionImportName="getPreviewPatientByVistID" FunctionName="MedicalCenterDbModel.Store.getPreviewPatientByVistID">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="MedicalCenterDbModel.getPreviewPatientByVistID_Result">
+                <ScalarProperty Name="رقم_المعانية" ColumnName="رقم المعانية" />
+                <ScalarProperty Name="الكود" ColumnName="الكود" />
+                <ScalarProperty Name="المعاينة" ColumnName="المعاينة" />
+                <ScalarProperty Name="تاريخ_المعاينة" ColumnName="تاريخ المعاينة" />
+                <ScalarProperty Name="وقت_المعاينة" ColumnName="وقت المعاينة" />
+                <ScalarProperty Name="ملاحظات" ColumnName="ملاحظات" />
+                <ScalarProperty Name="رقم_المريض" ColumnName="رقم المريض" />
+                <ScalarProperty Name="اسم_المريض" ColumnName="اسم المريض" />
+                <ScalarProperty Name="اللقب" ColumnName="اللقب" />
+                <ScalarProperty Name="الجنس" ColumnName="الجنس" />
+                <ScalarProperty Name="العمر" ColumnName="العمر" />
+                <ScalarProperty Name="رقم_الزيارة" ColumnName="رقم الزيارة" />
+                <ScalarProperty Name="الزيارة" ColumnName="الزيارة" />
+                <ScalarProperty Name="تاريخ_الزبارة" ColumnName="تاريخ الزبارة" />
+                <ScalarProperty Name="وقت_الزيارة" ColumnName="وقت الزيارة" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="getRecipeByRecipeId" FunctionName="MedicalCenterDbModel.Store.getRecipeByRecipeId">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="MedicalCenterDbModel.getRecipeByRecipeId_Result">
+                <ScalarProperty Name="presCode" ColumnName="presCode" />
+                <ScalarProperty Name="drId" ColumnName="drId" />
+                <ScalarProperty Name="presName" ColumnName="presName" />
+                <ScalarProperty Name="presQyt" ColumnName="presQyt" />
+                <ScalarProperty Name="presSize" ColumnName="presSize" />
+                <ScalarProperty Name="presTimeUse" ColumnName="presTimeUse" />
+                <ScalarProperty Name="presPriod" ColumnName="presPriod" />
+                <ScalarProperty Name="presId" ColumnName="presId" />
+>>>>>>> e6a6e25e17389587885aa1b30dd1c49071cf2971
               </ComplexTypeMapping>
             </ResultMapping>
           </FunctionImportMapping>
@@ -3802,10 +5954,222 @@ warning 6002: The table/view 'MedicalCenterDb.dbo.System_Options' does not have 
                 <ScalarProperty Name="التاريخ" ColumnName="التاريخ" />
                 <ScalarProperty Name="الوقت" ColumnName="الوقت" />
                 <ScalarProperty Name="الملاحظات" ColumnName="الملاحظات" />
+<<<<<<< HEAD
                 <ScalarProperty Name="اسم_الطبيب" ColumnName="اسم الطبيب" />
                 <ScalarProperty Name="DrName_" ColumnName="DrName " />
                 <ScalarProperty Name="paFname" ColumnName="paFname" />
                 <ScalarProperty Name="paLname" ColumnName="paLname" />
+=======
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="getTestResultPatient" FunctionName="MedicalCenterDbModel.Store.getTestResultPatient">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="MedicalCenterDbModel.getTestResultPatient_Result">
+                <ScalarProperty Name="رقم_الزيارة" ColumnName="رقم الزيارة" />
+                <ScalarProperty Name="الرقم" ColumnName="الرقم" />
+                <ScalarProperty Name="C_الفحص" ColumnName=" الفحص" />
+                <ScalarProperty Name="C_الاسم" ColumnName=" الاسم" />
+                <ScalarProperty Name="الاختصار" ColumnName="الاختصار" />
+                <ScalarProperty Name="النتيجة_الطبيعية" ColumnName="النتيجة الطبيعية" />
+                <ScalarProperty Name="نتيجة_الفحص" ColumnName="نتيجة الفحص" />
+                <ScalarProperty Name="نوع_النتيجة" ColumnName="نوع النتيجة" />
+                <ScalarProperty Name="C_التاريخ" ColumnName=" التاريخ" />
+                <ScalarProperty Name="ملاحظات" ColumnName="ملاحظات" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="getVisitPatientByID" FunctionName="MedicalCenterDbModel.Store.getVisitPatientByID">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="MedicalCenterDbModel.getVisitPatientByID_Result">
+                <ScalarProperty Name="الرقم" ColumnName="الرقم" />
+                <ScalarProperty Name="رقم_الكود" ColumnName="رقم الكود" />
+                <ScalarProperty Name="اسم_المريض" ColumnName="اسم المريض" />
+                <ScalarProperty Name="اللقب" ColumnName="اللقب" />
+                <ScalarProperty Name="الجنس" ColumnName="الجنس" />
+                <ScalarProperty Name="تاريخ_الميلاد" ColumnName="تاريخ الميلاد" />
+                <ScalarProperty Name="العمر" ColumnName="العمر" />
+                <ScalarProperty Name="رقم_الموبيل" ColumnName="رقم الموبيل" />
+                <ScalarProperty Name="رقم_التلفون" ColumnName="رقم التلفون" />
+                <ScalarProperty Name="الصورة" ColumnName="الصورة" />
+                <ScalarProperty Name="العنوان" ColumnName="العنوان" />
+                <ScalarProperty Name="الدولة" ColumnName="الدولة" />
+                <ScalarProperty Name="المدينة" ColumnName="المدينة" />
+                <ScalarProperty Name="فصيلة_الدم" ColumnName="فصيلة الدم" />
+                <ScalarProperty Name="حالة_المريض" ColumnName="حالة المريض" />
+                <ScalarProperty Name="نوع_المريض" ColumnName="نوع المريض" />
+                <ScalarProperty Name="رقم_الحساب" ColumnName="رقم الحساب" />
+                <ScalarProperty Name="رقم_الزيارة" ColumnName="رقم الزيارة" />
+                <ScalarProperty Name="رفم_الكود" ColumnName="رفم الكود" />
+                <ScalarProperty Name="الزيارة" ColumnName="الزيارة" />
+                <ScalarProperty Name="تاريخ_الزبارة" ColumnName="تاريخ الزبارة" />
+                <ScalarProperty Name="وقت_الزيارة" ColumnName="وقت الزيارة" />
+                <ScalarProperty Name="ملاحظات_" ColumnName="ملاحظات " />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="getVisitPatientByName" FunctionName="MedicalCenterDbModel.Store.getVisitPatientByName">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="MedicalCenterDbModel.getVisitPatientByName_Result">
+                <ScalarProperty Name="الرقم" ColumnName="الرقم" />
+                <ScalarProperty Name="رقم_الكود" ColumnName="رقم الكود" />
+                <ScalarProperty Name="اسم_المريض" ColumnName="اسم المريض" />
+                <ScalarProperty Name="اللقب" ColumnName="اللقب" />
+                <ScalarProperty Name="الجنس" ColumnName="الجنس" />
+                <ScalarProperty Name="تاريخ_الميلاد" ColumnName="تاريخ الميلاد" />
+                <ScalarProperty Name="العمر" ColumnName="العمر" />
+                <ScalarProperty Name="رقم_الموبيل" ColumnName="رقم الموبيل" />
+                <ScalarProperty Name="رقم_التلفون" ColumnName="رقم التلفون" />
+                <ScalarProperty Name="الصورة" ColumnName="الصورة" />
+                <ScalarProperty Name="العنوان" ColumnName="العنوان" />
+                <ScalarProperty Name="الدولة" ColumnName="الدولة" />
+                <ScalarProperty Name="المدينة" ColumnName="المدينة" />
+                <ScalarProperty Name="فصيلة_الدم" ColumnName="فصيلة الدم" />
+                <ScalarProperty Name="حالة_المريض" ColumnName="حالة المريض" />
+                <ScalarProperty Name="نوع_المريض" ColumnName="نوع المريض" />
+                <ScalarProperty Name="رقم_الحساب" ColumnName="رقم الحساب" />
+                <ScalarProperty Name="رقم_الزيارة" ColumnName="رقم الزيارة" />
+                <ScalarProperty Name="رفم_الكود" ColumnName="رفم الكود" />
+                <ScalarProperty Name="الزيارة" ColumnName="الزيارة" />
+                <ScalarProperty Name="تاريخ_الزبارة" ColumnName="تاريخ الزبارة" />
+                <ScalarProperty Name="وقت_الزيارة" ColumnName="وقت الزيارة" />
+                <ScalarProperty Name="ملاحظات_" ColumnName="ملاحظات " />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="SearchVisitById" FunctionName="MedicalCenterDbModel.Store.SearchVisitById">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="MedicalCenterDbModel.SearchVisitById_Result">
+                <ScalarProperty Name="الرقم" ColumnName="الرقم" />
+                <ScalarProperty Name="رقم_الكود" ColumnName="رقم الكود" />
+                <ScalarProperty Name="اسم_المريض" ColumnName="اسم المريض" />
+                <ScalarProperty Name="اللقب" ColumnName="اللقب" />
+                <ScalarProperty Name="الجنس" ColumnName="الجنس" />
+                <ScalarProperty Name="تاريخ_الميلاد" ColumnName="تاريخ الميلاد" />
+                <ScalarProperty Name="العمر" ColumnName="العمر" />
+                <ScalarProperty Name="رقم_الموبيل" ColumnName="رقم الموبيل" />
+                <ScalarProperty Name="رقم_التلفون" ColumnName="رقم التلفون" />
+                <ScalarProperty Name="الصورة" ColumnName="الصورة" />
+                <ScalarProperty Name="العنوان" ColumnName="العنوان" />
+                <ScalarProperty Name="الدولة" ColumnName="الدولة" />
+                <ScalarProperty Name="المدينة" ColumnName="المدينة" />
+                <ScalarProperty Name="فصيلة_الدم" ColumnName="فصيلة الدم" />
+                <ScalarProperty Name="حالة_المريض" ColumnName="حالة المريض" />
+                <ScalarProperty Name="نوع_المريض" ColumnName="نوع المريض" />
+                <ScalarProperty Name="رقم_الحساب" ColumnName="رقم الحساب" />
+                <ScalarProperty Name="رقم_الزيارة" ColumnName="رقم الزيارة" />
+                <ScalarProperty Name="رفم_الكود" ColumnName="رفم الكود" />
+                <ScalarProperty Name="الزيارة" ColumnName="الزيارة" />
+                <ScalarProperty Name="تاريخ_الزبارة" ColumnName="تاريخ الزبارة" />
+                <ScalarProperty Name="وقت_الزيارة" ColumnName="وقت الزيارة" />
+                <ScalarProperty Name="ملاحظات_" ColumnName="ملاحظات " />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="SearchVisitPatient" FunctionName="MedicalCenterDbModel.Store.SearchVisitPatient">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="MedicalCenterDbModel.SearchVisitPatient_Result">
+                <ScalarProperty Name="الرقم" ColumnName="الرقم" />
+                <ScalarProperty Name="رقم_الكود" ColumnName="رقم الكود" />
+                <ScalarProperty Name="اسم_المريض" ColumnName="اسم المريض" />
+                <ScalarProperty Name="اللقب" ColumnName="اللقب" />
+                <ScalarProperty Name="الجنس" ColumnName="الجنس" />
+                <ScalarProperty Name="تاريخ_الميلاد" ColumnName="تاريخ الميلاد" />
+                <ScalarProperty Name="العمر" ColumnName="العمر" />
+                <ScalarProperty Name="رقم_الموبيل" ColumnName="رقم الموبيل" />
+                <ScalarProperty Name="رقم_التلفون" ColumnName="رقم التلفون" />
+                <ScalarProperty Name="الصورة" ColumnName="الصورة" />
+                <ScalarProperty Name="العنوان" ColumnName="العنوان" />
+                <ScalarProperty Name="الدولة" ColumnName="الدولة" />
+                <ScalarProperty Name="المدينة" ColumnName="المدينة" />
+                <ScalarProperty Name="فصيلة_الدم" ColumnName="فصيلة الدم" />
+                <ScalarProperty Name="حالة_المريض" ColumnName="حالة المريض" />
+                <ScalarProperty Name="نوع_المريض" ColumnName="نوع المريض" />
+                <ScalarProperty Name="رقم_الحساب" ColumnName="رقم الحساب" />
+                <ScalarProperty Name="رقم_الزيارة" ColumnName="رقم الزيارة" />
+                <ScalarProperty Name="رفم_الكود" ColumnName="رفم الكود" />
+                <ScalarProperty Name="الزيارة" ColumnName="الزيارة" />
+                <ScalarProperty Name="تاريخ_الزبارة" ColumnName="تاريخ الزبارة" />
+                <ScalarProperty Name="وقت_الزيارة" ColumnName="وقت الزيارة" />
+                <ScalarProperty Name="ملاحظات_" ColumnName="ملاحظات " />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="SearchVisitPatientByDate" FunctionName="MedicalCenterDbModel.Store.SearchVisitPatientByDate">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="MedicalCenterDbModel.SearchVisitPatientByDate_Result">
+                <ScalarProperty Name="الرقم" ColumnName="الرقم" />
+                <ScalarProperty Name="رقم_الكود" ColumnName="رقم الكود" />
+                <ScalarProperty Name="اسم_المريض" ColumnName="اسم المريض" />
+                <ScalarProperty Name="اللقب" ColumnName="اللقب" />
+                <ScalarProperty Name="الجنس" ColumnName="الجنس" />
+                <ScalarProperty Name="تاريخ_الميلاد" ColumnName="تاريخ الميلاد" />
+                <ScalarProperty Name="العمر" ColumnName="العمر" />
+                <ScalarProperty Name="رقم_الموبيل" ColumnName="رقم الموبيل" />
+                <ScalarProperty Name="رقم_التلفون" ColumnName="رقم التلفون" />
+                <ScalarProperty Name="الصورة" ColumnName="الصورة" />
+                <ScalarProperty Name="العنوان" ColumnName="العنوان" />
+                <ScalarProperty Name="الدولة" ColumnName="الدولة" />
+                <ScalarProperty Name="المدينة" ColumnName="المدينة" />
+                <ScalarProperty Name="فصيلة_الدم" ColumnName="فصيلة الدم" />
+                <ScalarProperty Name="حالة_المريض" ColumnName="حالة المريض" />
+                <ScalarProperty Name="نوع_المريض" ColumnName="نوع المريض" />
+                <ScalarProperty Name="رقم_الحساب" ColumnName="رقم الحساب" />
+                <ScalarProperty Name="رقم_الزيارة" ColumnName="رقم الزيارة" />
+                <ScalarProperty Name="رفم_الكود" ColumnName="رفم الكود" />
+                <ScalarProperty Name="الزيارة" ColumnName="الزيارة" />
+                <ScalarProperty Name="تاريخ_الزبارة" ColumnName="تاريخ الزبارة" />
+                <ScalarProperty Name="وقت_الزيارة" ColumnName="وقت الزيارة" />
+                <ScalarProperty Name="ملاحظات_" ColumnName="ملاحظات " />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="sp_alterdiagram" FunctionName="MedicalCenterDbModel.Store.sp_alterdiagram" />
+          <FunctionImportMapping FunctionImportName="sp_creatediagram" FunctionName="MedicalCenterDbModel.Store.sp_creatediagram" />
+          <FunctionImportMapping FunctionImportName="sp_dropdiagram" FunctionName="MedicalCenterDbModel.Store.sp_dropdiagram" />
+          <FunctionImportMapping FunctionImportName="sp_helpdiagramdefinition" FunctionName="MedicalCenterDbModel.Store.sp_helpdiagramdefinition">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="MedicalCenterDbModel.sp_helpdiagramdefinition_Result">
+                <ScalarProperty Name="version" ColumnName="version" />
+                <ScalarProperty Name="definition" ColumnName="definition" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="sp_helpdiagrams" FunctionName="MedicalCenterDbModel.Store.sp_helpdiagrams">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="MedicalCenterDbModel.sp_helpdiagrams_Result">
+                <ScalarProperty Name="Database" ColumnName="Database" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Owner" ColumnName="Owner" />
+                <ScalarProperty Name="OwnerID" ColumnName="OwnerID" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="sp_renamediagram" FunctionName="MedicalCenterDbModel.Store.sp_renamediagram" />
+          <FunctionImportMapping FunctionImportName="sp_upgraddiagrams" FunctionName="MedicalCenterDbModel.Store.sp_upgraddiagrams" />
+          <FunctionImportMapping FunctionImportName="UpdateDiagnoses" FunctionName="MedicalCenterDbModel.Store.UpdateDiagnoses" />
+          <FunctionImportMapping FunctionImportName="updatePatient" FunctionName="MedicalCenterDbModel.Store.updatePatient" />
+          <FunctionImportMapping FunctionImportName="UpdatePrescription" FunctionName="MedicalCenterDbModel.Store.UpdatePrescription" />
+          <FunctionImportMapping FunctionImportName="UpdatePreview" FunctionName="MedicalCenterDbModel.Store.UpdatePreview" />
+          <FunctionImportMapping FunctionImportName="UpdateRecipe" FunctionName="MedicalCenterDbModel.Store.UpdateRecipe" />
+          <FunctionImportMapping FunctionImportName="UpdateServiecs" FunctionName="MedicalCenterDbModel.Store.UpdateServiecs" />
+          <FunctionImportMapping FunctionImportName="UpdateVisit" FunctionName="MedicalCenterDbModel.Store.UpdateVisit" />
+          <FunctionImportMapping FunctionImportName="getHeaderInformation" FunctionName="MedicalCenterDbModel.Store.getHeaderInformation">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="MedicalCenterDbModel.getHeaderInformation_Result">
+                <ScalarProperty Name="hoNameE" ColumnName="hoNameE" />
+                <ScalarProperty Name="hoNameA" ColumnName="hoNameA" />
+                <ScalarProperty Name="hoMobile1" ColumnName="hoMobile1" />
+                <ScalarProperty Name="hoMobile2" ColumnName="hoMobile2" />
+                <ScalarProperty Name="hoAddressE" ColumnName="hoAddressE" />
+                <ScalarProperty Name="hoAddressA" ColumnName="hoAddressA" />
+                <ScalarProperty Name="hoFix" ColumnName="hoFix" />
+                <ScalarProperty Name="hoImg" ColumnName="hoImg" />
+                <ScalarProperty Name="clName" ColumnName="clName" />
+                <ScalarProperty Name="clMobile" ColumnName="clMobile" />
+                <ScalarProperty Name="clAddress" ColumnName="clAddress" />
+>>>>>>> e6a6e25e17389587885aa1b30dd1c49071cf2971
               </ComplexTypeMapping>
             </ResultMapping>
           </FunctionImportMapping>

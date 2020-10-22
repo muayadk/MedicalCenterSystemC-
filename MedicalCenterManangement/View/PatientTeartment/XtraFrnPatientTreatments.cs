@@ -292,6 +292,7 @@ namespace MedicalCenterManangement.View
             dig.Show();
         }
 
+<<<<<<< HEAD
         private void simpleButton6_Click(object sender, EventArgs e)
         {
             Reports.recipePateintReport re = new Reports.recipePateintReport(VISITID);
@@ -303,6 +304,8 @@ namespace MedicalCenterManangement.View
 
         }
 
+=======
+>>>>>>> e6a6e25e17389587885aa1b30dd1c49071cf2971
         private void simpleButton5_Click(object sender, EventArgs e)
         {
             XtraFrnPatientTreatments.ActiveForm.Close();
@@ -323,7 +326,10 @@ namespace MedicalCenterManangement.View
             }
             else
             {
+<<<<<<< HEAD
                 VISITID = Convert.ToInt32(this.dgRecipe.CurrentRow.Cells[1].Value);
+=======
+>>>>>>> e6a6e25e17389587885aa1b30dd1c49071cf2971
                 RECIPEID = Convert.ToInt32(this.dgRecipe.CurrentRow.Cells[0].Value);
                 RECODE = this.dgRecipe.CurrentRow.Cells[8].Value.ToString();
                 RETIME = this.dgRecipe.CurrentRow.Cells[10].Value.ToString();

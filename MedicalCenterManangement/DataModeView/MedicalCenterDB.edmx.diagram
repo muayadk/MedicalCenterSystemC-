@@ -5,6 +5,7 @@
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
       <Diagram DiagramId="4454a1fb95314fc0b8e66a14c0ffa374" Name="Diagram1" ZoomLevel="59">
+<<<<<<< HEAD
         <EntityTypeShape EntityType="MedicalCenterDbModel.Accounts" Width="1.5" PointX="3.75" PointY="6.875" />
         <EntityTypeShape EntityType="MedicalCenterDbModel.activeMaterialTab" Width="1.5" PointX="3" PointY="33.25" />
         <EntityTypeShape EntityType="MedicalCenterDbModel.appointmentTab" Width="1.5" PointX="3" PointY="19" />
@@ -73,6 +74,76 @@
         <AssociationConnector Association="MedicalCenterDbModel.FK_servicesRequestTab_visitTab" />
         <AssociationConnector Association="MedicalCenterDbModel.FK_testItemTab_testTab" />
         <AssociationConnector Association="MedicalCenterDbModel.FK_testrRequesTab_visitTab" />
+=======
+        <EntityTypeShape EntityType="MedicalCenterDbModel.Accounts" Width="1.5" PointX="6.75" PointY="5.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="MedicalCenterDbModel.activeMaterialTab" Width="1.5" PointX="6" PointY="22" IsExpanded="true" />
+        <EntityTypeShape EntityType="MedicalCenterDbModel.appointmentTab" Width="1.5" PointX="3" PointY="12" IsExpanded="true" />
+        <EntityTypeShape EntityType="MedicalCenterDbModel.Branch" Width="1.5" PointX="8.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="MedicalCenterDbModel.Cash" Width="1.5" PointX="9" PointY="6.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="MedicalCenterDbModel.clinicTab" Width="1.5" PointX="1.5" PointY="5.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="MedicalCenterDbModel.Coin" Width="1.5" PointX="9" PointY="17.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="MedicalCenterDbModel.companySuplierDragTab" Width="1.5" PointX="6" PointY="24.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="MedicalCenterDbModel.Constriant" Width="1.5" PointX="3.75" PointY="1.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="MedicalCenterDbModel.Constriant_Affect" Width="1.5" PointX="6" PointY="1" IsExpanded="true" />
+        <EntityTypeShape EntityType="MedicalCenterDbModel.diagnoseTab" Width="1.5" PointX="10.75" PointY="0.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="MedicalCenterDbModel.doctorsTab" Width="1.5" PointX="3.75" PointY="4.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="MedicalCenterDbModel.doseTab" Width="1.5" PointX="13.125" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="MedicalCenterDbModel.dragTab" Width="1.5" PointX="8.25" PointY="26.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="MedicalCenterDbModel.groupDragTab" Width="1.5" PointX="6" PointY="28.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="MedicalCenterDbModel.groupTestTab" Width="1.5" PointX="8.75" PointY="22.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="MedicalCenterDbModel.hospitalCenterTab" Width="1.5" PointX="1.5" PointY="1.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="MedicalCenterDbModel.patientsTab" Width="1.5" PointX="0.75" PointY="10.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="MedicalCenterDbModel.prescriptionTab" Width="1.5" PointX="10.5" PointY="13.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="MedicalCenterDbModel.previewTab" Width="1.5" PointX="8.25" PointY="10.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="MedicalCenterDbModel.recipeTab" Width="1.5" PointX="8.25" PointY="13.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="MedicalCenterDbModel.resultTestTab" Width="1.5" PointX="15.5" PointY="14" IsExpanded="true" />
+        <EntityTypeShape EntityType="MedicalCenterDbModel.roles" Width="1.5" PointX="13.875" PointY="3.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="MedicalCenterDbModel.samplesTab" Width="1.5" PointX="15.5" PointY="18.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="MedicalCenterDbModel.scientificNameDragTab" Width="1.5" PointX="6" PointY="31.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="MedicalCenterDbModel.servicesLestTab" Width="1.5" PointX="13.5" PointY="9" IsExpanded="true" />
+        <EntityTypeShape EntityType="MedicalCenterDbModel.servicesRequestTab" Width="1.5" PointX="11.25" PointY="8.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="MedicalCenterDbModel.serviecsTab" Width="1.5" PointX="11.25" PointY="4" IsExpanded="true" />
+        <EntityTypeShape EntityType="MedicalCenterDbModel.shapeFarmacy" Width="1.5" PointX="6" PointY="34.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="MedicalCenterDbModel.sysdiagrams" Width="1.5" PointX="15.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="MedicalCenterDbModel.testItemTab" Width="1.5" PointX="13.25" PointY="21.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="MedicalCenterDbModel.testrRequesTab" Width="1.5" PointX="13.25" PointY="14" IsExpanded="true" />
+        <EntityTypeShape EntityType="MedicalCenterDbModel.testTab" Width="1.5" PointX="11" PointY="22" IsExpanded="true" />
+        <EntityTypeShape EntityType="MedicalCenterDbModel.Users" Width="1.5" PointX="2.75" PointY="15.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="MedicalCenterDbModel.users1" Width="1.5" PointX="16.875" PointY="3.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="MedicalCenterDbModel.visitTab" Width="1.5" PointX="6" PointY="11.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="MedicalCenterDbModel.Cost_Centers" Width="1.5" PointX="14.375" PointY="5.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="MedicalCenterDbModel.Serial_Table" Width="1.5" PointX="15.5" PointY="7" IsExpanded="true" />
+        <EntityTypeShape EntityType="MedicalCenterDbModel.System_Options" Width="1.5" PointX="4.75" PointY="16.75" IsExpanded="true" />
+        <AssociationConnector Association="MedicalCenterDbModel.FK_Cash_Accounts" ManuallyRouted="false" />
+        <AssociationConnector Association="MedicalCenterDbModel.FK_dragTab_activeMaterialTab" ManuallyRouted="false" />
+        <AssociationConnector Association="MedicalCenterDbModel.FK_appointmentTab_patientsTab" ManuallyRouted="false" />
+        <AssociationConnector Association="MedicalCenterDbModel.FK_servicesRequestTab_Cash" ManuallyRouted="false" />
+        <AssociationConnector Association="MedicalCenterDbModel.FK_testrRequesTab_Cash" ManuallyRouted="false" />
+        <AssociationConnector Association="MedicalCenterDbModel.FK_clinicTab_hospitalCenterTab" ManuallyRouted="false" />
+        <AssociationConnector Association="MedicalCenterDbModel.FK_doctorsTab_clinicTab" ManuallyRouted="false" />
+        <AssociationConnector Association="MedicalCenterDbModel.FK_servicesRequestTab_Coin" ManuallyRouted="false" />
+        <AssociationConnector Association="MedicalCenterDbModel.FK_testrRequesTab_Coin" ManuallyRouted="false" />
+        <AssociationConnector Association="MedicalCenterDbModel.FK_dragTab_companySuplierDragTab" ManuallyRouted="false" />
+        <AssociationConnector Association="MedicalCenterDbModel.FK_Constriant_Affect_Constriant" ManuallyRouted="false" />
+        <AssociationConnector Association="MedicalCenterDbModel.FK_visitTab_doctorsTab" ManuallyRouted="false" />
+        <AssociationConnector Association="MedicalCenterDbModel.FK_dragTab_groupDragTab" ManuallyRouted="false" />
+        <AssociationConnector Association="MedicalCenterDbModel.FK_dragTab_scientificNameDragTab" ManuallyRouted="false" />
+        <AssociationConnector Association="MedicalCenterDbModel.FK_dragTab_shapeFarmacy" ManuallyRouted="false" />
+        <AssociationConnector Association="MedicalCenterDbModel.FK_presPriod_doctorsTab" ManuallyRouted="false" />
+        <AssociationConnector Association="MedicalCenterDbModel.FK_testTab_groupTestTab" ManuallyRouted="false" />
+        <AssociationConnector Association="MedicalCenterDbModel.FK_visitTab_patientsTab" ManuallyRouted="false" />
+        <AssociationConnector Association="MedicalCenterDbModel.FK_prescriptionTab_recipeTab" ManuallyRouted="false" />
+        <AssociationConnector Association="MedicalCenterDbModel.FK_Table_1_visitTab" ManuallyRouted="false" />
+        <AssociationConnector Association="MedicalCenterDbModel.FK_recipeTab_visitTab" ManuallyRouted="false" />
+        <AssociationConnector Association="MedicalCenterDbModel.FK_resultTestTab_testItemTab" ManuallyRouted="false" />
+        <AssociationConnector Association="MedicalCenterDbModel.FK_resultTestTab_testrRequesTab" ManuallyRouted="false" />
+        <AssociationConnector Association="MedicalCenterDbModel.FK_samplesTab_testrRequesTab" ManuallyRouted="false" />
+        <AssociationConnector Association="MedicalCenterDbModel.FK_servicesLestTab_servicesRequestTab" ManuallyRouted="false" />
+        <AssociationConnector Association="MedicalCenterDbModel.FK_servicesLestTab_serviecsTab" ManuallyRouted="false" />
+        <AssociationConnector Association="MedicalCenterDbModel.FK_servicesRequestTab_visitTab" ManuallyRouted="false" />
+        <AssociationConnector Association="MedicalCenterDbModel.FK_testItemTab_testTab" ManuallyRouted="false" />
+        <AssociationConnector Association="MedicalCenterDbModel.FK_testrRequesTab_visitTab" ManuallyRouted="false" />
+>>>>>>> e6a6e25e17389587885aa1b30dd1c49071cf2971
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

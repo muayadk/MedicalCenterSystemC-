@@ -50,7 +50,7 @@
             this.reportViewer1.LocalReport.ReportEmbeddedResource = "MedicalCenterManangement.Reports.Report2.rdlc";
             this.reportViewer1.Location = new System.Drawing.Point(0, 0);
             this.reportViewer1.Name = "reportViewer1";
-            this.reportViewer1.Size = new System.Drawing.Size(925, 541);
+            this.reportViewer1.Size = new System.Drawing.Size(866, 541);
             this.reportViewer1.TabIndex = 0;
             // 
             // getRecipeByVisitID_ResultBindingSource
@@ -65,7 +65,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(925, 541);
+            this.ClientSize = new System.Drawing.Size(866, 541);
             this.Controls.Add(this.reportViewer1);
             this.Name = "recipePateintReport";
             this.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
