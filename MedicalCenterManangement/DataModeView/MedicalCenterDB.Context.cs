@@ -431,15 +431,6 @@ namespace MedicalCenterManangement.DataModeView
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<getRecipeByRecipeId_Result>("getRecipeByRecipeId", idParameter);
         }
     
-        public virtual ObjectResult<getRecipeByVisitID_Result> getRecipeByVisitID(Nullable<decimal> id)
-        {
-            var idParameter = id.HasValue ?
-                new ObjectParameter("Id", id) :
-                new ObjectParameter("Id", typeof(decimal));
-    
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<getRecipeByVisitID_Result>("getRecipeByVisitID", idParameter);
-        }
-    
         public virtual ObjectResult<getTestResultPatient_Result> getTestResultPatient(string iD)
         {
             var iDParameter = iD != null ?
@@ -883,6 +874,15 @@ namespace MedicalCenterManangement.DataModeView
                 new ObjectParameter("Id", typeof(decimal));
     
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<getHeaderInformation_Result>("getHeaderInformation", idParameter);
+        }
+    
+        public virtual ObjectResult<getRecipeByVisitID_Result> getRecipeByVisitID(Nullable<decimal> id)
+        {
+            var idParameter = id.HasValue ?
+                new ObjectParameter("Id", id) :
+                new ObjectParameter("Id", typeof(decimal));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<getRecipeByVisitID_Result>("getRecipeByVisitID", idParameter);
         }
     }
 }

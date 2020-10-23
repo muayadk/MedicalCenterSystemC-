@@ -25,5 +25,9 @@ namespace MedicalCenterManangement.DataModeView
         public string التاريخ { get; set; }
         public string الوقت { get; set; }
         public string الملاحظات { get; set; }
+        public string اسم_الطبيب { get; set; }
+        public string DrName_ { get; set; }
+        public string paFname { get; set; }
+        public string paLname { get; set; }
     }
 }

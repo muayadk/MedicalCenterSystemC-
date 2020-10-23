@@ -300,7 +300,6 @@
             this.btnPrint.Appearance.ForeColor = System.Drawing.Color.SteelBlue;
             this.btnPrint.Appearance.Options.UseFont = true;
             this.btnPrint.Appearance.Options.UseForeColor = true;
-//            this.btnPrint.ImageOptions.SvgImage = global::MedicalCenterManangement.Properties.Resources.actions_print;
             this.btnPrint.Location = new System.Drawing.Point(5, 128);
             this.btnPrint.Name = "btnPrint";
             this.btnPrint.Size = new System.Drawing.Size(175, 47);
@@ -459,6 +458,7 @@
             this.simpleButton6.Size = new System.Drawing.Size(175, 48);
             this.simpleButton6.TabIndex = 15;
             this.simpleButton6.Text = "طباعة";
+            this.simpleButton6.Click += new System.EventHandler(this.simpleButton6_Click);
             // 
             // simpleButton7
             // 

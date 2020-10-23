@@ -334,6 +334,12 @@
     <Compile Include="Reports\diagnosePatientReport.Designer.cs">
       <DependentUpon>diagnosePatientReport.cs</DependentUpon>
     </Compile>
+    <Compile Include="Reports\recipePateintReport.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Reports\recipePateintReport.Designer.cs">
+      <DependentUpon>recipePateintReport.cs</DependentUpon>
+    </Compile>
     <Compile Include="Secure.cs" />
     <Compile Include="Models\ClsPatient.cs" />
     <Compile Include="Program.cs" />
@@ -463,7 +469,11 @@
     <EmbeddedResource Include="Reports\diagnosePatientReport.resx">
       <DependentUpon>diagnosePatientReport.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Reports\recipePateintReport.resx">
+      <DependentUpon>recipePateintReport.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Reports\Report1.rdlc" />
+    <EmbeddedResource Include="Reports\Report2.rdlc" />
     <EmbeddedResource Include="View\Doctor\XtraFrmDoctor.resx">
       <DependentUpon>XtraFrmDoctor.cs</DependentUpon>
     </EmbeddedResource>

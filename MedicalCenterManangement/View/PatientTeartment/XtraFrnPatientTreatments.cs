@@ -292,6 +292,12 @@ namespace MedicalCenterManangement.View
             dig.Show();
         }
 
+        private void simpleButton6_Click(object sender, EventArgs e)
+        {
+            Reports.recipePateintReport re = new Reports.recipePateintReport(VISITID);
+            re.Show();
+        }
+
         private void simpleButton5_Click(object sender, EventArgs e)
         {
             XtraFrnPatientTreatments.ActiveForm.Close();
