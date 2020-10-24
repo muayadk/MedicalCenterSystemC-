@@ -2474,9 +2474,6 @@ warning 6002: The table/view 'MedicalCenterDb.dbo.System_Options' does not have 
           <Parameter Name="Id" Mode="In" Type="Decimal" />
           </FunctionImport>
           <FunctionImport Name="getMaxRecipeID" ReturnType="Collection(Decimal)" />
-          <FunctionImport Name="getPreviewPatientByVistID" ReturnType="Collection(MedicalCenterDbModel.getPreviewPatientByVistID_Result)">
-          <Parameter Name="Id" Mode="In" Type="Decimal" />
-          </FunctionImport>
           <FunctionImport Name="getRecipeByRecipeId" ReturnType="Collection(MedicalCenterDbModel.getRecipeByRecipeId_Result)">
           <Parameter Name="Id" Mode="In" Type="Decimal" />
           </FunctionImport>
@@ -2607,6 +2604,9 @@ warning 6002: The table/view 'MedicalCenterDb.dbo.System_Options' does not have 
           <Parameter Name="Id" Mode="In" Type="Decimal" />
           </FunctionImport>
           <FunctionImport Name="getRecipeByVisitID" ReturnType="Collection(MedicalCenterDbModel.getRecipeByVisitID_Result)">
+          <Parameter Name="Id" Mode="In" Type="Decimal" />
+          </FunctionImport>
+          <FunctionImport Name="getPreviewPatientByVistID" ReturnType="Collection(MedicalCenterDbModel.getPreviewPatientByVistID_Result)">
             <Parameter Name="Id" Mode="In" Type="Decimal" />
           </FunctionImport>
         </EntityContainer>
@@ -2676,23 +2676,6 @@ warning 6002: The table/view 'MedicalCenterDb.dbo.System_Options' does not have 
           <Property Type="String" Name="نتيجة_التشخيص" Nullable="true" MaxLength="100" />
           <Property Type="String" Name="تاريخ_التشخيص" Nullable="true" MaxLength="50" />
           <Property Type="String" Name="وقت_التشخيص" Nullable="true" MaxLength="50" />
-        </ComplexType>
-        <ComplexType Name="getPreviewPatientByVistID_Result">
-          <Property Type="Decimal" Name="رقم_المعانية" Nullable="false" Precision="18" Scale="0" />
-          <Property Type="String" Name="الكود" Nullable="true" MaxLength="100" />
-          <Property Type="String" Name="المعاينة" Nullable="true" MaxLength="100" />
-          <Property Type="String" Name="تاريخ_المعاينة" Nullable="false" MaxLength="50" />
-          <Property Type="String" Name="وقت_المعاينة" Nullable="false" MaxLength="50" />
-          <Property Type="String" Name="ملاحظات" Nullable="true" MaxLength="200" />
-          <Property Type="Decimal" Name="رقم_المريض" Nullable="false" Precision="18" Scale="0" />
-          <Property Type="String" Name="اسم_المريض" Nullable="true" MaxLength="100" />
-          <Property Type="String" Name="اللقب" Nullable="true" MaxLength="100" />
-          <Property Type="String" Name="الجنس" Nullable="true" MaxLength="50" />
-          <Property Type="Int32" Name="العمر" Nullable="true" />
-          <Property Type="Decimal" Name="رقم_الزيارة" Nullable="false" Precision="18" Scale="0" />
-          <Property Type="String" Name="الزيارة" Nullable="true" MaxLength="100" />
-          <Property Type="String" Name="تاريخ_الزبارة" Nullable="true" MaxLength="50" />
-          <Property Type="String" Name="وقت_الزيارة" Nullable="true" MaxLength="50" />
         </ComplexType>
         <ComplexType Name="getRecipeByRecipeId_Result">
           <Property Type="String" Name="presCode" Nullable="true" MaxLength="100" />
@@ -2882,6 +2865,25 @@ warning 6002: The table/view 'MedicalCenterDb.dbo.System_Options' does not have 
           <Property Type="String" Name="DrName_" Nullable="true" MaxLength="100" />
           <Property Type="String" Name="paFname" Nullable="true" MaxLength="100" />
           <Property Type="String" Name="paLname" Nullable="true" MaxLength="100" />
+        </ComplexType>
+        <ComplexType Name="getPreviewPatientByVistID_Result">
+          <Property Type="Decimal" Name="رقم_المعانية" Nullable="false" Precision="18" Scale="0" />
+          <Property Type="String" Name="الكود" Nullable="true" MaxLength="100" />
+          <Property Type="String" Name="المعاينة" Nullable="true" MaxLength="100" />
+          <Property Type="String" Name="تاريخ_المعاينة" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="وقت_المعاينة" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="ملاحظات" Nullable="true" MaxLength="200" />
+          <Property Type="Decimal" Name="رقم_المريض" Nullable="false" Precision="18" Scale="0" />
+          <Property Type="String" Name="اسم_المريض" Nullable="true" MaxLength="100" />
+          <Property Type="String" Name="اللقب" Nullable="true" MaxLength="100" />
+          <Property Type="String" Name="الجنس" Nullable="true" MaxLength="50" />
+          <Property Type="Int32" Name="العمر" Nullable="true" />
+          <Property Type="Decimal" Name="رقم_الزيارة" Nullable="false" Precision="18" Scale="0" />
+          <Property Type="String" Name="الزيارة" Nullable="true" MaxLength="100" />
+          <Property Type="String" Name="تاريخ_الزبارة" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="وقت_الزيارة" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="الطبيب_المعالج" Nullable="true" MaxLength="100" />
+          <Property Type="String" Name="DrName" Nullable="true" MaxLength="100" />
         </ComplexType>
       </Schema>
     </edmx:ConceptualModels>
@@ -3539,27 +3541,6 @@ warning 6002: The table/view 'MedicalCenterDb.dbo.System_Options' does not have 
             </ResultMapping>
           </FunctionImportMapping>
           <FunctionImportMapping FunctionImportName="getMaxRecipeID" FunctionName="MedicalCenterDbModel.Store.getMaxRecipeID" />
-          <FunctionImportMapping FunctionImportName="getPreviewPatientByVistID" FunctionName="MedicalCenterDbModel.Store.getPreviewPatientByVistID">
-            <ResultMapping>
-              <ComplexTypeMapping TypeName="MedicalCenterDbModel.getPreviewPatientByVistID_Result">
-                <ScalarProperty Name="رقم_المعانية" ColumnName="رقم المعانية" />
-                <ScalarProperty Name="الكود" ColumnName="الكود" />
-                <ScalarProperty Name="المعاينة" ColumnName="المعاينة" />
-                <ScalarProperty Name="تاريخ_المعاينة" ColumnName="تاريخ المعاينة" />
-                <ScalarProperty Name="وقت_المعاينة" ColumnName="وقت المعاينة" />
-                <ScalarProperty Name="ملاحظات" ColumnName="ملاحظات" />
-                <ScalarProperty Name="رقم_المريض" ColumnName="رقم المريض" />
-                <ScalarProperty Name="اسم_المريض" ColumnName="اسم المريض" />
-                <ScalarProperty Name="اللقب" ColumnName="اللقب" />
-                <ScalarProperty Name="الجنس" ColumnName="الجنس" />
-                <ScalarProperty Name="العمر" ColumnName="العمر" />
-                <ScalarProperty Name="رقم_الزيارة" ColumnName="رقم الزيارة" />
-                <ScalarProperty Name="الزيارة" ColumnName="الزيارة" />
-                <ScalarProperty Name="تاريخ_الزبارة" ColumnName="تاريخ الزبارة" />
-                <ScalarProperty Name="وقت_الزيارة" ColumnName="وقت الزيارة" />
-              </ComplexTypeMapping>
-            </ResultMapping>
-          </FunctionImportMapping>
           <FunctionImportMapping FunctionImportName="getRecipeByRecipeId" FunctionName="MedicalCenterDbModel.Store.getRecipeByRecipeId">
             <ResultMapping>
               <ComplexTypeMapping TypeName="MedicalCenterDbModel.getRecipeByRecipeId_Result">
@@ -3802,6 +3783,29 @@ warning 6002: The table/view 'MedicalCenterDb.dbo.System_Options' does not have 
                 <ScalarProperty Name="DrName_" ColumnName="DrName " />
                 <ScalarProperty Name="paFname" ColumnName="paFname" />
                 <ScalarProperty Name="paLname" ColumnName="paLname" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="getPreviewPatientByVistID" FunctionName="MedicalCenterDbModel.Store.getPreviewPatientByVistID">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="MedicalCenterDbModel.getPreviewPatientByVistID_Result">
+                <ScalarProperty Name="رقم_المعانية" ColumnName="رقم المعانية" />
+                <ScalarProperty Name="الكود" ColumnName="الكود" />
+                <ScalarProperty Name="المعاينة" ColumnName="المعاينة" />
+                <ScalarProperty Name="تاريخ_المعاينة" ColumnName="تاريخ المعاينة" />
+                <ScalarProperty Name="وقت_المعاينة" ColumnName="وقت المعاينة" />
+                <ScalarProperty Name="ملاحظات" ColumnName="ملاحظات" />
+                <ScalarProperty Name="رقم_المريض" ColumnName="رقم المريض" />
+                <ScalarProperty Name="اسم_المريض" ColumnName="اسم المريض" />
+                <ScalarProperty Name="اللقب" ColumnName="اللقب" />
+                <ScalarProperty Name="الجنس" ColumnName="الجنس" />
+                <ScalarProperty Name="العمر" ColumnName="العمر" />
+                <ScalarProperty Name="رقم_الزيارة" ColumnName="رقم الزيارة" />
+                <ScalarProperty Name="الزيارة" ColumnName="الزيارة" />
+                <ScalarProperty Name="تاريخ_الزبارة" ColumnName="تاريخ الزبارة" />
+                <ScalarProperty Name="وقت_الزيارة" ColumnName="وقت الزيارة" />
+                <ScalarProperty Name="الطبيب_المعالج" ColumnName="الطبيب المعالج" />
+                <ScalarProperty Name="DrName" ColumnName="DrName" />
               </ComplexTypeMapping>
             </ResultMapping>
           </FunctionImportMapping>
