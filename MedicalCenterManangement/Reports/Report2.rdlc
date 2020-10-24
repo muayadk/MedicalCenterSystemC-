@@ -991,19 +991,20 @@
             <PaddingBottom>2pt</PaddingBottom>
           </Style>
         </Textbox>
-        <Image Name="Image1">
+        <Image Name="hoImg">
           <Source>Database</Source>
           <Value>=First(Fields!hoImg.Value, "DataSet3")</Value>
-          <MIMEType>=First(Fields!hoImg.Value, "DataSet3")</MIMEType>
+          <MIMEType>image/jpeg</MIMEType>
           <Sizing>FitProportional</Sizing>
           <Top>0.2032cm</Top>
           <Left>7.78087cm</Left>
           <Height>0.95278cm</Height>
           <Width>1.50516cm</Width>
           <ZIndex>8</ZIndex>
+          <ToolTip>=First(Fields!hoImg.Value, "DataSet3")</ToolTip>
           <Style>
             <Border>
-              <Style>None</Style>
+              <Style>Solid</Style>
             </Border>
           </Style>
         </Image>

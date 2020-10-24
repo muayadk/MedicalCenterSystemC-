@@ -35,7 +35,9 @@
                               <TextRuns>
                                 <TextRun>
                                   <Value>=Fields!نتيجة_التشخيص.Value</Value>
-                                  <Style />
+                                  <Style>
+                                    <FontWeight>Bold</FontWeight>
+                                  </Style>
                                 </TextRun>
                               </TextRuns>
                               <Style>
@@ -209,7 +211,9 @@
             <TextRuns>
               <TextRun>
                 <Value>=First(Fields!رقم_التشخيص.Value, "DataSet1")</Value>
-                <Style />
+                <Style>
+                  <FontWeight>Bold</FontWeight>
+                </Style>
               </TextRun>
             </TextRuns>
             <Style>
@@ -241,7 +245,9 @@
             <TextRuns>
               <TextRun>
                 <Value>=First(Fields!تاريخ_التشخيص.Value, "DataSet1")</Value>
-                <Style />
+                <Style>
+                  <FontWeight>Bold</FontWeight>
+                </Style>
               </TextRun>
             </TextRuns>
             <Style>
@@ -452,11 +458,13 @@
                           <TextRuns>
                             <TextRun>
                               <Value>=Fields!الجنس.Value</Value>
-                              <Style />
+                              <Style>
+                                <FontWeight>Bold</FontWeight>
+                              </Style>
                             </TextRun>
                           </TextRuns>
                           <Style>
-                            <TextAlign>Right</TextAlign>
+                            <TextAlign>Center</TextAlign>
                           </Style>
                         </Paragraph>
                       </Paragraphs>
@@ -484,11 +492,13 @@
                           <TextRuns>
                             <TextRun>
                               <Value>=Fields!العمر.Value</Value>
-                              <Style />
+                              <Style>
+                                <FontWeight>Bold</FontWeight>
+                              </Style>
                             </TextRun>
                           </TextRuns>
                           <Style>
-                            <TextAlign>Right</TextAlign>
+                            <TextAlign>Center</TextAlign>
                           </Style>
                         </Paragraph>
                       </Paragraphs>
@@ -516,11 +526,13 @@
                           <TextRuns>
                             <TextRun>
                               <Value>=Fields!اللقب.Value</Value>
-                              <Style />
+                              <Style>
+                                <FontWeight>Bold</FontWeight>
+                              </Style>
                             </TextRun>
                           </TextRuns>
                           <Style>
-                            <TextAlign>Right</TextAlign>
+                            <TextAlign>Center</TextAlign>
                           </Style>
                         </Paragraph>
                       </Paragraphs>
@@ -548,11 +560,13 @@
                           <TextRuns>
                             <TextRun>
                               <Value>=Fields!اسم_المريض.Value</Value>
-                              <Style />
+                              <Style>
+                                <FontWeight>Bold</FontWeight>
+                              </Style>
                             </TextRun>
                           </TextRuns>
                           <Style>
-                            <TextAlign>Right</TextAlign>
+                            <TextAlign>Center</TextAlign>
                           </Style>
                         </Paragraph>
                       </Paragraphs>
@@ -791,7 +805,7 @@
     <Height>3.29744in</Height>
     <Style />
   </Body>
-  <Width>7.87259in</Width>
+  <Width>7.49759in</Width>
   <Page>
     <PageHeader>
       <Height>2.43417cm</Height>
@@ -806,15 +820,20 @@
               <TextRuns>
                 <TextRun>
                   <Value>=First(Fields!hoNameA.Value, "DataSet3")</Value>
-                  <Style />
+                  <Style>
+                    <FontStyle>Italic</FontStyle>
+                    <FontWeight>Bold</FontWeight>
+                  </Style>
                 </TextRun>
               </TextRuns>
-              <Style />
+              <Style>
+                <TextAlign>Right</TextAlign>
+              </Style>
             </Paragraph>
           </Paragraphs>
           <rd:DefaultName>Textbox2</rd:DefaultName>
           <Top>0.98806cm</Top>
-          <Left>16.52344cm</Left>
+          <Left>15.88844cm</Left>
           <Height>0.6cm</Height>
           <Width>2.5cm</Width>
           <Style>
@@ -835,15 +854,20 @@
               <TextRuns>
                 <TextRun>
                   <Value>=First(Fields!hoNameA.Value, "DataSet3")</Value>
-                  <Style />
+                  <Style>
+                    <FontSize>12pt</FontSize>
+                    <FontWeight>Bold</FontWeight>
+                  </Style>
                 </TextRun>
               </TextRuns>
-              <Style />
+              <Style>
+                <TextAlign>Right</TextAlign>
+              </Style>
             </Paragraph>
           </Paragraphs>
           <rd:DefaultName>Textbox3</rd:DefaultName>
           <Top>0.21167cm</Top>
-          <Left>16.52344cm</Left>
+          <Left>15.88844cm</Left>
           <Height>0.6cm</Height>
           <Width>2.5cm</Width>
           <ZIndex>1</ZIndex>
@@ -865,7 +889,10 @@
               <TextRuns>
                 <TextRun>
                   <Value>=First(Fields!hoAddressE.Value, "DataSet3")</Value>
-                  <Style />
+                  <Style>
+                    <FontStyle>Italic</FontStyle>
+                    <FontWeight>Bold</FontWeight>
+                  </Style>
                 </TextRun>
               </TextRuns>
               <Style />
@@ -895,7 +922,10 @@
               <TextRuns>
                 <TextRun>
                   <Value>=First(Fields!hoNameE.Value, "DataSet3")</Value>
-                  <Style />
+                  <Style>
+                    <FontSize>12pt</FontSize>
+                    <FontWeight>Bold</FontWeight>
+                  </Style>
                 </TextRun>
               </TextRuns>
               <Style />
@@ -917,6 +947,23 @@
             <PaddingBottom>2pt</PaddingBottom>
           </Style>
         </Textbox>
+        <Image Name="hoImg">
+          <Source>Database</Source>
+          <Value>=First(Fields!hoImg.Value, "DataSet3")</Value>
+          <MIMEType>image/jpeg</MIMEType>
+          <Sizing>FitProportional</Sizing>
+          <Top>0.08806cm</Top>
+          <Left>8.91789cm</Left>
+          <Height>1.5cm</Height>
+          <Width>1.5cm</Width>
+          <ZIndex>4</ZIndex>
+          <ToolTip>=First(Fields!hoImg.Value, "DataSet3")</ToolTip>
+          <Style>
+            <Border>
+              <Style>Solid</Style>
+            </Border>
+          </Style>
+        </Image>
       </ReportItems>
       <Style>
         <Border>

@@ -110,183 +110,241 @@
   <ItemGroup>
     <Compile Include="DataModeView\Accounts.cs">
       <DependentUpon>MedicalCenterDB.tt</DependentUpon>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Compile>
     <Compile Include="DataModeView\activeMaterialTab.cs">
       <DependentUpon>MedicalCenterDB.tt</DependentUpon>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Compile>
     <Compile Include="DataModeView\appointmentTab.cs">
       <DependentUpon>MedicalCenterDB.tt</DependentUpon>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Compile>
     <Compile Include="DataModeView\Branch.cs">
       <DependentUpon>MedicalCenterDB.tt</DependentUpon>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Compile>
     <Compile Include="DataModeView\Cash.cs">
       <DependentUpon>MedicalCenterDB.tt</DependentUpon>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Compile>
     <Compile Include="DataModeView\clinicTab.cs">
       <DependentUpon>MedicalCenterDB.tt</DependentUpon>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Compile>
     <Compile Include="DataModeView\Coin.cs">
       <DependentUpon>MedicalCenterDB.tt</DependentUpon>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Compile>
     <Compile Include="DataModeView\companySuplierDragTab.cs">
       <DependentUpon>MedicalCenterDB.tt</DependentUpon>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Compile>
     <Compile Include="DataModeView\Constriant.cs">
       <DependentUpon>MedicalCenterDB.tt</DependentUpon>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Compile>
     <Compile Include="DataModeView\Constriant_Affect.cs">
       <DependentUpon>MedicalCenterDB.tt</DependentUpon>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Compile>
     <Compile Include="DataModeView\Cost_Centers.cs">
       <DependentUpon>MedicalCenterDB.tt</DependentUpon>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Compile>
     <Compile Include="DataModeView\diagnoseTab.cs">
       <DependentUpon>MedicalCenterDB.tt</DependentUpon>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Compile>
     <Compile Include="DataModeView\doctorsTab.cs">
       <DependentUpon>MedicalCenterDB.tt</DependentUpon>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Compile>
     <Compile Include="DataModeView\doseTab.cs">
       <DependentUpon>MedicalCenterDB.tt</DependentUpon>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Compile>
     <Compile Include="DataModeView\dragTab.cs">
       <DependentUpon>MedicalCenterDB.tt</DependentUpon>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Compile>
     <Compile Include="DataModeView\getAllPatient_Result.cs">
       <DependentUpon>MedicalCenterDB.tt</DependentUpon>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Compile>
     <Compile Include="DataModeView\getAllServiecs_Result.cs">
       <DependentUpon>MedicalCenterDB.tt</DependentUpon>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Compile>
     <Compile Include="DataModeView\getAllVisitPatient_Result.cs">
       <DependentUpon>MedicalCenterDB.tt</DependentUpon>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Compile>
     <Compile Include="DataModeView\getDiagnosePatientByVistID_Result.cs">
       <DependentUpon>MedicalCenterDB.tt</DependentUpon>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Compile>
     <Compile Include="DataModeView\getHeaderInformation_Result.cs">
       <DependentUpon>MedicalCenterDB.tt</DependentUpon>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Compile>
     <Compile Include="DataModeView\getPreviewPatientByVistID_Result.cs">
       <DependentUpon>MedicalCenterDB.tt</DependentUpon>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Compile>
     <Compile Include="DataModeView\getRecipeByRecipeId_Result.cs">
       <DependentUpon>MedicalCenterDB.tt</DependentUpon>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Compile>
     <Compile Include="DataModeView\getRecipeByVisitID_Result.cs">
       <DependentUpon>MedicalCenterDB.tt</DependentUpon>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Compile>
     <Compile Include="DataModeView\getTestResultPatient_Result.cs">
       <DependentUpon>MedicalCenterDB.tt</DependentUpon>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Compile>
     <Compile Include="DataModeView\getVisitPatientByID_Result.cs">
       <DependentUpon>MedicalCenterDB.tt</DependentUpon>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Compile>
     <Compile Include="DataModeView\getVisitPatientByName_Result.cs">
       <DependentUpon>MedicalCenterDB.tt</DependentUpon>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Compile>
     <Compile Include="DataModeView\groupDragTab.cs">
       <DependentUpon>MedicalCenterDB.tt</DependentUpon>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Compile>
     <Compile Include="DataModeView\groupTestTab.cs">
       <DependentUpon>MedicalCenterDB.tt</DependentUpon>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Compile>
     <Compile Include="DataModeView\hospitalCenterTab.cs">
       <DependentUpon>MedicalCenterDB.tt</DependentUpon>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Compile>
     <Compile Include="DataModeView\MedicalCenterDB.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>MedicalCenterDB.Context.tt</DependentUpon>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Compile>
     <Compile Include="DataModeView\MedicalCenterDB.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>MedicalCenterDB.tt</DependentUpon>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Compile>
     <Compile Include="DataModeView\MedicalCenterDB.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>MedicalCenterDB.edmx</DependentUpon>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Compile>
     <Compile Include="DataModeView\patientsTab.cs">
       <DependentUpon>MedicalCenterDB.tt</DependentUpon>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Compile>
     <Compile Include="DataModeView\prescriptionTab.cs">
       <DependentUpon>MedicalCenterDB.tt</DependentUpon>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Compile>
     <Compile Include="DataModeView\previewTab.cs">
       <DependentUpon>MedicalCenterDB.tt</DependentUpon>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Compile>
     <Compile Include="DataModeView\recipeTab.cs">
       <DependentUpon>MedicalCenterDB.tt</DependentUpon>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Compile>
     <Compile Include="DataModeView\resultTestTab.cs">
       <DependentUpon>MedicalCenterDB.tt</DependentUpon>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Compile>
     <Compile Include="DataModeView\roles.cs">
       <DependentUpon>MedicalCenterDB.tt</DependentUpon>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Compile>
     <Compile Include="DataModeView\samplesTab.cs">
       <DependentUpon>MedicalCenterDB.tt</DependentUpon>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Compile>
     <Compile Include="DataModeView\scientificNameDragTab.cs">
       <DependentUpon>MedicalCenterDB.tt</DependentUpon>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Compile>
     <Compile Include="DataModeView\SearchVisitById_Result.cs">
       <DependentUpon>MedicalCenterDB.tt</DependentUpon>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Compile>
     <Compile Include="DataModeView\SearchVisitPatientByDate_Result.cs">
       <DependentUpon>MedicalCenterDB.tt</DependentUpon>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Compile>
     <Compile Include="DataModeView\SearchVisitPatient_Result.cs">
       <DependentUpon>MedicalCenterDB.tt</DependentUpon>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Compile>
     <Compile Include="DataModeView\Serial_Table.cs">
       <DependentUpon>MedicalCenterDB.tt</DependentUpon>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Compile>
     <Compile Include="DataModeView\servicesLestTab.cs">
       <DependentUpon>MedicalCenterDB.tt</DependentUpon>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Compile>
     <Compile Include="DataModeView\servicesRequestTab.cs">
       <DependentUpon>MedicalCenterDB.tt</DependentUpon>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Compile>
     <Compile Include="DataModeView\serviecsTab.cs">
       <DependentUpon>MedicalCenterDB.tt</DependentUpon>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Compile>
     <Compile Include="DataModeView\shapeFarmacy.cs">
       <DependentUpon>MedicalCenterDB.tt</DependentUpon>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Compile>
     <Compile Include="DataModeView\sp_helpdiagramdefinition_Result.cs">
       <DependentUpon>MedicalCenterDB.tt</DependentUpon>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Compile>
     <Compile Include="DataModeView\sp_helpdiagrams_Result.cs">
       <DependentUpon>MedicalCenterDB.tt</DependentUpon>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Compile>
     <Compile Include="DataModeView\sysdiagrams.cs">
       <DependentUpon>MedicalCenterDB.tt</DependentUpon>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Compile>
     <Compile Include="DataModeView\System_Options.cs">
       <DependentUpon>MedicalCenterDB.tt</DependentUpon>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Compile>
     <Compile Include="DataModeView\testItemTab.cs">
       <DependentUpon>MedicalCenterDB.tt</DependentUpon>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Compile>
     <Compile Include="DataModeView\testrRequesTab.cs">
       <DependentUpon>MedicalCenterDB.tt</DependentUpon>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Compile>
     <Compile Include="DataModeView\testTab.cs">
       <DependentUpon>MedicalCenterDB.tt</DependentUpon>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Compile>
     <Compile Include="DataModeView\Users.cs">
       <DependentUpon>MedicalCenterDB.tt</DependentUpon>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Compile>
     <Compile Include="DataModeView\users1.cs">
       <DependentUpon>MedicalCenterDB.tt</DependentUpon>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Compile>
     <Compile Include="DataModeView\visitTab.cs">
       <DependentUpon>MedicalCenterDB.tt</DependentUpon>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Compile>
     <Compile Include="DBConnection.cs" />
     <Compile Include="EncryptionClass.cs" />
@@ -533,10 +591,12 @@
     <EntityDeploy Include="DataModeView\MedicalCenterDB.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
       <LastGenOutput>MedicalCenterDB.Designer.cs</LastGenOutput>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </EntityDeploy>
     <None Include="ClassDiagram1.cd" />
     <None Include="DataModeView\MedicalCenterDB.edmx.diagram">
       <DependentUpon>MedicalCenterDB.edmx</DependentUpon>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
     <None Include="packages.config" />
     <None Include="Properties\DataSources\MedicalCenterManangement.DataModeView.getDiagnosePatientByVistID_Result.datasource" />
@@ -821,11 +881,13 @@
       <Generator>TextTemplatingFileGenerator</Generator>
       <LastGenOutput>MedicalCenterDB.Context.cs</LastGenOutput>
       <DependentUpon>MedicalCenterDB.edmx</DependentUpon>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="DataModeView\MedicalCenterDB.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>MedicalCenterDB.edmx</DependentUpon>
       <LastGenOutput>MedicalCenterDB.cs</LastGenOutput>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <None Include="Resources\bo_user.svg" />
     <None Include="Resources\properties.svg" />
