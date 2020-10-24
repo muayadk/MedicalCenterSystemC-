@@ -298,6 +298,12 @@ namespace MedicalCenterManangement.View
             re.Show();
         }
 
+        private void btnPrint_Click(object sender, EventArgs e)
+        {
+            Reports.previewPatientReport r = new Reports.previewPatientReport(VISITID);
+            r.Show();
+        }
+
         private void simpleButton5_Click(object sender, EventArgs e)
         {
             XtraFrnPatientTreatments.ActiveForm.Close();

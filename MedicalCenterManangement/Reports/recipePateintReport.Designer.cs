@@ -40,7 +40,7 @@
             // 
             // getRecipeByVisitID_ResultBindingSource
             // 
-            this.getRecipeByVisitID_ResultBindingSource.DataSource = typeof(MedicalCenterManangement.DataModeView.getRecipeByVisitID_Result);
+//            this.getRecipeByVisitID_ResultBindingSource.DataSource = typeof(MedicalCenterManangement.DataModeView.getRecipeByVisitID_Result);
             // 
             // getHeaderInformation_ResultBindingSource
             // 

@@ -315,11 +315,6 @@
       <DependentUpon>FormUser_Activation.cs</DependentUpon>
     </Compile>
     <Compile Include="IsConstiant.cs" />
-    <Compile Include="MedicalCenterDbDataSet.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>MedicalCenterDbDataSet.xsd</DependentUpon>
-    </Compile>
     <Compile Include="Models\ClsDiagnoses.cs" />
     <Compile Include="Models\ClsDoctors.cs" />
     <Compile Include="Models\ClsPreviews.cs" />
@@ -543,21 +538,13 @@
     <None Include="DataModeView\MedicalCenterDB.edmx.diagram">
       <DependentUpon>MedicalCenterDB.edmx</DependentUpon>
     </None>
-    <None Include="MedicalCenterDbDataSet.xsc">
-      <DependentUpon>MedicalCenterDbDataSet.xsd</DependentUpon>
-    </None>
-    <None Include="MedicalCenterDbDataSet.xsd">
-      <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>MedicalCenterDbDataSet.Designer.cs</LastGenOutput>
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="MedicalCenterDbDataSet.xss">
-      <DependentUpon>MedicalCenterDbDataSet.xsd</DependentUpon>
-    </None>
     <None Include="packages.config" />
     <None Include="Properties\DataSources\MedicalCenterManangement.DataModeView.getDiagnosePatientByVistID_Result.datasource" />
     <None Include="Properties\DataSources\MedicalCenterManangement.DataModeView.getHeaderInformation_Result.datasource" />
     <None Include="Properties\DataSources\MedicalCenterManangement.DataModeView.getHeaderInformation_Result1.datasource" />
+    <None Include="Properties\DataSources\MedicalCenterManangement.DataModeView.getPreviewPatientByVistID_Result.datasource" />
+    <None Include="Properties\DataSources\MedicalCenterManangement.Properties.Resources.datasource" />
+    <None Include="Properties\DataSources\MedicalCenterManangement.Properties.Settings.datasource" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
