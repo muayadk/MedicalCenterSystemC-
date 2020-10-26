@@ -52,6 +52,7 @@ namespace MedicalCenterManangement.View
 
         private void barButtonItem30_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
+            // update
             View.MedicalCenterManagament.XtraFrmMedicalCenter c = new MedicalCenterManagament.XtraFrmMedicalCenter();
             c.Show();
         }
