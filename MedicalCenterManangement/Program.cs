@@ -18,7 +18,7 @@ namespace MedicalCenterManangement
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new View.XtraFrnPatientTreatments());
+            Application.Run(new View.FormMain());
             
         }
     }

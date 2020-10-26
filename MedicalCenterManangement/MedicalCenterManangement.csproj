@@ -200,6 +200,9 @@
       <DependentUpon>MedicalCenterDB.tt</DependentUpon>
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Compile>
+    <Compile Include="DataModeView\getServicesRequestByVisitID_Result.cs">
+      <DependentUpon>MedicalCenterDB.tt</DependentUpon>
+    </Compile>
     <Compile Include="DataModeView\getTestResultPatient_Result.cs">
       <DependentUpon>MedicalCenterDB.tt</DependentUpon>
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
@@ -399,6 +402,12 @@
     <Compile Include="Reports\recipePateintReport.Designer.cs">
       <DependentUpon>recipePateintReport.cs</DependentUpon>
     </Compile>
+    <Compile Include="Reports\servicesRequestPatientReport.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Reports\servicesRequestPatientReport.Designer.cs">
+      <DependentUpon>servicesRequestPatientReport.cs</DependentUpon>
+    </Compile>
     <Compile Include="Secure.cs" />
     <Compile Include="Models\ClsPatient.cs" />
     <Compile Include="Program.cs" />
@@ -537,6 +546,10 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Reports\Report1.rdlc" />
     <EmbeddedResource Include="Reports\Report2.rdlc" />
+    <EmbeddedResource Include="Reports\servicesRequestPatientReport.rdlc" />
+    <EmbeddedResource Include="Reports\servicesRequestPatientReport.resx">
+      <DependentUpon>servicesRequestPatientReport.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="View\Doctor\XtraFrmDoctor.resx">
       <DependentUpon>XtraFrmDoctor.cs</DependentUpon>
     </EmbeddedResource>
@@ -889,6 +902,9 @@
       <LastGenOutput>MedicalCenterDB.cs</LastGenOutput>
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+    <None Include="Resources\groupbydate.svg" />
+    <None Include="Resources\daig2.png" />
+    <None Include="Resources\employeesummary.svg" />
     <None Include="Resources\bo_user.svg" />
     <None Include="Resources\properties.svg" />
     <None Include="Resources\bo_department.svg" />

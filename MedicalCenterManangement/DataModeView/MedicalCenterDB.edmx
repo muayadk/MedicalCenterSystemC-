@@ -989,6 +989,9 @@ warning 6002: The table/view 'MedicalCenterDb.dbo.System_Options' does not have 
         <Function Name="getRecipeByVisitID" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="Id" Type="numeric" Mode="In" />
         </Function>
+        <Function Name="getServicesRequestByVisitID" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="Id" Type="numeric" Mode="In" />
+        </Function>
         <Function Name="getTestResultPatient" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="ID" Type="nvarchar" Mode="In" />
         </Function>
@@ -2607,6 +2610,9 @@ warning 6002: The table/view 'MedicalCenterDb.dbo.System_Options' does not have 
           <Parameter Name="Id" Mode="In" Type="Decimal" />
           </FunctionImport>
           <FunctionImport Name="getPreviewPatientByVistID" ReturnType="Collection(MedicalCenterDbModel.getPreviewPatientByVistID_Result)">
+          <Parameter Name="Id" Mode="In" Type="Decimal" />
+          </FunctionImport>
+          <FunctionImport Name="getServicesRequestByVisitID" ReturnType="Collection(MedicalCenterDbModel.getServicesRequestByVisitID_Result)">
             <Parameter Name="Id" Mode="In" Type="Decimal" />
           </FunctionImport>
         </EntityContainer>
@@ -2884,6 +2890,22 @@ warning 6002: The table/view 'MedicalCenterDb.dbo.System_Options' does not have 
           <Property Type="String" Name="وقت_الزيارة" Nullable="true" MaxLength="50" />
           <Property Type="String" Name="الطبيب_المعالج" Nullable="true" MaxLength="100" />
           <Property Type="String" Name="DrName" Nullable="true" MaxLength="100" />
+        </ComplexType>
+        <ComplexType Name="getServicesRequestByVisitID_Result">
+          <Property Type="Decimal" Name="رقم_الزيارة" Nullable="false" Precision="18" Scale="0" />
+          <Property Type="String" Name="اسم_المريض" Nullable="true" MaxLength="100" />
+          <Property Type="String" Name="اللقب" Nullable="true" MaxLength="100" />
+          <Property Type="String" Name="الجنس" Nullable="true" MaxLength="50" />
+          <Property Type="Int32" Name="العمر" Nullable="true" />
+          <Property Type="Decimal" Name="رقم_الخدمة" Nullable="false" Precision="18" Scale="0" />
+          <Property Type="String" Name="الخدمة" Nullable="true" MaxLength="100" />
+          <Property Type="String" Name="نوع_الخدمة" Nullable="true" MaxLength="100" />
+          <Property Type="Decimal" Name="السعر" Nullable="true" Precision="18" Scale="0" />
+          <Property Type="String" Name="ملاحظة" Nullable="true" MaxLength="200" />
+          <Property Type="Decimal" Name="رقم_الطلب" Nullable="false" Precision="18" Scale="0" />
+          <Property Type="String" Name="تاريخ_الطلب" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="اسم_الطبيب" Nullable="true" MaxLength="100" />
+          <Property Type="String" Name="تاريخ_الزيارة" Nullable="true" MaxLength="50" />
         </ComplexType>
       </Schema>
     </edmx:ConceptualModels>
@@ -3806,6 +3828,26 @@ warning 6002: The table/view 'MedicalCenterDb.dbo.System_Options' does not have 
                 <ScalarProperty Name="وقت_الزيارة" ColumnName="وقت الزيارة" />
                 <ScalarProperty Name="الطبيب_المعالج" ColumnName="الطبيب المعالج" />
                 <ScalarProperty Name="DrName" ColumnName="DrName" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="getServicesRequestByVisitID" FunctionName="MedicalCenterDbModel.Store.getServicesRequestByVisitID">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="MedicalCenterDbModel.getServicesRequestByVisitID_Result">
+                <ScalarProperty Name="رقم_الزيارة" ColumnName="رقم الزيارة" />
+                <ScalarProperty Name="اسم_المريض" ColumnName="اسم المريض" />
+                <ScalarProperty Name="اللقب" ColumnName="اللقب" />
+                <ScalarProperty Name="الجنس" ColumnName="الجنس" />
+                <ScalarProperty Name="العمر" ColumnName="العمر" />
+                <ScalarProperty Name="رقم_الخدمة" ColumnName="رقم الخدمة" />
+                <ScalarProperty Name="الخدمة" ColumnName="الخدمة" />
+                <ScalarProperty Name="نوع_الخدمة" ColumnName="نوع الخدمة" />
+                <ScalarProperty Name="السعر" ColumnName="السعر" />
+                <ScalarProperty Name="ملاحظة" ColumnName="ملاحظة" />
+                <ScalarProperty Name="رقم_الطلب" ColumnName="رقم الطلب" />
+                <ScalarProperty Name="تاريخ_الطلب" ColumnName="تاريخ الطلب" />
+                <ScalarProperty Name="اسم_الطبيب" ColumnName="اسم الطبيب" />
+                <ScalarProperty Name="تاريخ_الزيارة" ColumnName="تاريخ الزيارة" />
               </ComplexTypeMapping>
             </ResultMapping>
           </FunctionImportMapping>

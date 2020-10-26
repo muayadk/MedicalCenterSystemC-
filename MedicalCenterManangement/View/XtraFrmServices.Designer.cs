@@ -305,7 +305,7 @@
             this.btnDelete.Name = "btnDelete";
             this.btnDelete.Size = new System.Drawing.Size(200, 39);
             this.btnDelete.TabIndex = 10;
-            this.btnDelete.Text = "حذف زيارة";
+            this.btnDelete.Text = "حذف ";
             // 
             // btnSave
             // 

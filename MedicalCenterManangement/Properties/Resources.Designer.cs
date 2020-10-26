@@ -581,6 +581,16 @@ namespace MedicalCenterManangement.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap daig2 {
+            get {
+                object obj = ResourceManager.GetObject("daig2", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized resource of type DevExpress.Utils.Svg.SvgImage.
         /// </summary>
         internal static DevExpress.Utils.Svg.SvgImage deletequery {
@@ -626,6 +636,16 @@ namespace MedicalCenterManangement.Properties {
         internal static DevExpress.Utils.Svg.SvgImage employeeprofile {
             get {
                 object obj = ResourceManager.GetObject("employeeprofile", resourceCulture);
+                return ((DevExpress.Utils.Svg.SvgImage)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type DevExpress.Utils.Svg.SvgImage.
+        /// </summary>
+        internal static DevExpress.Utils.Svg.SvgImage employeesummary {
+            get {
+                object obj = ResourceManager.GetObject("employeesummary", resourceCulture);
                 return ((DevExpress.Utils.Svg.SvgImage)(obj));
             }
         }
@@ -687,6 +707,16 @@ namespace MedicalCenterManangement.Properties {
             get {
                 object obj = ResourceManager.GetObject("First", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type DevExpress.Utils.Svg.SvgImage.
+        /// </summary>
+        internal static DevExpress.Utils.Svg.SvgImage groupbydate {
+            get {
+                object obj = ResourceManager.GetObject("groupbydate", resourceCulture);
+                return ((DevExpress.Utils.Svg.SvgImage)(obj));
             }
         }
         
