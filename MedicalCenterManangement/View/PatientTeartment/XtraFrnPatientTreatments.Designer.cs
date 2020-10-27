@@ -70,6 +70,7 @@
             this.simpleButton5 = new DevExpress.XtraEditors.SimpleButton();
             this.dgDignoses = new System.Windows.Forms.DataGridView();
             this.groupControl1 = new DevExpress.XtraEditors.GroupControl();
+            this.simpleButton11 = new DevExpress.XtraEditors.SimpleButton();
             ((System.ComponentModel.ISupportInitialize)(this.groupControl2)).BeginInit();
             this.groupControl2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.txtvisitId.Properties)).BeginInit();
@@ -87,6 +88,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.groupControl5)).BeginInit();
             this.groupControl5.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgPreview)).BeginInit();
+            this.xtraTabPage3.SuspendLayout();
             this.xtraTabPage2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgTest)).BeginInit();
             this.xtraTabPage5.SuspendLayout();
@@ -267,7 +269,7 @@
             // 
             this.xtraTabPage1.Controls.Add(this.groupControl5);
             this.xtraTabPage1.Controls.Add(this.dgPreview);
-            this.xtraTabPage1.ImageOptions.Image = global::MedicalCenterManangement.Properties.Resources.user_Icon11;
+            this.xtraTabPage1.ImageOptions.SvgImage = global::MedicalCenterManangement.Properties.Resources.actions_user;
             this.xtraTabPage1.Name = "xtraTabPage1";
             this.xtraTabPage1.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.xtraTabPage1.Size = new System.Drawing.Size(1090, 282);
@@ -315,7 +317,6 @@
             this.btnNew.Appearance.Options.UseBorderColor = true;
             this.btnNew.Appearance.Options.UseFont = true;
             this.btnNew.Appearance.Options.UseForeColor = true;
-            this.btnNew.ImageOptions.SvgImage = global::MedicalCenterManangement.Properties.Resources.actions_addcircled;
             this.btnNew.Location = new System.Drawing.Point(5, 27);
             this.btnNew.Name = "btnNew";
             this.btnNew.Size = new System.Drawing.Size(175, 47);
@@ -329,7 +330,6 @@
             this.btnDelete.Appearance.ForeColor = System.Drawing.Color.SteelBlue;
             this.btnDelete.Appearance.Options.UseFont = true;
             this.btnDelete.Appearance.Options.UseForeColor = true;
-            this.btnDelete.ImageOptions.SvgImage = global::MedicalCenterManangement.Properties.Resources.actions_trash;
             this.btnDelete.Location = new System.Drawing.Point(5, 177);
             this.btnDelete.Name = "btnDelete";
             this.btnDelete.Size = new System.Drawing.Size(175, 47);
@@ -343,7 +343,6 @@
             this.btnEdite.Appearance.ForeColor = System.Drawing.Color.SteelBlue;
             this.btnEdite.Appearance.Options.UseFont = true;
             this.btnEdite.Appearance.Options.UseForeColor = true;
-            this.btnEdite.ImageOptions.SvgImage = global::MedicalCenterManangement.Properties.Resources.trackingchanges_trackchanges;
             this.btnEdite.Location = new System.Drawing.Point(5, 78);
             this.btnEdite.Name = "btnEdite";
             this.btnEdite.Size = new System.Drawing.Size(175, 47);
@@ -374,19 +373,21 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.dgPreview.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.dgPreview.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgPreview.Location = new System.Drawing.Point(183, 3);
+            this.dgPreview.Location = new System.Drawing.Point(183, 15);
             this.dgPreview.Name = "dgPreview";
             this.dgPreview.ReadOnly = true;
             this.dgPreview.RowTemplate.Height = 24;
             this.dgPreview.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgPreview.Size = new System.Drawing.Size(910, 279);
+            this.dgPreview.Size = new System.Drawing.Size(910, 267);
             this.dgPreview.TabIndex = 3;
+            this.dgPreview.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgPreview_CellContentClick);
             this.dgPreview.RowLeave += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgPreview_RowLeave);
             this.dgPreview.Click += new System.EventHandler(this.dgPreview_Click);
             // 
             // xtraTabPage3
             // 
-            this.xtraTabPage3.ImageOptions.SvgImage = global::MedicalCenterManangement.Properties.Resources.paid;
+            this.xtraTabPage3.Controls.Add(this.simpleButton11);
+            this.xtraTabPage3.ImageOptions.SvgImage = global::MedicalCenterManangement.Properties.Resources.actions_table;
             this.xtraTabPage3.Name = "xtraTabPage3";
             this.xtraTabPage3.Size = new System.Drawing.Size(1090, 282);
             this.xtraTabPage3.Text = " الاجراءات الطبية المتخذة";
@@ -394,7 +395,7 @@
             // xtraTabPage2
             // 
             this.xtraTabPage2.Controls.Add(this.dgTest);
-            this.xtraTabPage2.ImageOptions.SvgImage = global::MedicalCenterManangement.Properties.Resources.charttype_polarpoint;
+            this.xtraTabPage2.ImageOptions.SvgImage = global::MedicalCenterManangement.Properties.Resources.charttype_polararea;
             this.xtraTabPage2.Name = "xtraTabPage2";
             this.xtraTabPage2.Size = new System.Drawing.Size(1090, 282);
             this.xtraTabPage2.Text = "نتائج الفحوصات والتحاليل";
@@ -409,19 +410,18 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.dgTest.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.dgTest.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgTest.Location = new System.Drawing.Point(0, 3);
+            this.dgTest.Location = new System.Drawing.Point(3, 11);
             this.dgTest.Name = "dgTest";
             this.dgTest.ReadOnly = true;
             this.dgTest.RowTemplate.Height = 24;
             this.dgTest.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgTest.Size = new System.Drawing.Size(1089, 275);
+            this.dgTest.Size = new System.Drawing.Size(1086, 272);
             this.dgTest.TabIndex = 16;
             // 
             // xtraTabPage5
             // 
             this.xtraTabPage5.Controls.Add(this.groupControl7);
             this.xtraTabPage5.Controls.Add(this.dgRecipe);
-            this.xtraTabPage5.ImageOptions.SvgImage = global::MedicalCenterManangement.Properties.Resources.bo_resume;
             this.xtraTabPage5.Name = "xtraTabPage5";
             this.xtraTabPage5.Size = new System.Drawing.Size(1090, 282);
             this.xtraTabPage5.Text = "الرشدة الطبية";
@@ -453,7 +453,6 @@
             this.simpleButton6.Appearance.ForeColor = System.Drawing.Color.SteelBlue;
             this.simpleButton6.Appearance.Options.UseFont = true;
             this.simpleButton6.Appearance.Options.UseForeColor = true;
-            this.simpleButton6.ImageOptions.SvgImage = global::MedicalCenterManangement.Properties.Resources.actions_print;
             this.simpleButton6.Location = new System.Drawing.Point(5, 120);
             this.simpleButton6.Name = "simpleButton6";
             this.simpleButton6.Size = new System.Drawing.Size(175, 48);
@@ -469,7 +468,6 @@
             this.simpleButton7.Appearance.Options.UseBorderColor = true;
             this.simpleButton7.Appearance.Options.UseFont = true;
             this.simpleButton7.Appearance.Options.UseForeColor = true;
-            this.simpleButton7.ImageOptions.SvgImage = global::MedicalCenterManangement.Properties.Resources.actions_addcircled;
             this.simpleButton7.Location = new System.Drawing.Point(5, 23);
             this.simpleButton7.Name = "simpleButton7";
             this.simpleButton7.Size = new System.Drawing.Size(175, 48);
@@ -483,7 +481,6 @@
             this.simpleButton8.Appearance.ForeColor = System.Drawing.Color.SteelBlue;
             this.simpleButton8.Appearance.Options.UseFont = true;
             this.simpleButton8.Appearance.Options.UseForeColor = true;
-            this.simpleButton8.ImageOptions.SvgImage = global::MedicalCenterManangement.Properties.Resources.actions_trash;
             this.simpleButton8.Location = new System.Drawing.Point(5, 170);
             this.simpleButton8.Name = "simpleButton8";
             this.simpleButton8.Size = new System.Drawing.Size(175, 48);
@@ -497,7 +494,6 @@
             this.simpleButton9.Appearance.ForeColor = System.Drawing.Color.SteelBlue;
             this.simpleButton9.Appearance.Options.UseFont = true;
             this.simpleButton9.Appearance.Options.UseForeColor = true;
-            this.simpleButton9.ImageOptions.SvgImage = global::MedicalCenterManangement.Properties.Resources.trackingchanges_trackchanges;
             this.simpleButton9.Location = new System.Drawing.Point(5, 72);
             this.simpleButton9.Name = "simpleButton9";
             this.simpleButton9.Size = new System.Drawing.Size(175, 48);
@@ -541,7 +537,6 @@
             // 
             this.xtraTabPage4.Controls.Add(this.groupControl6);
             this.xtraTabPage4.Controls.Add(this.dgDignoses);
-            this.xtraTabPage4.ImageOptions.SvgImage = global::MedicalCenterManangement.Properties.Resources.find;
             this.xtraTabPage4.Name = "xtraTabPage4";
             this.xtraTabPage4.Size = new System.Drawing.Size(1090, 282);
             this.xtraTabPage4.Text = "تشخيص المريض";
@@ -573,7 +568,6 @@
             this.simpleButton1.Appearance.ForeColor = System.Drawing.Color.SteelBlue;
             this.simpleButton1.Appearance.Options.UseFont = true;
             this.simpleButton1.Appearance.Options.UseForeColor = true;
-            this.simpleButton1.ImageOptions.SvgImage = global::MedicalCenterManangement.Properties.Resources.actions_print;
             this.simpleButton1.Location = new System.Drawing.Point(5, 124);
             this.simpleButton1.Name = "simpleButton1";
             this.simpleButton1.Size = new System.Drawing.Size(175, 49);
@@ -589,7 +583,6 @@
             this.simpleButton2.Appearance.Options.UseBorderColor = true;
             this.simpleButton2.Appearance.Options.UseFont = true;
             this.simpleButton2.Appearance.Options.UseForeColor = true;
-            this.simpleButton2.ImageOptions.SvgImage = global::MedicalCenterManangement.Properties.Resources.actions_addcircled;
             this.simpleButton2.Location = new System.Drawing.Point(5, 23);
             this.simpleButton2.Name = "simpleButton2";
             this.simpleButton2.Size = new System.Drawing.Size(175, 49);
@@ -603,7 +596,6 @@
             this.simpleButton3.Appearance.ForeColor = System.Drawing.Color.SteelBlue;
             this.simpleButton3.Appearance.Options.UseFont = true;
             this.simpleButton3.Appearance.Options.UseForeColor = true;
-            this.simpleButton3.ImageOptions.SvgImage = global::MedicalCenterManangement.Properties.Resources.actions_trash;
             this.simpleButton3.Location = new System.Drawing.Point(5, 173);
             this.simpleButton3.Name = "simpleButton3";
             this.simpleButton3.Size = new System.Drawing.Size(175, 49);
@@ -617,7 +609,6 @@
             this.simpleButton4.Appearance.ForeColor = System.Drawing.Color.SteelBlue;
             this.simpleButton4.Appearance.Options.UseFont = true;
             this.simpleButton4.Appearance.Options.UseForeColor = true;
-            this.simpleButton4.ImageOptions.SvgImage = global::MedicalCenterManangement.Properties.Resources.trackingchanges_trackchanges;
             this.simpleButton4.Location = new System.Drawing.Point(5, 74);
             this.simpleButton4.Name = "simpleButton4";
             this.simpleButton4.Size = new System.Drawing.Size(175, 49);
@@ -676,6 +667,19 @@
             this.groupControl1.TabIndex = 3;
             this.groupControl1.Text = "بيانات المريض";
             // 
+            // simpleButton11
+            // 
+            this.simpleButton11.Appearance.Font = new System.Drawing.Font("Sakkal Majalla", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+            this.simpleButton11.Appearance.ForeColor = System.Drawing.Color.SteelBlue;
+            this.simpleButton11.Appearance.Options.UseFont = true;
+            this.simpleButton11.Appearance.Options.UseForeColor = true;
+            this.simpleButton11.Location = new System.Drawing.Point(-1, 3);
+            this.simpleButton11.Name = "simpleButton11";
+            this.simpleButton11.Size = new System.Drawing.Size(175, 47);
+            this.simpleButton11.TabIndex = 16;
+            this.simpleButton11.Text = "طباعة";
+            this.simpleButton11.Click += new System.EventHandler(this.simpleButton11_Click);
+            // 
             // XtraFrnPatientTreatments
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
@@ -706,6 +710,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.groupControl5)).EndInit();
             this.groupControl5.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgPreview)).EndInit();
+            this.xtraTabPage3.ResumeLayout(false);
             this.xtraTabPage2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgTest)).EndInit();
             this.xtraTabPage5.ResumeLayout(false);
@@ -764,5 +769,6 @@
         private DevExpress.XtraEditors.SimpleButton simpleButton5;
         public System.Windows.Forms.DataGridView dgDignoses;
         private DevExpress.XtraEditors.GroupControl groupControl1;
+        private DevExpress.XtraEditors.SimpleButton simpleButton11;
     }
 }

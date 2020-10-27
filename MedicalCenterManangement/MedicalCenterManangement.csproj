@@ -616,6 +616,7 @@
     <None Include="Properties\DataSources\MedicalCenterManangement.DataModeView.getHeaderInformation_Result.datasource" />
     <None Include="Properties\DataSources\MedicalCenterManangement.DataModeView.getHeaderInformation_Result1.datasource" />
     <None Include="Properties\DataSources\MedicalCenterManangement.DataModeView.getPreviewPatientByVistID_Result.datasource" />
+    <None Include="Properties\DataSources\MedicalCenterManangement.DataModeView.getServicesRequestByVisitID_Result.datasource" />
     <None Include="Properties\DataSources\MedicalCenterManangement.Properties.Resources.datasource" />
     <None Include="Properties\DataSources\MedicalCenterManangement.Properties.Settings.datasource" />
     <None Include="Properties\Settings.settings">
@@ -902,6 +903,10 @@
       <LastGenOutput>MedicalCenterDB.cs</LastGenOutput>
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+    <None Include="Resources\actions_user.svg" />
+    <None Include="Resources\charttype_polararea.svg" />
+    <None Include="Resources\actions_table.svg" />
+    <None Include="Resources\actions_addcircled6.svg" />
     <None Include="Resources\groupbydate.svg" />
     <None Include="Resources\daig2.png" />
     <None Include="Resources\employeesummary.svg" />

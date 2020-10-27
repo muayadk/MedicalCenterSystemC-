@@ -91,7 +91,7 @@
             this.btnClose.Appearance.ForeColor = System.Drawing.Color.SteelBlue;
             this.btnClose.Appearance.Options.UseFont = true;
             this.btnClose.Appearance.Options.UseForeColor = true;
-            this.btnClose.ImageOptions.SvgImage = global::MedicalCenterManangement.Properties.Resources.redo;
+            //this.btnClose.ImageOptions.SvgImage = global::MedicalCenterManangement.Properties.Resources.redo;
             this.btnClose.Location = new System.Drawing.Point(22, 31);
             this.btnClose.Name = "btnClose";
             this.btnClose.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
@@ -106,7 +106,7 @@
             this.btnsave.Appearance.ForeColor = System.Drawing.Color.SteelBlue;
             this.btnsave.Appearance.Options.UseFont = true;
             this.btnsave.Appearance.Options.UseForeColor = true;
-            this.btnsave.ImageOptions.SvgImage = global::MedicalCenterManangement.Properties.Resources.colors;
+            //this.btnsave.ImageOptions.SvgImage = global::MedicalCenterManangement.Properties.Resources.colors;
             this.btnsave.Location = new System.Drawing.Point(301, 31);
             this.btnsave.Name = "btnsave";
             this.btnsave.RightToLeft = System.Windows.Forms.RightToLeft.Yes;

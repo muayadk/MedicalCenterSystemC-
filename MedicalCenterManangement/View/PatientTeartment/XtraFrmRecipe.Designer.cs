@@ -299,7 +299,7 @@
             this.btnClose.Appearance.ForeColor = System.Drawing.Color.SteelBlue;
             this.btnClose.Appearance.Options.UseFont = true;
             this.btnClose.Appearance.Options.UseForeColor = true;
-            this.btnClose.ImageOptions.SvgImage = global::MedicalCenterManangement.Properties.Resources.redo;
+            //this.btnClose.ImageOptions.SvgImage = global::MedicalCenterManangement.Properties.Resources.redo;
             this.btnClose.Location = new System.Drawing.Point(167, 59);
             this.btnClose.Name = "btnClose";
             this.btnClose.RightToLeft = System.Windows.Forms.RightToLeft.Yes;

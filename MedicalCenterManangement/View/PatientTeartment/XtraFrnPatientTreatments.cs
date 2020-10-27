@@ -304,6 +304,17 @@ namespace MedicalCenterManangement.View
             r.Show();
         }
 
+        private void dgPreview_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+        private void simpleButton11_Click(object sender, EventArgs e)
+        {
+            Reports.servicesRequestPatientReport r = new Reports.servicesRequestPatientReport(VISITID);
+            r.Show();
+        }
+
         private void simpleButton5_Click(object sender, EventArgs e)
         {
             XtraFrnPatientTreatments.ActiveForm.Close();

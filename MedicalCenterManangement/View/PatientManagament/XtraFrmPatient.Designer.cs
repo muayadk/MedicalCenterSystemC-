@@ -430,7 +430,7 @@
             this.simpleButton3.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.simpleButton3.Appearance.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.simpleButton3.Appearance.Options.UseFont = true;
-            this.simpleButton3.ImageOptions.SvgImage = global::MedicalCenterManangement.Properties.Resources.actions_addcircled1;
+            this.simpleButton3.ImageOptions.SvgImage = global::MedicalCenterManangement.Properties.Resources.actions_addcircled6;
             this.simpleButton3.Location = new System.Drawing.Point(154, 121);
             this.simpleButton3.Name = "simpleButton3";
             this.simpleButton3.PaintStyle = DevExpress.XtraEditors.Controls.PaintStyles.Light;
@@ -819,7 +819,6 @@
             this.btnDeleteVisit.Appearance.ForeColor = System.Drawing.Color.SteelBlue;
             this.btnDeleteVisit.Appearance.Options.UseFont = true;
             this.btnDeleteVisit.Appearance.Options.UseForeColor = true;
-            this.btnDeleteVisit.ImageOptions.SvgImage = global::MedicalCenterManangement.Properties.Resources.actions_trash;
             this.btnDeleteVisit.Location = new System.Drawing.Point(0, 113);
             this.btnDeleteVisit.Name = "btnDeleteVisit";
             this.btnDeleteVisit.Size = new System.Drawing.Size(175, 39);
@@ -835,7 +834,6 @@
             this.btnEditeVisit.Appearance.ForeColor = System.Drawing.Color.SteelBlue;
             this.btnEditeVisit.Appearance.Options.UseFont = true;
             this.btnEditeVisit.Appearance.Options.UseForeColor = true;
-            this.btnEditeVisit.ImageOptions.SvgImage = global::MedicalCenterManangement.Properties.Resources.trackingchanges_trackchanges;
             this.btnEditeVisit.Location = new System.Drawing.Point(0, 72);
             this.btnEditeVisit.Name = "btnEditeVisit";
             this.btnEditeVisit.Size = new System.Drawing.Size(175, 39);
@@ -853,7 +851,6 @@
             this.btnNewvist.Appearance.Options.UseBorderColor = true;
             this.btnNewvist.Appearance.Options.UseFont = true;
             this.btnNewvist.Appearance.Options.UseForeColor = true;
-            this.btnNewvist.ImageOptions.SvgImage = global::MedicalCenterManangement.Properties.Resources.save1;
             this.btnNewvist.Location = new System.Drawing.Point(1, 31);
             this.btnNewvist.Name = "btnNewvist";
             this.btnNewvist.Size = new System.Drawing.Size(175, 39);
@@ -885,7 +882,6 @@
             this.simpleButton2.Appearance.ForeColor = System.Drawing.Color.SteelBlue;
             this.simpleButton2.Appearance.Options.UseFont = true;
             this.simpleButton2.Appearance.Options.UseForeColor = true;
-            this.simpleButton2.ImageOptions.SvgImage = global::MedicalCenterManangement.Properties.Resources.costanalysis;
             this.simpleButton2.Location = new System.Drawing.Point(0, 193);
             this.simpleButton2.Name = "simpleButton2";
             this.simpleButton2.Size = new System.Drawing.Size(175, 42);

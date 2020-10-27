@@ -200,7 +200,7 @@
             this.simpleButton1.Appearance.ForeColor = System.Drawing.Color.SteelBlue;
             this.simpleButton1.Appearance.Options.UseFont = true;
             this.simpleButton1.Appearance.Options.UseForeColor = true;
-            this.simpleButton1.ImageOptions.SvgImage = global::MedicalCenterManangement.Properties.Resources.actions_deletecircled;
+            //this.simpleButton1.ImageOptions.SvgImage = global::MedicalCenterManangement.Properties.Resources.actions_deletecircled;
             this.simpleButton1.Location = new System.Drawing.Point(13, 12);
             this.simpleButton1.Name = "simpleButton1";
             this.simpleButton1.Size = new System.Drawing.Size(207, 59);
@@ -216,7 +216,7 @@
             this.groupControl5.Appearance.Options.UseBorderColor = true;
             this.groupControl5.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.groupControl5.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.Style3D;
-            this.groupControl5.CaptionImageOptions.Image = global::MedicalCenterManangement.Properties.Resources.boposition_32x32;
+            //this.groupControl5.CaptionImageOptions.Image = global::MedicalCenterManangement.Properties.Resources.boposition_32x32;
             this.groupControl5.Controls.Add(this.labelControl9);
             this.groupControl5.Controls.Add(this.txtnote);
             this.groupControl5.Controls.Add(this.labelControl8);
